@@ -1,14 +1,21 @@
 import "./App.scss";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Hero from "./pages/Hero/Hero";
 import Header from "./components/Header/Header";
 import CustSignUp from "./pages/CustSignUp/CustSignUp";
+import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
 
 function App() {
   return (
     <>
-      <Header />
-      <Hero />
-      <CustSignUp />
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Hero} />
+          <Route exact path="/custSignUp" component={CustSignUp} />
+          <Route exact path="/vendorSignUp" component={VendorSignUp} />
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }
