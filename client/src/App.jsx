@@ -4,6 +4,7 @@ import Hero from "./pages/Hero/Hero";
 import Header from "./components/Header/Header";
 import CustSignUp from "./pages/CustSignUp/CustSignUp";
 import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
+import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={Hero} />
           <Route exact path="/custSignUp" component={CustSignUp} />
           <Route exact path="/vendorSignUp" component={VendorSignUp} />
+          <Route exact path="/custVendorSearch" component={CustVendorSearch} />
         </Switch>
       </BrowserRouter>
     </>

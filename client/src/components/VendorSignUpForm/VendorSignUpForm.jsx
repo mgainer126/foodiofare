@@ -54,7 +54,7 @@ function VendorSignUpForm() {
           </div>
 
           <button className="w-100 btn btn-lg btn-primary" type="submit">
-            Log In
+            Sign Up
           </button>
           <hr className="my-4" />
         </form>
