@@ -1,0 +1,33 @@
+{
+  "name": "react-google-location",
+  "version": "1.2.2",
+  "description": "A simple react js package for google place suggestion,current location and coordinates ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anil-sidhu/google-location.git"
+  },
+  "keywords": [
+    "react google place",
+    "react js google coordinates",
+    "react js current location",
+    "react google auto suggestion",
+    "google suggestion react js ",
+    "google location react",
+    "google coordinates react js  ",
+    "react",
+    "google",
+    "place",
+    "autocomplete",
+    "current location"
+  ],
+  "author": "anil sidhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anil-sidhu/google-location/issues"
+  },
+  "homepage": "https://github.com/anil-sidhu/google-location"
+}

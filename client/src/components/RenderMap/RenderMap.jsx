@@ -1,10 +1,8 @@
-// import { Loader } from "@googlemaps/js-api-loader";
 import React from "react";
 import GoogleMapReact from "google-map-react";
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-// import DisplayMap from "../DisplayMap/DisplayMap";
-// import MarkerClusterer from "@google/markerclustererplus";
+import marker from "../../assets/icons/custom_pin.png";
+const CustIsHere = ({ marker }) => <img src={marker} />;
+const VendorIsHere = ({ marker }) => <img src={marker} />;
 
 export default function RenderMap() {
   const defaultProps = {
@@ -23,7 +21,9 @@ export default function RenderMap() {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <AnyReactComponent lat={43.838413} lng={-79.086761} text="My Marker" />
+        <CustIsHere lat={43.838413} lng={-79.086761} marker={marker} />
+        <VendorIsHere lat={43.738413} lng={-79.086761} marker={marker} />
+        <VendorIsHere lat={43.938413} lng={-79.086761} marker={marker} />
       </GoogleMapReact>
     </div>
   );
