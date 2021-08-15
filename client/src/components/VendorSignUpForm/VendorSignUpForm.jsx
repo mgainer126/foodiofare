@@ -1,4 +1,4 @@
-function VendorSignUpForm() {
+function VendorSignUpForm(clickhandle) {
   return (
     <>
       <div className="col-md-10 mx-auto col-lg-5">
@@ -10,7 +10,10 @@ function VendorSignUpForm() {
             that customers can experience you cusine.
           </p>
         </div>
-        <form className="p-4 p-md-5 border rounded-3 bg-light">
+        <form
+          onSubmit={clickhandle}
+          className="p-4 p-md-5 border rounded-3 bg-light"
+        >
           <div className="form-floating mb-3">
             <input
               type="text"

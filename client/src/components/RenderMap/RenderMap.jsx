@@ -1,8 +1,8 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
-const CustIsHere = ({ marker }) => <img src={marker} />;
-const VendorIsHere = ({ marker }) => <img src={marker} />;
+const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
+const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
 export default function RenderMap() {
   const defaultProps = {

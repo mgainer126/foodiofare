@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-link";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -11,18 +11,24 @@ function Header() {
             className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
           >
             <svg className="bi me-2" width={40} height={32} />
-            <span className="fs-4">Food Fare</span>
+            <Link to="/">
+              <span className="fs-4">Food Fare</span>
+            </Link>
           </a>
           <ul className="nav nav-pills">
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                Customers
-              </a>
+              <Link to="/custVendorSearch">
+                <a href="#" className="nav-link">
+                  Customers
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link">
-                Business
-              </a>
+              <Link to="/vendorSignUp">
+                <a href="#" className="nav-link">
+                  Business
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
               <a href="#" className="nav-link">

@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
 import RenderMap from "../../components/RenderMap/RenderMap";
-import { GoogleComponent } from "react-google-location";
 import axios from "axios";
+import CustSignUpForm from "../CustSignUp/CustSignUp";
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
 export default class CustVendorSearch extends Component {
@@ -31,10 +31,16 @@ export default class CustVendorSearch extends Component {
       });
   }
 
+  handleSubmit = (event) => {
+    // event.preventDefault();
+    console.log(event);
+  };
+
   render() {
     return (
       <>
-        <CustSearchForm />
+        <CustSignUpForm clickHandle={this.handleSubmit} />
+        {/* <CustSearchForm /> */}
         <RenderMap />
       </>
     );
