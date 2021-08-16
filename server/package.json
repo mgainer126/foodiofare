@@ -1,15 +1,10 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "foodio fare",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.21",
+    "node": "^16.6.1",
+    "nodemon": "^2.0.12",
+    "server": "^1.0.35"
   }
 }
