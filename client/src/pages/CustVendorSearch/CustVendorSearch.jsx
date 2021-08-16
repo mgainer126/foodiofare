@@ -19,7 +19,7 @@ export default class CustVendorSearch extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log(prevState.custCords);
-    if (this.state.custCords !== prevState.custCords) {
+    if (this.state.custCords == prevState.custCords) {
       axios
         .get(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
@@ -65,7 +65,6 @@ export default class CustVendorSearch extends Component {
       city: event.target[3].value,
       province: event.target[4].value,
     });
-    console.log(event.target[0].value); //house number
   };
 
   render() {
@@ -77,8 +76,10 @@ export default class CustVendorSearch extends Component {
     console.log(this.state.custCords);
     return (
       <>
-        <CustSignUpForm clickHandle={this.handleSubmit} />
-        <RenderMap custcords={this.state.custCords} />
+        <div>
+          <CustSignUpForm clickHandle={this.handleSubmit} />
+          <RenderMap custcords={this.state.custCords} />
+        </div>
       </>
     );
   }
