@@ -15,60 +15,61 @@ function CustSignUpForm({ clickHandle }) {
           className="form"
           className="p-4 p-md-5 border rounded-3 bg-light"
         >
+          {/* House Number */}
           <div className="form-floating mb-3">
-            <label htmlFor="floatingPassword">House Number</label>
             <input
               type="text"
-              // value="housenumber"
-              name="househumber"
               className="form-control"
-              id="housenumber"
-              // placeholder="House Number"
+              id="house-number"
+              name="house-number"
+              placeholder="House Number"
             />
+            <label htmlFor="floatingPassword">House Number</label>
           </div>
+          {/* Street Name */}
           <div className="form-floating mb-3">
-            <label htmlFor="streetname">Street Name</label>
             <input
               type="text"
-              // value="streetname"
-              name="streetname"
               className="form-control"
-              id="streetname"
+              id="streetName"
+              name="streetName"
               placeholder="Street Name"
             />
+            <label htmlFor="floatingPassword">Street Name</label>
           </div>
+
+          {/* Steet Type */}
           <div className="form-floating mb-3">
-            <label htmlFor="streettype">Street Type</label>
             <input
               type="text"
-              // value="streettype"
-              name="streettype"
               className="form-control"
-              id="streettype"
+              id="streetType"
+              name="streetType"
               placeholder="Street Type"
             />
+            <label htmlFor="floatingPassword">Street Type</label>
           </div>
+          {/* City */}
           <div className="form-floating mb-3">
-            <label htmlFor="city">City</label>
             <input
               type="text"
-              // value="city"
-              name="city"
               className="form-control"
               id="city"
+              name="city"
               placeholder="City"
             />
+            <label htmlFor="floatingPassword">City</label>
           </div>
+          {/* Province/State */}
           <div className="form-floating mb-3">
-            <label htmlFor="ProviceState">Province/State</label>
             <input
               type="text"
-              // value="ProvinceState"
-              name="ProvinceState"
               className="form-control"
-              id="ProviceState"
-              placeholder="Provice/State"
+              id="province-state"
+              name="province-state"
+              placeholder="province-state"
             />
+            <label htmlFor="floatingPassword">Province/State</label>
           </div>
           <label htmlFor="category">Category Search</label>
           <select

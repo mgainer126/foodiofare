@@ -1,16 +1,17 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
+const DefaultMapPos = ({ marker }) => <img src={marker} alt="marker" />;
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
 export default function RenderMap(custcords) {
   const defaultProps = {
     center: {
-      lat: 43.838413,
-      lng: -79.086761,
+      lat: 41.0881132,
+      lng: -91.2148311,
     },
-    zoom: 11,
+    zoom: 4.7,
   };
   console.log(custcords.custcords);
 
@@ -22,8 +23,18 @@ export default function RenderMap(custcords) {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <CustIsHere lat={43.838413} lng={-79.086761} marker={marker} />
-        <VendorIsHere lat={43.738413} lng={-79.086761} marker={marker} />
+        <DefaultMapPos
+          lat={custcords.custcords.lat}
+          lng={custcords.custcords.lng}
+        />
+        <CustIsHere
+          lat={custcords.custcords.lat}
+          lng={custcords.custcords.lng}
+          marker={marker}
+          text="You Are Here"
+          zoom={6}
+        />
+        <VendorIsHere lat={43.38413} lng={-79.086761} marker={marker} />
         <VendorIsHere lat={43.938413} lng={-79.086761} marker={marker} />
       </GoogleMapReact>
     </div>
