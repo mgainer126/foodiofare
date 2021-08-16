@@ -24,4 +24,5 @@ app.use("/", vendorLocations);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
+  console.log("hello port 8080");
 });
