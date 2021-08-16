@@ -8,12 +8,12 @@ const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 export default function RenderMap(custcords) {
   const defaultProps = {
     center: {
-      lat: 41.0881132,
-      lng: -91.2148311,
+      lat: custcords.custcords.lat,
+      lng: custcords.custcords.lng,
     },
     zoom: 4.7,
   };
-  console.log(custcords.custcords);
+  console.log(custcords.custcords.lat);
 
   return (
     // Important! Always set the container height explicitly
