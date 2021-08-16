@@ -12,10 +12,11 @@ function CustSignUpForm({ clickHandle }) {
 
         <form
           onSubmit={clickHandle}
+          className="form"
           className="p-4 p-md-5 border rounded-3 bg-light"
         >
           <div className="form-floating mb-3">
-            <label htmlFor="housenumber">House Number</label>
+            <label htmlFor="floatingPassword">House Number</label>
             <input
               type="text"
               // value="housenumber"
@@ -89,13 +90,13 @@ function CustSignUpForm({ clickHandle }) {
             <option>Thai</option>
             <option>Vegetarian</option>
           </select>
-          <button type="button" className="btn btn-primary btn-lg">
+          <button type="submit" className="btn btn-primary btn-lg">
             Find By Category
           </button>
           <br></br>
           <br></br>
-          {/* <label htmlFor="areasearch">Area Search</label> */}
-          {/* <select
+          <label htmlFor="areasearch">Area Search</label>
+          <select
             className="form-control"
             id="areasearch"
             // value="areasearch"
@@ -106,10 +107,10 @@ function CustSignUpForm({ clickHandle }) {
             <option>10km</option>
             <option>15km</option>
             <option>20km</option>
-          </select> */}
-          {/* <button type="button" className="btn btn-primary btn-lg">
+          </select>
+          <button type="submit" className="btn btn-primary btn-lg">
             Find By Area
-          </button> */}
+          </button>
         </form>
       </div>
     </>

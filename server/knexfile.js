@@ -6,6 +6,7 @@ module.exports = {
       user: "root",
       password: "Niagara126!",
       database: "foodiofare",
+      charset: "utf8",
     },
   },
 };

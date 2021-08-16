@@ -4,7 +4,7 @@ import marker from "../../assets/icons/custom_pin.png";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
-export default function RenderMap() {
+export default function RenderMap(custcords) {
   const defaultProps = {
     center: {
       lat: 43.838413,
@@ -12,6 +12,7 @@ export default function RenderMap() {
     },
     zoom: 11,
   };
+  console.log(custcords.custcords);
 
   return (
     // Important! Always set the container height explicitly
