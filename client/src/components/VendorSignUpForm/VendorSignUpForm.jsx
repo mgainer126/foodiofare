@@ -1,4 +1,4 @@
-function VendorSignUpForm(clickhandle) {
+function VendorSignUpForm({ clickhandle }) {
   return (
     <>
       <div className="col-md-10 mx-auto col-lg-5">
@@ -19,6 +19,7 @@ function VendorSignUpForm(clickhandle) {
               type="text"
               className="form-control"
               id="company-name"
+              name="businessname"
               placeholder="Business Name"
             />
             <label htmlFor="floatingPassword">Business Name</label>
@@ -28,17 +29,78 @@ function VendorSignUpForm(clickhandle) {
             <input
               type="text"
               className="form-control"
-              id="lastName"
+              id="operatorname"
+              name="operatorname"
               placeholder="Operator Name"
             />
             <label htmlFor="floatingPassword">Operator Name</label>
           </div>
-
           <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
-              id="address"
+              name="foodcategory"
+              id="foodcategory"
+              placeholder="Food Category"
+            />
+            <label htmlFor="floatingPassword">Food Category</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="vendorstreetno"
+              id="vendostreetno"
+              placeholder="vendostreetno"
+            />
+            <label htmlFor="floatingPassword">Steet Number</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="vendorstreetname"
+              id="vendostreetname"
+              placeholder="vendostreetname"
+            />
+            <label htmlFor="floatingPassword">Street Name</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              name="vendorstreettype"
+              id="vendorstreettype"
+              placeholder="Street Type"
+            />
+            <label htmlFor="floatingPassword">Street Type</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="city"
+              name="city"
+              placeholder="city"
+            />
+            <label htmlFor="floatingPassword">City</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="Province"
+              name="province"
+              placeholder="Province"
+            />
+            <label htmlFor="floatingPassword">Province</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              name="username"
               placeholder="User Name"
             />
             <label htmlFor="floatingPassword">User Name</label>
@@ -48,6 +110,7 @@ function VendorSignUpForm(clickhandle) {
             <input
               type="password"
               className="form-control"
+              name="password"
               id="floatingPassword"
               placeholder="Password"
             />

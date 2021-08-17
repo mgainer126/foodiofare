@@ -13,10 +13,28 @@ export default class CustVendorSearch extends Component {
     city: null,
     province: null,
     custCords: { lat: 43.830711, lng: -79.115668 },
+    vendors: null,
   };
+  componentDidMount() {
+    // if (this.state.vendor !== prevState.vendor) {
+    axios
+      .get("http://localhost:8080/find/vendor")
+      .then((vendors) => {
+        console.log(vendors.data);
+        this.setState({
+          vendors: vendors.data,
+        });
+        return vendors.data;
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+    // }
+  }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.custCords === prevState.custCords) {
+    if (this.state.custCords !== prevState.custCords) {
       axios
         .get(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
@@ -27,6 +45,7 @@ export default class CustVendorSearch extends Component {
           this.setState({
             custCords: custCords,
           });
+          return response.data;
         })
         .catch(function (error) {
           // handle error
@@ -34,24 +53,6 @@ export default class CustVendorSearch extends Component {
         });
     }
   }
-
-  // componentDidMount() {
-  //   axios
-  //     .get(
-  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
-  // +${this.state.city},+${this.state.province}&key=${API_KEY}`
-  //     )
-  //     .then(function (response) {
-  //       this.setState({
-  //         location: response.data.results[0].geometry.location,
-  //       });
-  //       console.log(response.data.results[0].geometry.location);
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       console.log(error);
-  //     });
-  // }
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -62,22 +63,28 @@ export default class CustVendorSearch extends Component {
       city: event.target[3].value,
       province: event.target[4].value,
     });
-    console.log(event);
+    // console.log(event);
   };
 
   render() {
-    console.log(this.state.addnum);
-    console.log(this.state.streetname);
-    console.log(this.state.streettype);
-    console.log(this.state.city);
-    console.log(this.state.province);
+    // console.log(this.state.addnum);
+    // console.log(this.state.streetname);
+    // console.log(this.state.streettype);
+    // console.log(this.state.city);
+    // console.log(this.state.province);
     console.log(this.state.custCords);
+    console.log(this.state.vendors);
     return (
       <>
-        <div>
-          <CustSignUpForm clickHandle={this.handleSubmit} />
-          <RenderMap custcords={this.state.custCords} />
-        </div>
+        {this.state.custCords && this.state.vendors && (
+          <div>
+            <CustSignUpForm clickHandle={this.handleSubmit} />
+            <RenderMap
+              custcords={this.state.custCords}
+              vendors={this.state.vendors}
+            />
+          </div>
+        )}
       </>
     );
   }
