@@ -6,7 +6,7 @@ router.get("/vendor", (req, res) => {
   console.log("5");
   knex
     .select()
-    .from("vendor_local")
+    .from("foodiofare.vendors")
     .then((data) => {
       console.log(data);
       res.status(200).json(data);

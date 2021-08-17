@@ -30,8 +30,7 @@ export default function RenderMap(custcords) {
         <CustIsHere
           lat={custcords.custcords.lat}
           lng={custcords.custcords.lng}
-          marker={marker}
-          text="You Are Here"
+          marker={({ marker }, "You are Here")}
           zoom={6}
         />
         <VendorIsHere lat={43.38413} lng={-79.086761} marker={marker} />
