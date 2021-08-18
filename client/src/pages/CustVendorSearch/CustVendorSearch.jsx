@@ -71,12 +71,14 @@ export default class CustVendorSearch extends Component {
       category: event.target[5].value,
       area: event.target[7].value,
     });
+  };
+
+  handleClick = (event) => {
+    event.preventDefault();
     console.log(event);
   };
 
   render() {
-    console.log(this.state.category);
-    console.log(this.state.area);
     return (
       <>
         {this.state.defaultMapPos && this.state.vendors && (
@@ -84,6 +86,7 @@ export default class CustVendorSearch extends Component {
           <div>
             <CustSearchForm
               clickHandle={this.handleSubmit}
+              handleClick={this.handleClick}
               vendors={this.state.vendors}
               category={this.state.category}
               area={this.state.area}

@@ -1,7 +1,7 @@
 import ListVendors from "../ListVendors/ListVendors";
 import "../CustSearchForm/CustSearchForm.scss";
 
-function CustSearchForm({ clickHandle, vendors, area, category }) {
+function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
   return (
     <>
       <div className="col-md-10 col-lg-5">
@@ -117,7 +117,12 @@ function CustSearchForm({ clickHandle, vendors, area, category }) {
             </button>
           </form>
           <div className="vendors__list">
-            <ListVendors vendors={vendors} category={category} area={area} />
+            <ListVendors
+              vendors={vendors}
+              category={category}
+              area={area}
+              handleClick={handleClick}
+            />
           </div>
         </div>
       </div>
