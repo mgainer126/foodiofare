@@ -1,8 +1,10 @@
 //https://getbootstrap.com/docs/4.0/components/forms/
+import "../CustVendorSearch/CustVendorSearch.scss";
 import React, { Component } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSignUpForm from "../../components/CustSignUpForm/CustSignForm";
+import ListVendors from "../../components/ListVendors/ListVendors";
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
 export default class CustVendorSearch extends Component {
