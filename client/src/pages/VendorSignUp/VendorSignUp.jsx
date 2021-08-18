@@ -1,6 +1,7 @@
 import VendorSignUpForm from "../../components/VendorSignUpForm/VendorSignUpForm";
 import React, { Component } from "react";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export default class VendorSignUp extends Component {
   state = {
@@ -11,6 +12,7 @@ export default class VendorSignUp extends Component {
     event.preventDefault();
     const newBussiness = [
       {
+        vendorid: uuidv4(),
         bussname: event.target[0].value,
         operatorname: event.target[1].value,
         foodcat: event.target[2].value,
