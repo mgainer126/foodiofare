@@ -12,7 +12,8 @@ export default class CustVendorSearch extends Component {
     streettype: null,
     city: null,
     province: null,
-    custCords: { lat: 43.830711, lng: -79.115668 },
+    defaultMapPos: { lat: 39.011902, lng: -98.484245 },
+    custcords: [],
     vendors: null,
   };
   componentDidMount() {
@@ -20,7 +21,7 @@ export default class CustVendorSearch extends Component {
     axios
       .get("http://localhost:8080/find/vendor")
       .then((vendors) => {
-        console.log(vendors.data);
+        // console.log(vendors.data);
         this.setState({
           vendors: vendors.data,
         });
@@ -34,16 +35,17 @@ export default class CustVendorSearch extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.custCords !== prevState.custCords) {
+    if (this.state.custcords === prevState.custcords) {
       axios
         .get(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
     +${this.state.city},+${this.state.province}&key=${API_KEY}`
         )
         .then((response) => {
-          let custCords = response.data.results[0].geometry.location;
+          let custcords = response.data.results[0].geometry.location;
+          console.log(custcords);
           this.setState({
-            custCords: custCords,
+            custcords: custcords,
           });
           return response.data;
         })
@@ -72,16 +74,19 @@ export default class CustVendorSearch extends Component {
     // console.log(this.state.streettype);
     // console.log(this.state.city);
     // console.log(this.state.province);
-    console.log(this.state.custCords);
-    console.log(this.state.vendors);
+    // console.log(this.state.defaultMapPos);
+    // console.log(this.state.vendors);
+    console.log(this.state.custcords);
     return (
       <>
-        {this.state.custCords && this.state.vendors && (
+        {this.state.defaultMapPos && this.state.vendors && (
+          // this.state.custcords && (
           <div>
             <CustSignUpForm clickHandle={this.handleSubmit} />
             <RenderMap
-              custcords={this.state.custCords}
+              defaultMapPos={this.state.defaultMapPos}
               vendors={this.state.vendors}
+              custcords={this.state.custcords}
             />
           </div>
         )}
