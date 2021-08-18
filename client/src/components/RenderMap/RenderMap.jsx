@@ -1,10 +1,12 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
+import axios from "axios";
 import "../RenderMap/RenderMap.scss";
 const DefaultMapPos = ({ marker }) => <img src={marker} />;
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
+const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
 export default function RenderMap({ defaultMapPos, vendors, custcords }) {
   const defaultProps = {
@@ -17,6 +19,21 @@ export default function RenderMap({ defaultMapPos, vendors, custcords }) {
   console.log(defaultMapPos);
   console.log(vendors);
   console.log(custcords);
+
+  // let vendorsArr = vendors;
+
+  // const vendorcords = vendorsArr.map((vendor) => {
+  //   axios
+  //     .get(
+  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${vendor.addnum}+${vendor.streetname}+${vendor.streettype},
+  //     +${vendor.city},+${vendor.province}&key=${API_KEY}`
+  //     )
+  //     .then((response) => {
+  //       console.log(response.data.results[0].geometry.location);
+  //       return response;
+  //       console.log(response);
+  //     });
+  // });
 
   return (
     // Important! Always set the container height explicitly

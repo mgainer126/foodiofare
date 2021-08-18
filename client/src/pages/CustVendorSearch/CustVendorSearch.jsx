@@ -76,7 +76,7 @@ export default class CustVendorSearch extends Component {
     // console.log(this.state.province);
     // console.log(this.state.defaultMapPos);
     // console.log(this.state.vendors);
-    console.log(this.state.custcords);
+
     return (
       <>
         {this.state.defaultMapPos && this.state.vendors && (
