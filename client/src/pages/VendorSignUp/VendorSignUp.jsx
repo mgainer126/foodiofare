@@ -1,7 +1,12 @@
 import VendorSignUpForm from "../../components/VendorSignUpForm/VendorSignUpForm";
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class VendorSignUp extends Component {
+  state = {
+    newVendor: [],
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const newBussiness = [
@@ -19,7 +24,22 @@ export default class VendorSignUp extends Component {
       },
       console.log(event),
     ];
-    console.log(newBussiness);
+    console.log(newBussiness[0]);
+    {
+      this.createNewVendor(newBussiness[0]);
+    }
+  };
+
+  createNewVendor = (obj) => {
+    axios
+      .post("http://localhost:8080/find/vendor", obj)
+      .then((response) => {
+        console.log(response);
+        this.setState({ newVendor: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {

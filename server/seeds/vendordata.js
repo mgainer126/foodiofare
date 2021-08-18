@@ -1,86 +1,88 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("vendors")
+  return knex("vendorsinfo")
     .del()
     .then(function () {
       // Inserts seed entries
-      return knex("vendors").insert([
+      return knex("vendorsinfo").insert([
         {
           vendorid: 1,
-          vendorname: "The Beach Chip Truck",
+          bussname: "The Beach Chip Truck",
           operatorname: "Billy Bob",
-          foodcategory: "Fries",
-          streetno: "590",
+          foodcat: "Fries",
+          addnum: "590",
           streetname: "Liverpool",
           streettype: "Road",
           city: "Pickering",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
         {
           vendorid: 2,
-          vendorname: "Chewies Grill",
+          bussname: "Chewies Grill",
           operatorname: "Fancy Nancy",
-          foodcategory: "Greek",
-          streetno: "980",
+          foodcat: "Greek",
+          addnum: "980",
           streetname: "Brock",
           streettype: "Road",
           city: "Pickering",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
         {
           vendorid: 3,
-          vendorname: "Fantastic Funnel Cakes",
+          bussname: "Fantastic Funnel Cakes",
           operatorname: "Martha Stewart",
-          foodcategory: "Dessert",
-          streetno: "1814",
+          foodcat: "Dessert",
+          addnum: "1814",
           streetname: "Eastbank",
           streettype: "Road",
           city: "Pickering",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
         {
           vendorid: 4,
-          vendorname: "Softie Inc",
+          bussname: "Softie Inc",
           operatorname: "Sally Gal",
-          foodcategory: "Ice Cream",
-          streetno: "24",
+          foodcat: "Ice Cream",
+          addnum: "24",
           streetname: "Southampton",
           streettype: "Drive",
           city: "Scarborough",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
         {
           vendorid: 5,
-          vendorname: "Pemento Jerk Food Truck",
+          bussname: "Pemento Jerk Food Truck",
           operatorname: "Robby Bobby",
-          foodcategory: "Jamacian",
-          streetno: "570",
+          foodcat: "Jamacian",
+          addnum: "570",
           streetname: "Kingston",
           streettype: "Road",
           city: "Pickerkng",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
         {
           vendorid: 6,
-          vendorname: "Sals Treat Mobile",
+          bussname: "Sals Treat Mobile",
           operatorname: "Sal John",
-          foodcategory: "Icecream",
-          streetno: "155",
+          foodcat: "Icecream",
+          addnum: "155",
           streetname: "Antibes",
           streettype: "Dr",
           city: "Toronto",
           province: "Ontario",
+          password: "password",
+          username: "username",
         },
       ]);
     });
 };
-
-// table.uuid("vendorid").primary();
-// table.string("vendorname").notNullable();
-// table.string("operatorname").notNullable();
-// table.string("foodcategory").notNullable();
-// table.string("streetno").notNullable();
-// table.string("streetname").notNullable();
-// table.string("streettype").notNullable();
-// table.string("city").notNullable();
-// table.string("province").notNullable();

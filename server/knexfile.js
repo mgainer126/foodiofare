@@ -5,7 +5,7 @@ module.exports = {
       host: "127.0.0.1",
       user: "root",
       password: "Niagara126!",
-      database: "foodiofare",
+      database: "foodiofare1",
       charset: "utf8",
     },
   },
