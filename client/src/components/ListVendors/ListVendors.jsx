@@ -1,8 +1,13 @@
 import "../ListVendors/ListVendors.scss";
 
-function ListVendors({ vendors }) {
-  console.log(vendors);
-  const vendorArr = vendors;
+function ListVendors({ vendors, category, area }) {
+  console.log(vendors, category, area);
+  const categoryFilter = vendors.filter(
+    (vendor) => vendor.foodcat === category
+  );
+  console.log(categoryFilter);
+
+  const vendorArr = categoryFilter;
   return vendorArr.map((vendor) => {
     return (
       <div className="list-group">

@@ -14,6 +14,8 @@ export default class CustVendorSearch extends Component {
     streettype: null,
     city: null,
     province: null,
+    category: null,
+    area: null,
     defaultMapPos: { lat: 39.011902, lng: -98.484245 },
     custcords: [],
     vendors: null,
@@ -66,11 +68,15 @@ export default class CustVendorSearch extends Component {
       streettype: event.target[2].value,
       city: event.target[3].value,
       province: event.target[4].value,
+      category: event.target[5].value,
+      area: event.target[7].value,
     });
-    // console.log(event);
+    console.log(event);
   };
 
   render() {
+    console.log(this.state.category);
+    console.log(this.state.area);
     return (
       <>
         {this.state.defaultMapPos && this.state.vendors && (
@@ -79,6 +85,8 @@ export default class CustVendorSearch extends Component {
             <CustSearchForm
               clickHandle={this.handleSubmit}
               vendors={this.state.vendors}
+              category={this.state.category}
+              area={this.state.area}
             />
             <RenderMap
               defaultMapPos={this.state.defaultMapPos}
