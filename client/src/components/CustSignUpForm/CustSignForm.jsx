@@ -1,7 +1,7 @@
 import ListVendors from "../../components/ListVendors/ListVendors";
 import "../CustSignUpForm/CustSignForm.scss";
 
-function CustSignUpForm({ clickHandle }) {
+function CustSignUpForm({ clickHandle, vendors }) {
   return (
     <>
       <div className="col-md-10 col-lg-5">
@@ -116,7 +116,9 @@ function CustSignUpForm({ clickHandle }) {
               Find By Area
             </button>
           </form>
-          <ListVendors />
+          <div className="vendors__list">
+            <ListVendors vendors={vendors} />
+          </div>
         </div>
       </div>
     </>

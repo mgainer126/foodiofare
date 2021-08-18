@@ -1,8 +1,10 @@
 import "../ListVendors/ListVendors.scss";
 
-function ListVendors() {
-  return (
-    <>
+function ListVendors({ vendors }) {
+  console.log(vendors);
+  const vendorArr = vendors;
+  return vendorArr.map((vendor) => {
+    return (
       <div className="list-group">
         <a
           href="#"
@@ -10,18 +12,18 @@ function ListVendors() {
           aria-current="true"
         >
           <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1">Vendor Name</h5>
+            <h5 className="mb-1">{vendor.bussname}</h5>
           </div>
-          <p className="mb-1">Type</p>
+          <p className="mb-1">{vendor.foodcat}</p>
           <small>
-            <p className="vendor__addnum">12341</p>
-            <p className="vendor__streetname">Liverpool</p>
-            <p className="vendor__streettype">Road</p>
+            <p className="vendor__addnum">{vendor.addnum}</p>
+            <p className="vendor__streetname">{vendor.streetname}</p>
+            <p className="vendor__streettype">{vendor.steettype}</p>
           </small>
         </a>
       </div>
-    </>
-  );
+    );
+  });
 }
 
 export default ListVendors;

@@ -84,10 +84,12 @@ export default class CustVendorSearch extends Component {
         {this.state.defaultMapPos && this.state.vendors && (
           // this.state.custcords && (
           <div>
-            <CustSignUpForm clickHandle={this.handleSubmit} />
+            <CustSignUpForm
+              clickHandle={this.handleSubmit}
+              vendors={this.state.vendors}
+            />
             <RenderMap
               defaultMapPos={this.state.defaultMapPos}
-              vendors={this.state.vendors}
               custcords={this.state.custcords}
             />
           </div>

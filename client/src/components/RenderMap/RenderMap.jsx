@@ -8,7 +8,7 @@ const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
-export default function RenderMap({ defaultMapPos, vendors, custcords }) {
+export default function RenderMap({ defaultMapPos, custcords }) {
   const defaultProps = {
     center: {
       lat: defaultMapPos.lat,
@@ -17,7 +17,7 @@ export default function RenderMap({ defaultMapPos, vendors, custcords }) {
     zoom: 4.2,
   };
   console.log(defaultMapPos);
-  console.log(vendors);
+  // console.log(vendors);
   console.log(custcords);
 
   // let vendorsArr = vendors;
