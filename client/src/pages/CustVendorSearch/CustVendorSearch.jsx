@@ -3,7 +3,7 @@ import "../CustVendorSearch/CustVendorSearch.scss";
 import React, { Component } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
-import CustSignUpForm from "../../components/CustSignUpForm/CustSignForm";
+import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
 import ListVendors from "../../components/ListVendors/ListVendors";
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
@@ -71,20 +71,12 @@ export default class CustVendorSearch extends Component {
   };
 
   render() {
-    // console.log(this.state.addnum);
-    // console.log(this.state.streetname);
-    // console.log(this.state.streettype);
-    // console.log(this.state.city);
-    // console.log(this.state.province);
-    // console.log(this.state.defaultMapPos);
-    // console.log(this.state.vendors);
-
     return (
       <>
         {this.state.defaultMapPos && this.state.vendors && (
           // this.state.custcords && (
           <div>
-            <CustSignUpForm
+            <CustSearchForm
               clickHandle={this.handleSubmit}
               vendors={this.state.vendors}
             />

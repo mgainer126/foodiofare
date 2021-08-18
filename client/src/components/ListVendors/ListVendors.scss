@@ -6,3 +6,15 @@
 .list-group-item {
   width: 20rem;
 }
+
+.vendor {
+  &__address {
+    display: flex;
+  }
+  &__streetname {
+    margin-left: 1rem;
+  }
+  &__streettype {
+    margin-left: 1rem;
+  }
+}

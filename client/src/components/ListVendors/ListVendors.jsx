@@ -15,10 +15,10 @@ function ListVendors({ vendors }) {
             <h5 className="mb-1">{vendor.bussname}</h5>
           </div>
           <p className="mb-1">{vendor.foodcat}</p>
-          <small>
-            <p className="vendor__addnum">{vendor.addnum}</p>
-            <p className="vendor__streetname">{vendor.streetname}</p>
-            <p className="vendor__streettype">{vendor.steettype}</p>
+          <small className="vendor__address">
+            <p className="vendor__addnum">{vendor.addnum} </p>
+            <p className="vendor__streetname">{vendor.streetname} </p>
+            <p className="vendor__streettype">{vendor.streettype} </p>
           </small>
         </a>
       </div>
