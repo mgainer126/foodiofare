@@ -35,16 +35,53 @@ function VendorSignUpForm({ clickhandle }) {
             />
             <label htmlFor="floatingPassword">Operator Name</label>
           </div>
+
+          {/* <label htmlFor="category"></label>
+          <select
+            className="form-control"
+            id="foodcategory"
+
+            name="category"
+            placeholder="Food Category"
+          >
+            <option>Click Here to Select a Category</option>
+            <option>Barbecue</option>
+            <option>Chineese</option>
+            <option>Fries and Poutine</option>
+            <option>Fusion</option>
+            <option>Greek</option>
+            <option>Halal</option>
+            <option>Ice Cream</option>
+            <option>Jamacian</option>
+            <option>Mexican</option>
+            <option>Thai</option>
+            <option>Vegetarian</option>
+          </select> */}
+          {/* <label htmlFor="floatingPassword">Food Category</label> */}
           <div className="form-floating mb-3">
-            <input
-              type="text"
+            <select
               className="form-control"
               name="foodcategory"
               id="foodcategory"
               placeholder="Food Category"
-            />
-            <label htmlFor="floatingPassword">Food Category</label>
+            >
+              <option>Click Here to Select a Category</option>
+              <option>Barbecue</option>
+              <option>Chineese</option>
+              <option>Fries and Poutine</option>
+              <option>Fusion</option>
+              <option>Greek</option>
+              <option>Halal</option>
+              <option>Ice Cream</option>
+              <option>Jamacian</option>
+              <option>Mexican</option>
+              <option>Thai</option>
+              <option>Vegetarian</option>
+            </select>
+
+            <label htmlFor="floatingPassword"></label>
           </div>
+
           <div className="form-floating mb-3">
             <input
               type="text"
