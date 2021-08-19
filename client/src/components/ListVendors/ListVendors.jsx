@@ -11,8 +11,8 @@ function ListVendors({ vendors, category, area, handleClick }) {
   const vendorArr = categoryFilter;
   return vendorArr.map((vendor) => {
     return (
-      <form onSubmit={handleClick} className="list-group">
-        <button type="submit">
+      <Link className="vendors">
+        <div className="vendors__list" onClick={() => handleClick(vendor)}>
           <h5 className="vendor__bussname" name="bussname">
             {vendor.bussname}
           </h5>
@@ -34,8 +34,8 @@ function ListVendors({ vendors, category, area, handleClick }) {
           <p name="province" className="vendor__province">
             {vendor.province}
           </p>
-        </button>
-      </form>
+        </div>
+      </Link>
     );
   });
 }
