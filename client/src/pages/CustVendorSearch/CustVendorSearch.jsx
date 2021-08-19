@@ -76,11 +76,36 @@ export default class CustVendorSearch extends Component {
     });
   };
 
-  handleClick = (event) => {
-    event.preventDefault();
-    console.log(event);
+  handleClick = (e) => {
+    e.preventDefault();
+    // console.log(event.target.children[2].innerText);
+    // console.log(event.target.children[3].innerText);
+    // console.log(event.target.children[4].innerText);
+    // console.log(event.target.children[5].innerText);
+    console.log(e);
+    console.log(
+      e.target.__reactProps$jrdzyhij9cl.children.props.children[2].props
+        .children
+    );
+    console.log(
+      e.target.__reactProps$jrdzyhij9cl.children.props.children[3].props
+        .children
+    );
+    console.log(
+      e.target.__reactProps$jrdzyhij9cl.children.props.children[4].props
+        .children
+    );
+    console.log(
+      e.target.__reactProps$jrdzyhij9cl.children.props.children[5].props
+        .children
+    );
+    console.log(
+      e.target.__reactProps$jrdzyhij9cl.children.props.children[6].props
+        .children
+    );
   };
 
+  // __reactProps$cu7ugc8jmq.children[0].prevProps.children
   render() {
     console.log(this.state.addnum);
     return (

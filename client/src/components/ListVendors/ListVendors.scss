@@ -1,20 +1,22 @@
 .list-group {
   margin-left: 1rem;
   width: 15rem;
+  border: solid 1px black;
 }
 
-.list-group-item {
-  width: 20rem;
-}
+// .list-group-item {
+//   width: 20rem;
 
-.vendor {
-  &__address {
-    display: flex;
-  }
-  &__streetname {
-    margin-left: 1rem;
-  }
-  &__streettype {
-    margin-left: 1rem;
-  }
-}
+// }
+
+// .vendor {
+//   &__address {
+//     display: flex;
+//   }
+//   &__streetname {
+//     margin-left: 1rem;
+//   }
+//   &__streettype {
+//     margin-left: 1rem;
+//   }
+// }
