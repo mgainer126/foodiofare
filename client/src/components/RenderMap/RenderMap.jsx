@@ -8,13 +8,13 @@ const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
-export default function RenderMap({ defaultMapPos, custcords }) {
+export default function RenderMap({ defaultMapPos, custcords, defaultZoom }) {
   const defaultProps = {
     center: {
       lat: defaultMapPos.lat,
       lng: defaultMapPos.lng,
     },
-    zoom: 4.2,
+    zoom: defaultZoom,
   };
   console.log(defaultMapPos);
   // console.log(vendors);
@@ -24,11 +24,12 @@ export default function RenderMap({ defaultMapPos, custcords }) {
   return (
     // Important! Always set the container height explicitly
     <div className="map">
+      {/* This renders the map */}
       <div style={{ height: "60vh", width: "100%" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw" }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
+          center={defaultProps.center}
+          zoom={defaultProps.zoom}
         >
           {/* <DefaultMapPos
             lat={defaultMapPos.lat}

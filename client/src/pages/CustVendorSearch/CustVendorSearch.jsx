@@ -18,6 +18,7 @@ export default class CustVendorSearch extends Component {
     category: null,
     area: null,
     defaultMapPos: { lat: 39.011902, lng: -98.484245 },
+    defaultZoom: 4.2,
     custcords: [],
     vendors: null,
   };
@@ -51,6 +52,7 @@ export default class CustVendorSearch extends Component {
           console.log(custcords);
           this.setState({
             defaultMapPos: custcords,
+            defaultZoom: 14,
           });
           return response.data;
         })
@@ -95,6 +97,7 @@ export default class CustVendorSearch extends Component {
             />
             <RenderMap
               defaultMapPos={this.state.defaultMapPos}
+              defaultZoom={this.state.defaultZoom}
               custcords={this.state.custcords}
             />
           </div>
