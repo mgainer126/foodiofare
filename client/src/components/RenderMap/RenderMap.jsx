@@ -19,21 +19,7 @@ export default function RenderMap({ defaultMapPos, custcords }) {
   console.log(defaultMapPos);
   // console.log(vendors);
   console.log(custcords);
-
-  // let vendorsArr = vendors;
-
-  // const vendorcords = vendorsArr.map((vendor) => {
-  //   axios
-  //     .get(
-  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${vendor.addnum}+${vendor.streetname}+${vendor.streettype},
-  //     +${vendor.city},+${vendor.province}&key=${API_KEY}`
-  //     )
-  //     .then((response) => {
-  //       console.log(response.data.results[0].geometry.location);
-  //       return response;
-  //       console.log(response);
-  //     });
-  // });
+  console.log(marker);
 
   return (
     // Important! Always set the container height explicitly
@@ -44,22 +30,23 @@ export default function RenderMap({ defaultMapPos, custcords }) {
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
-          <DefaultMapPos
+          {/* <DefaultMapPos
             lat={defaultMapPos.lat}
             lng={defaultMapPos.lng}
             marker={null}
-          />
+          /> */}
+
+          {/* This places the marker on the location the customer provided on the form. */}
           <CustIsHere
-            lat={custcords.lat}
-            lng={custcords.lng}
+            lat={defaultMapPos.lat}
+            lng={defaultMapPos.lng}
             marker={marker}
-            text="You are here!"
           />
-          <VendorIsHere
+          {/* <VendorIsHere
             lat={custcords.lat}
             lng={custcords.lat}
             marker={marker}
-          />
+          /> */}
           {/* <VendorIsHere lat={43.938413} lng={-79.086761} marker={marker} /> */}
         </GoogleMapReact>
       </div>

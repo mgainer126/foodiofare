@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
+
 import ListVendors from "../../components/ListVendors/ListVendors";
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
@@ -39,7 +40,7 @@ export default class CustVendorSearch extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.custcords === prevState.custcords) {
+    if (this.state.addnum !== prevState.addnum) {
       axios
         .get(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
@@ -49,7 +50,7 @@ export default class CustVendorSearch extends Component {
           let custcords = response.data.results[0].geometry.location;
           console.log(custcords);
           this.setState({
-            custcords: custcords,
+            defaultMapPos: custcords,
           });
           return response.data;
         })
@@ -79,6 +80,7 @@ export default class CustVendorSearch extends Component {
   };
 
   render() {
+    console.log(this.state.addnum);
     return (
       <>
         {this.state.defaultMapPos && this.state.vendors && (

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "googlemap": "^1.0.4",
     "prop-types": "^15.7.2",
     "styled-components": "^5.3.0"
   }
