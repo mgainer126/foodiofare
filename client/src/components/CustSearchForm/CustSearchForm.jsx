@@ -4,8 +4,8 @@ import "../CustSearchForm/CustSearchForm.scss";
 function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
   return (
     <>
-      <div className="col-md-10 col-lg-5">
-        <div className="col-lg-7 text-center text-lg-start">
+      <div className="col-md-10 ">
+        <div className="pagehead ">
           <h1 className="display-4 fw-bold lh-1 mb-3">Search</h1>
           <p className="col-lg-10 fs-4">
             Provide Your Address and Make a Food Category Selection Below, and

@@ -19,21 +19,27 @@ function ListVendors({ vendors, category, area, handleClick }) {
             <p name="foodcategory" className="vendor__cat">
               {vendor.foodcat}
             </p>
-            <p name="addno" className="vendor__addnum">
-              {vendor.addnum}
-            </p>
-            <p name="streetname" className="vendor__streetname">
-              {vendor.streetname}
-            </p>
-            <p name="streettype" className="vendor__streettype">
-              {vendor.streettype}
-            </p>
-            <p name="streettype" className="vendor__streettype">
-              {vendor.city}
-            </p>
-            <p name="province" className="vendor__province">
-              {vendor.province}
-            </p>
+            <address className="address">
+              <street className="address__street">
+                <p name="address__no" className="address__no">
+                  {vendor.addnum}
+                </p>
+                <p name="address__streetname" className="address__streetname">
+                  {vendor.streetname}
+                </p>
+                <p name="address__streettype" className="address__streettype">
+                  {vendor.streettype}
+                </p>
+              </street>
+              <municipality className="address__municipality">
+                <p name="address__city" className="address__city">
+                  {vendor.city}
+                </p>
+                <p name="address__province" className="vendor__province">
+                  {vendor.province}
+                </p>
+              </municipality>
+            </address>
           </div>
         </div>
       </Link>

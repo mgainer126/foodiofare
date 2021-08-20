@@ -1,4 +1,5 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import "../Hero/Hero.scss";
 import React from "react";
 import { Link } from "react-router-link";
 
