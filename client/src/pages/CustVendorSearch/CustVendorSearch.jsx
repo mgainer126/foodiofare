@@ -4,8 +4,6 @@ import React, { Component } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
-
-import ListVendors from "../../components/ListVendors/ListVendors";
 const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
 export default class CustVendorSearch extends Component {
@@ -18,10 +16,33 @@ export default class CustVendorSearch extends Component {
     category: null,
     area: null,
     defaultMapPos: { lat: 39.011902, lng: -98.484245 },
-    defaultZoom: 4.2,
+    defaultZoom: 3.2,
     custcords: [],
     vendors: null,
+    vendorcords: [],
   };
+
+  handleClick = (e) => {
+    console.log(e);
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
+    +${e.city},+${e.province}&key=${API_KEY}`
+      )
+      .then((response) => {
+        let vendorcords = response.data.results[0].geometry.location;
+        console.log(vendorcords);
+        this.setState({
+          vendorcords: vendorcords,
+        });
+        return response.data;
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+
   componentDidMount() {
     // if (this.state.vendor !== prevState.vendor) {
     axios
@@ -76,31 +97,37 @@ export default class CustVendorSearch extends Component {
     });
   };
 
-  handleClick = (e) => {
-    console.log(e);
-  };
-
   render() {
-    console.log(this.state.addnum);
+    console.log(
+      this.state.vendoraddnum,
+      this.state.vendorstreet,
+      this.state.vendorstreettype,
+      this.state.vendorcity,
+      this.state.vendorprovince,
+      this.state.vendorcords
+    );
     return (
       <>
-        {this.state.defaultMapPos && this.state.vendors && (
-          // this.state.custcords && (
-          <div>
-            <CustSearchForm
-              clickHandle={this.handleSubmit}
-              handleClick={this.handleClick}
-              vendors={this.state.vendors}
-              category={this.state.category}
-              area={this.state.area}
-            />
-            <RenderMap
-              defaultMapPos={this.state.defaultMapPos}
-              defaultZoom={this.state.defaultZoom}
-              custcords={this.state.custcords}
-            />
-          </div>
-        )}
+        {this.state.defaultMapPos &&
+          this.state.vendors &&
+          this.state.vendorcords &&
+          this.state.custcords && (
+            <div>
+              <CustSearchForm
+                clickHandle={this.handleSubmit}
+                handleClick={this.handleClick}
+                vendors={this.state.vendors}
+                category={this.state.category}
+                area={this.state.area}
+              />
+              <RenderMap
+                defaultMapPos={this.state.defaultMapPos}
+                defaultZoom={this.state.defaultZoom}
+                custcords={this.state.custcords}
+                vendorcords={this.state.vendorcords}
+              />
+            </div>
+          )}
       </>
     );
   }
