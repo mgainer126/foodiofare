@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import CustSignUp from "./pages/CustSignUp/CustSignUp";
 import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
 import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
+import VendorEdit from "./pages/VendorEdit/VendorEdit";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/custSignUp" component={CustSignUp} />
           <Route exact path="/vendorSignUp" component={VendorSignUp} />
           <Route exact path="/custVendorSearch" component={CustVendorSearch} />
+          <Route exact path="/vendorEdit" component={VendorEdit} />
         </Switch>
       </BrowserRouter>
     </>
