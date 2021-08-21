@@ -5,11 +5,12 @@
 }
 
 .vendors {
+  text-decoration: none;
   &__box {
     border: solid black 1px;
     margin-left: 1rem;
     border-radius: 4px;
-    background-color: #0d6eed;
+    background-color: #bf6a39;
     color: white;
     height: 9rem;
   }

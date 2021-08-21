@@ -15,22 +15,22 @@ function Header() {
             >
               <svg className="bi me-2" width={40} height={32} />
               <Link to="/" className="link">
-                <span className="fs-4">Food Fare</span>
+                <span className="fs-4 link__logo">Food Fare</span>
               </Link>
             </a>
             <ul className="nav nav-pills">
               <li className="nav-item">
                 <Link to="/custVendorSearch" className="link">
-                  <p className="nav-link">Customers</p>
+                  <p className="header-link">Customers</p>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to="/vendorSignUp" className="link">
-                  <p className="nav-link">Business</p>
+                  <p className="header-link">Business</p>
                 </Link>
               </li>
               <li className="nav-item">
-                <p className="nav-link">About</p>
+                <p className="header-link">About</p>
               </li>
             </ul>
           </header>

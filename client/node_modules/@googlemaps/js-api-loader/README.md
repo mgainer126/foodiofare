@@ -6,11 +6,10 @@
 [![codecov](https://codecov.io/gh/googlemaps/js-api-loader/branch/master/graph/badge.svg)](https://codecov.io/gh/googlemaps/js-api-loader)
 ![GitHub contributors](https://img.shields.io/github/contributors/googlemaps/js-api-loader?color=green)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Discord](https://img.shields.io/discord/676948200904589322?color=6A7EC2&logo=discord&logoColor=ffffff)](https://discord.gg/jRteCzP)
 
 ## Description
 Load the Google Maps JavaScript API script dynamically. This takes inspiration from the [google-maps](https://www.npmjs.com/package/google-maps) npm package but updates it with ES6, Promises, and TypeScript.
-
-A previous version of the package was available at [@googlemaps/loader](https://www.npmjs.com/package/@googlemaps/loader) but was renamed to the package [@googlemaps/js-api-loader](https://www.npmjs.com/package/@googlemaps/js-api-loader) here.
 
 ## Install
 
@@ -66,7 +65,7 @@ Using a promise for when the script has loaded.
 // Promise
 loader
   .load()
-  .then(() => {
+  .then((google) => {
     new google.maps.Map(document.getElementById("map"), mapOptions);
   })
   .catch(e => {

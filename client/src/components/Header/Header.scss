@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 .header {
   background-color: #bf6a39;
 }
@@ -6,10 +7,26 @@
   color: #f2d6bd;
 }
 
-.fs-4 {
-  color: #f2d6bd;
+.directions {
+  color: #bf6a39;
+  font-size: 2rem;
 }
 
 .link {
   text-decoration: none;
+  color: #f2d6bd;
+}
+
+.nav-pills {
+  color: #f2d6bd;
+}
+
+.header-link {
+  margin-left: 2rem;
+}
+
+.link {
+  &__logo {
+    font-family: "Monoton", cursive;
+  }
 }

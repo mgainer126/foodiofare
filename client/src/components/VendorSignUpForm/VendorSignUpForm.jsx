@@ -40,7 +40,6 @@ function VendorSignUpForm({ clickhandle }) {
           <select
             className="form-control"
             id="foodcategory"
-
             name="category"
             placeholder="Food Category"
           >

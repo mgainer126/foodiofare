@@ -1,13 +1,14 @@
 import ListVendors from "../ListVendors/ListVendors";
 import "../CustSearchForm/CustSearchForm.scss";
+import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 
 function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
   return (
     <>
-      <div className="col-md-10 ">
+      <div>
         <div className="pagehead ">
           <h1 className="display-4 fw-bold lh-1 mb-3">Search</h1>
-          <p className="col-lg-10 fs-4">
+          <p className="directions">
             Provide Your Address and Make a Food Category Selection Below, and
             We Will Show You Where They Are Today
           </p>
@@ -16,7 +17,7 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
           <form
             onSubmit={clickHandle}
             className="form"
-            className="p-4 p-md-5 border rounded-3 bg-light"
+            className="p-md-5 border rounded-3 bg-light"
           >
             {/* House Number */}
             <div className="form-floating mb-3">
@@ -99,22 +100,25 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
             </button>
             <br></br>
             <br></br>
-            <label htmlFor="areasearch">Area Search</label>
-            <select
-              className="form-control"
-              id="area"
-              // value="areasearch"
-              name="area"
-            >
-              <option>Click Here to Select a Area</option>
-              <option>5km</option>
-              <option>10km</option>
-              <option>15km</option>
-              <option>20km</option>
-            </select>
-            <button type="submit" className="btn btn-primary btn-lg">
-              Find By Area
-            </button>
+            <areafind className="areafind">
+              <label htmlFor="areasearch">Area Search</label>
+
+              <select
+                className="form-control"
+                id="area"
+                // value="areasearch"
+                name="area"
+              >
+                <option>Click Here to Select a Area</option>
+                <option>5km</option>
+                <option>10km</option>
+                <option>15km</option>
+                <option>20km</option>
+              </select>
+              <button type="submit" className="btn btn-primary btn-lg">
+                Find By Area
+              </button>
+            </areafind>
           </form>
           <div className="vendors__list">
             <ListVendors
