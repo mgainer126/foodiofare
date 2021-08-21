@@ -10,16 +10,10 @@
   flex-direction: column-reverse;
 }
 
-// .popup-inner {
-//   position: relative;
-//   padding: 32px;
-//   width: 100%;
-//   max-width: 640px;
-//   background-color: #fff;
-// }
-
-// .popup-inner .close-btn {
-//   position: absolute;
-//   top: 16px;
-//   right: 16px;
-// }
+.close-btn {
+  background-color: #bf6a39;
+  color: white;
+  border: solid 1px #bf6a39;
+  border-radius: 4px;
+  width: 15rem;
+}
