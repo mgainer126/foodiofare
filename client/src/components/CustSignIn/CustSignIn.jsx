@@ -47,20 +47,20 @@ function CustSignIn() {
                 <input type="checkbox" defaultValue="remember-me" /> Remember me
               </label>
             </div>
-            <button
-              className="w-100 btn btn-lg btn-primary"
-              type="submit"
-              onClick={() => setButtonPopup(true)}
-            >
-              Log In
-            </button>
-            <PopUp trigger={buttonPopup} className="popup">
-              <h3>You Have Sucesfully Signed In</h3>
-            </PopUp>
 
             <hr className="my-4" />
             <small className="text-muted">New to Foodie Fare? Sign Up</small>
           </form>
+          <button
+            className="w-100 btn btn-lg btn-primary"
+            type="submit"
+            onClick={() => setButtonPopup(true)}
+          >
+            Log In
+          </button>
+          <PopUp trigger={buttonPopup} className="popup">
+            <h3>Sucesfully Signed In</h3>
+          </PopUp>
         </div>
         <img src={foodtruck} alt="foodtruck"></img>
       </div>

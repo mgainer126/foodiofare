@@ -1,12 +1,21 @@
 import React from "react";
 import "../PopUp/PopUp.scss";
+import { useHistory, userHistory } from "react-router-dom";
 
 function PopUp(props) {
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/custVendorSearch");
+  };
+  console.log(props);
   return props.trigger ? (
     <div className="popup">
-      <button className="close-btn">Close</button>
-      {props.children}
-      <div className="popup-inner"></div>
+      <div className="popup-inner">
+        {props.children}
+        <button className="close-btn" onClick={redirect}>
+          Continue To Proceed
+        </button>
+      </div>
     </div>
   ) : (
     ""
