@@ -30,6 +30,12 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/vendorEdit" className="link">
+                  <p className="header-link">Business Update Location</p>
+                </Link>
+              </li>
+
+              <li className="nav-item">
                 <p className="header-link">About</p>
               </li>
             </ul>
