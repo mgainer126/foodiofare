@@ -1,3 +1,5 @@
+import "../VendorMain/VendorMain.scss";
+
 import { Link } from "react-router-dom";
 
 function VendorMain() {

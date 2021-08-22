@@ -8,6 +8,7 @@ function ListVendors({ vendors, category, area, handleClick }) {
   console.log(categoryFilter);
 
   const vendorArr = categoryFilter;
+
   return vendorArr.map((vendor) => {
     return (
       <Link className="vendors">
@@ -35,7 +36,7 @@ function ListVendors({ vendors, category, area, handleClick }) {
                 <p name="address__city" className="address__city">
                   {vendor.city}
                 </p>
-                <p name="address__province" className="vendor__province">
+                <p name="address__province" className="address__province">
                   {vendor.province}
                 </p>
               </municipality>

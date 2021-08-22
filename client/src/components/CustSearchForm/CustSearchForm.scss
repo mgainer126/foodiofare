@@ -3,7 +3,6 @@
   width: auto;
   justify-content: center;
   flex-direction: row;
-  border: solid black;
 }
 
 .pagehead {
@@ -13,7 +12,6 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  border: solid black 1px;
 }
 
 .btn-primary {
@@ -28,6 +26,22 @@
 
 .layout {
   display: flex;
-  border: solid black;
+
   justify-content: space-evenly;
+}
+
+.vendors {
+  // border: solid #bf6a39 1px;
+  border-radius: 4px;
+  width: 40%;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 1rem;
+    padding-top: 1rem;
+  }
+  &__list-head {
+    margin: 1rem;
+  }
 }

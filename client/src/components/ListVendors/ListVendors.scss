@@ -1,24 +1,29 @@
 .list-group {
   margin-left: 1rem;
-  width: 15rem;
+  width: 20%;
   // border: solid 1px black;
 }
 
 .vendors {
   text-decoration: none;
+  font-size: 0.8rem;
+  margin-left: 1rem;
   &__box {
-    border: solid black 1px;
-    margin-left: 1rem;
+    margin: 0rem 1rem 1rem 1rem;
     border-radius: 4px;
     background-color: #bf6a39;
     color: white;
-    height: 9rem;
+    height: auto;
+    width: 80%;
   }
 }
 
 .vendor {
   &__cat {
     margin-bottom: 0;
+  }
+  &__bussname {
+    width: 20rem;
   }
 }
 
@@ -45,21 +50,7 @@
     margin-right: 0.5rem;
     margin-bottom: 0;
   }
+  &__province {
+    margin-bottom: 0;
+  }
 }
-
-// .list-group-item {
-//   width: 20rem;
-
-// }
-
-// .vendor {
-//   &__address {
-//     display: flex;
-//   }
-//   &__streetname {
-//     margin-left: 1rem;
-//   }
-//   &__streettype {
-//     margin-left: 1rem;
-//   }
-// }
