@@ -15,7 +15,6 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Hero} />
-          <Route exact path="/custSignUp" component={CustSignUp} />
           <Route exact path="/vendorSignUp" component={VendorSignUp} />
           <Route exact path="/custVendorSearch" component={CustVendorSearch} />
           <Route exact path="/vendorEdit" component={VendorEdit} />

@@ -59,7 +59,7 @@ function CustSignIn() {
             Log In
           </button>
           <PopUp trigger={buttonPopup} className="popup">
-            <h3>Sucesfull Sign In</h3>
+            <h3>Successful Sign In</h3>
           </PopUp>
         </div>
         <img src={foodtruck} alt="foodtruck"></img>
