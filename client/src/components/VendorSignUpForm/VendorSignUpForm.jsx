@@ -1,10 +1,12 @@
+import "../VendorSignUpForm/VendorSignUpForm.scss";
+
 function VendorSignUpForm({ clickhandle }) {
   return (
     <>
       <div className="col-md-10 mx-auto col-lg-5">
-        <div className="col-lg-7 text-center text-lg-start">
+        <div>
           <h1 className="display-4 fw-bold lh-1 mb-3">Sign Up</h1>
-          <p className="col-lg-10 fs-4">
+          <p className=" fs-4 signup">
             Your enrolment information will allow you to create an account,
             where you will be able to post the location of your operation so
             that customers can experience you cusine.

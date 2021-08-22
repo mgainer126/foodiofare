@@ -121,9 +121,12 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
           </areafind>
         </form>
         <div className="vendors">
-          {/* <h3 className="vendors__list-head">
-            Look What We Found Select From Below to Map It
-          </h3> */}
+          <h3 className="vendors__list-head">
+            1. Select Find By Category and We Show Your Results Below
+          </h3>
+          <h3 className="vendors__list-head">
+            2. Click on the displayed vendor and we will map show it on the map
+          </h3>
           <ListVendors
             vendors={vendors}
             category={category}
