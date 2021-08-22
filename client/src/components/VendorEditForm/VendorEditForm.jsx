@@ -1,7 +1,10 @@
 import React from "react";
+import PopUpVendorEdit from "../PopUpVendorEdit/PopUpVendorEdit";
+import { useState } from "react";
 import "../VendorEditForm/VendorEditForm.scss";
 
 function VendorEditForm({ handleSubmit }) {
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <div className="vendoreditform">
       <div>
@@ -77,9 +80,16 @@ function VendorEditForm({ handleSubmit }) {
           <label htmlFor="floatingPassword">Updated Province</label>
         </div>
 
-        <button className="w-100 btn btn-lg btn-primary" type="submit">
-          Sumbit
+        <button
+          className="w-100 btn btn-lg btn-primary"
+          type="submit"
+          onClick={() => setButtonPopup(true)}
+        >
+          Submit
         </button>
+        <PopUpVendorEdit trigger={buttonPopup} className="popup">
+          <h3>Update Processed</h3>
+        </PopUpVendorEdit>
       </form>
     </div>
   );

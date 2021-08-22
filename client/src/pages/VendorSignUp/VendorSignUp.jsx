@@ -25,9 +25,7 @@ export default class VendorSignUp extends Component {
         username: event.target[8].value,
         password: event.target[9].value,
       },
-      console.log(event),
     ];
-    console.log(newBussiness[0]);
     {
       this.createNewVendor(newBussiness[0]);
     }
@@ -38,7 +36,6 @@ export default class VendorSignUp extends Component {
     axios
       .post("http://localhost:8080/find/vendor", obj)
       .then((response) => {
-        console.log(response);
         this.setState({ newVendor: response.data });
       })
       .catch((error) => {

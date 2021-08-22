@@ -7,7 +7,6 @@ function PopUp(props) {
   const redirect = () => {
     history.push("/custVendorSearch");
   };
-  console.log(props);
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">

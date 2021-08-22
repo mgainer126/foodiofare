@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
+
 import "../RenderMap/RenderMap.scss";
 const DefaultMapPos = ({ marker }) => <img src={marker} />;
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
@@ -20,9 +21,6 @@ export default function RenderMap({
     },
     zoom: defaultZoom,
   };
-  console.log(defaultMapPos);
-  console.log(custcords);
-  console.log(vendorcords);
 
   return (
     // Important! Always set the container height explicitly
@@ -46,7 +44,6 @@ export default function RenderMap({
             marker={marker}
             name={"Here Is The Vendor"}
           />
-          {/* <VendorIsHere lat={43.938413} lng={-79.086761} marker={marker} /> */}
         </GoogleMapReact>
       </div>
     </div>

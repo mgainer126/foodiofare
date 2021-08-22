@@ -5,7 +5,6 @@ function ListVendors({ vendors, category, area, handleClick }) {
   const categoryFilter = vendors.filter(
     (vendor) => vendor.foodcat === category
   );
-  console.log(categoryFilter);
 
   const vendorArr = categoryFilter;
 

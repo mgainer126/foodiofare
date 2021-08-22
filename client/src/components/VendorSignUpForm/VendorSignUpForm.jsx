@@ -4,7 +4,6 @@ import { useState } from "react";
 
 function VendorSignUpForm({ clickhandle, vendoraccno }) {
   const [buttonPopup, setButtonPopup] = useState(false);
-  console.log(vendoraccno);
   return (
     <>
       <div className="col-md-10 mx-auto col-lg-5">

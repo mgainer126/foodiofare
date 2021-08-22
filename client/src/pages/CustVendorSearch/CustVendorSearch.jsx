@@ -23,7 +23,6 @@ export default class CustVendorSearch extends Component {
   };
 
   handleClick = (e) => {
-    console.log(e);
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
@@ -31,7 +30,6 @@ export default class CustVendorSearch extends Component {
       )
       .then((response) => {
         let vendorcords = response.data.results[0].geometry.location;
-        console.log(vendorcords);
         this.setState({
           vendorcords: vendorcords,
         });
@@ -98,14 +96,6 @@ export default class CustVendorSearch extends Component {
   };
 
   render() {
-    console.log(
-      this.state.vendoraddnum,
-      this.state.vendorstreet,
-      this.state.vendorstreettype,
-      this.state.vendorcity,
-      this.state.vendorprovince,
-      this.state.vendorcords
-    );
     return (
       <>
         {this.state.defaultMapPos &&
