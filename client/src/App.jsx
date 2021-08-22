@@ -6,6 +6,7 @@ import CustSignUp from "./pages/CustSignUp/CustSignUp";
 import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
 import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
 import VendorEdit from "./pages/VendorEdit/VendorEdit";
+import VendorMain from "../src/pages/VendorMain/VendorMain";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/vendorSignUp" component={VendorSignUp} />
           <Route exact path="/custVendorSearch" component={CustVendorSearch} />
           <Route exact path="/vendorEdit" component={VendorEdit} />
+          <Route exact path="/vendorMain" component={VendorMain} />
         </Switch>
       </BrowserRouter>
     </>

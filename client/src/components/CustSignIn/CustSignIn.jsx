@@ -11,7 +11,7 @@ function CustSignIn() {
     <div className="container col-xl-10 col-xxl-8 px-4 py-5">
       <div className="row align-items-center g-lg-5 py-5">
         <div className="col-lg-7 text-center text-lg-start">
-          <h1 className="display-4 fw-bold lh-1 mb-3 title">Foodie Fare</h1>
+          <h1 className="display-4 fw-bold lh-1 mb-3 title">FoodioFare</h1>
           <p className="col-lg-10 hero">
             “This is the way so many of the great meals of my life have been
             enjoyed. Sitting in the street, eating something out of a bowl that

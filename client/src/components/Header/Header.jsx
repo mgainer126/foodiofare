@@ -15,7 +15,7 @@ function Header() {
             >
               <svg className="bi me-2" width={40} height={32} />
               <Link to="/" className="link">
-                <span className="fs-4 link__logo">Food Fare</span>
+                <span className="fs-4 link__logo">Foodio Fare</span>
               </Link>
             </a>
             <ul className="nav nav-pills">
@@ -25,13 +25,8 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/vendorSignUp" className="link">
+                <Link to="/vendorMain" className="link">
                   <p className="header-link">Business</p>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/vendorEdit" className="link">
-                  <p className="header-link">Business Update Location</p>
                 </Link>
               </li>
 

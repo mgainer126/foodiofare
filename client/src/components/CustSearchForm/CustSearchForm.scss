@@ -3,15 +3,17 @@
   width: auto;
   justify-content: center;
   flex-direction: row;
+  border: solid black;
 }
 
 .pagehead {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  border: solid black 1px;
 }
 
 .btn-primary {
@@ -22,4 +24,10 @@
 
 .areafind {
   display: none;
+}
+
+.layout {
+  display: flex;
+  border: solid black;
+  justify-content: space-evenly;
 }

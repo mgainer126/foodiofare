@@ -5,8 +5,8 @@ import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
   return (
     <>
-      <div>
-        <div className="pagehead ">
+      <div className="layout">
+        <div className="pagehead">
           <h1 className="display-4 fw-bold lh-1 mb-3">Search</h1>
           <p className="directions">
             Provide Your Address and Make a Food Category Selection Below, and
@@ -42,7 +42,6 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               <label htmlFor="floatingPassword">Street Name</label>
             </div>
 
-            {/* Steet Type */}
             <div className="form-floating mb-3">
               <input
                 type="text"
@@ -120,14 +119,14 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               </button>
             </areafind>
           </form>
-          <div className="vendors__list">
-            <ListVendors
-              vendors={vendors}
-              category={category}
-              area={area}
-              handleClick={handleClick}
-            />
-          </div>
+        </div>
+        <div className="vendors__list">
+          <ListVendors
+            vendors={vendors}
+            category={category}
+            area={area}
+            handleClick={handleClick}
+          />
         </div>
       </div>
     </>
