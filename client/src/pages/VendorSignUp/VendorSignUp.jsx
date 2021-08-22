@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 export default class VendorSignUp extends Component {
   state = {
     newVendor: [],
+    vendorID: [],
   };
 
   handleSubmit = (event) => {
@@ -30,6 +31,7 @@ export default class VendorSignUp extends Component {
     {
       this.createNewVendor(newBussiness[0]);
     }
+    this.setState({ vendorID: newBussiness[0].vendorid });
   };
 
   createNewVendor = (obj) => {
@@ -47,7 +49,10 @@ export default class VendorSignUp extends Component {
   render() {
     return (
       <>
-        <VendorSignUpForm clickhandle={this.handleSubmit} />
+        <VendorSignUpForm
+          clickhandle={this.handleSubmit}
+          vendoraccno={this.state.vendorID}
+        />
       </>
     );
   }

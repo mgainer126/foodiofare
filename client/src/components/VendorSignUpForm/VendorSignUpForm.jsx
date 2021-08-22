@@ -1,6 +1,10 @@
 import "../VendorSignUpForm/VendorSignUpForm.scss";
+import PopUpVendorSignIn from "../PopUpVendorSignIn/PopUpVendorSignIn";
+import { useState } from "react";
 
-function VendorSignUpForm({ clickhandle }) {
+function VendorSignUpForm({ clickhandle, vendoraccno }) {
+  const [buttonPopup, setButtonPopup] = useState(false);
+  console.log(vendoraccno);
   return (
     <>
       <div className="col-md-10 mx-auto col-lg-5">
@@ -37,28 +41,6 @@ function VendorSignUpForm({ clickhandle }) {
             />
             <label htmlFor="floatingPassword">Operator Name</label>
           </div>
-
-          {/* <label htmlFor="category"></label>
-          <select
-            className="form-control"
-            id="foodcategory"
-            name="category"
-            placeholder="Food Category"
-          >
-            <option>Click Here to Select a Category</option>
-            <option>Barbecue</option>
-            <option>Chineese</option>
-            <option>Fries and Poutine</option>
-            <option>Fusion</option>
-            <option>Greek</option>
-            <option>Halal</option>
-            <option>Ice Cream</option>
-            <option>Jamacian</option>
-            <option>Mexican</option>
-            <option>Thai</option>
-            <option>Vegetarian</option>
-          </select> */}
-          {/* <label htmlFor="floatingPassword">Food Category</label> */}
           <div className="form-floating mb-3">
             <select
               className="form-control"
@@ -155,9 +137,18 @@ function VendorSignUpForm({ clickhandle }) {
             <label htmlFor="floatingPassword">Password</label>
           </div>
 
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
+          <button
+            className="w-100 btn btn-lg btn-primary"
+            type="submit"
+            onClick={() => setButtonPopup(true)}
+          >
             Sign Up
           </button>
+          <PopUpVendorSignIn trigger={buttonPopup} className="popup">
+            <h3>Welcome to the FoodioFare Community!</h3>
+            <h3>New Account No: </h3>
+            <h4>{vendoraccno}</h4>
+          </PopUpVendorSignIn>
           <hr className="my-4" />
         </form>
       </div>

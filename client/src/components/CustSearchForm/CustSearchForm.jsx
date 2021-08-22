@@ -82,7 +82,7 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
             // value="category"
             name="category"
           >
-            <option>Click Here to Select a Category</option>
+            <option>Select a Food Category</option>
             <option>Barbecue</option>
             <option>Chineese</option>
             <option>Fries and Poutine</option>

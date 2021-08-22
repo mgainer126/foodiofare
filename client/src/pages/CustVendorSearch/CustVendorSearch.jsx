@@ -73,7 +73,7 @@ export default class CustVendorSearch extends Component {
           console.log(custcords);
           this.setState({
             defaultMapPos: custcords,
-            defaultZoom: 14,
+            defaultZoom: 10,
           });
           return response.data;
         })
