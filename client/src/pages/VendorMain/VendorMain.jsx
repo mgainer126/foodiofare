@@ -9,8 +9,8 @@ function VendorMain() {
         <signup className="landing__signup">
           <h3 className="landing__signup-title">New to FoodioFare</h3>
           <p className="landing__signup-desc">
-            Foodio will allow customers to locate your location, wherever you
-            are. Sign up, and customer can find you right now
+            FoodioFare will allow customers to locate your location, wherever
+            you are. Sign up, and customer can find you right now
           </p>
           <Link to="/vendorSignUp">
             <div className="landing__signup-btn">Sign Up</div>
