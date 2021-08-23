@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+.about {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Lobster", cursive;
+  &__para {
+    line-height: 2.5rem;
+    color: #bf6a39;
+    font-family: "Lobster", cursive;
+    font-size: 1.5rem;
+  }
+}

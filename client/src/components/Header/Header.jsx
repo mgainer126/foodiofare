@@ -31,7 +31,9 @@ function Header() {
               </li>
 
               <li className="nav-item">
-                <p className="header-link">About</p>
+                <Link to="/about" className="link">
+                  <p className="header-link">About</p>
+                </Link>
               </li>
             </ul>
           </header>
