@@ -68,7 +68,6 @@ export default class CustVendorSearch extends Component {
         )
         .then((response) => {
           let custcords = response.data.results[0].geometry.location;
-          console.log(custcords);
           this.setState({
             defaultMapPos: custcords,
             defaultZoom: 10,
