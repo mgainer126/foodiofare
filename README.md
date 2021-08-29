@@ -1,5 +1,13 @@
 # foodiofare
 
+About
+One summer day, in the heat of a global pandemic my kids ask "can we go to the ice cream truck today daddy?". In a cautious tone I anticipate repercussions of a unempathetic response. I explain "we don't know where it is going to be today, maybe if we are lucky it comes down our street today".
+
+From there the concept of FoodioFare was born. There are mobile food vendors that are in the hunt for locations where they think their customer will be. There are customers who want to know where their favorite food vendor is today. FoodioFare is meant to bridge that gap by proving the ability for vendors to easily update their location so that the can be found by hungry customers.
+
+Mobile vendors are operated by those with a passion for their food, and a drive to share their culinary experience with others. Why not try something new, and possibly open yourself up to a completely new taste experience.
+
+
 Installation Using Terminal
 
 Note: Before you start, you will require a googlemaps API key that is used in the class component page CustVendorSearch. To acquire a googlemaps API, see the following link for futher information.  https://developers.google.com/maps/gmp-get-started?hl=en
