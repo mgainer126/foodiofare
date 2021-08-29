@@ -1,10 +1,10 @@
 //https://getbootstrap.com/docs/4.0/components/forms/
 import "../CustVendorSearch/CustVendorSearch.scss";
+import googleAPIKey from "../../data/APIKey";
 import React, { Component } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
-const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
 export default class CustVendorSearch extends Component {
   state = {
@@ -26,7 +26,7 @@ export default class CustVendorSearch extends Component {
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
-    +${e.city},+${e.province}&key=${API_KEY}`
+    +${e.city},+${e.province}&key=${googleAPIKey}`
       )
       .then((response) => {
         let vendorcords = response.data.results[0].geometry.location;
@@ -64,7 +64,7 @@ export default class CustVendorSearch extends Component {
       axios
         .get(
           `https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.addnum}+${this.state.streetname}+${this.state.streettype},
-    +${this.state.city},+${this.state.province}&key=${API_KEY}`
+    +${this.state.city},+${this.state.province}&key=${googleAPIKey}`
         )
         .then((response) => {
           let custcords = response.data.results[0].geometry.location;
