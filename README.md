@@ -1,6 +1,9 @@
 # foodiofare
 
 Installation Using Terminal
+
+Note: Before you start, you will require a googlemaps API key that is used in the class component page CustVendorSearch. To acquire a googlemaps API, see the following link for futher information.  https://developers.google.com/maps/gmp-get-started?hl=en
+
 1. Clone the repo by running the following: 
 git clone git@github.com:mgainer126/foodiofare.git
 
