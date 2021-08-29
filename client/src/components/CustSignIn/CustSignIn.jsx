@@ -1,6 +1,4 @@
-import { Link } from "react-router-link";
 import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
-import { useAlert } from "react-alert";
 import PopUp from "../PopUp/PopUp";
 import { useState } from "react";
 

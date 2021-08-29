@@ -1,19 +1,12 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
-
+import googleAPIKey from "../../data/APIKey.jsx";
 import "../RenderMap/RenderMap.scss";
-const DefaultMapPos = ({ marker }) => <img src={marker} />;
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
-const API_KEY = "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw";
 
-export default function RenderMap({
-  defaultMapPos,
-  custcords,
-  defaultZoom,
-  vendorcords,
-}) {
+export default function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
   const defaultProps = {
     center: {
       lat: defaultMapPos.lat,
@@ -28,11 +21,10 @@ export default function RenderMap({
       {/* This renders the map */}
       <div style={{ height: "60vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw" }}
+          bootstrapURLKeys={{ key: `${googleAPIKey}` }}
           center={defaultProps.center}
           zoom={defaultProps.zoom}
         >
-          {/* This places the marker on the location the customer provided on the form. */}
           <CustIsHere
             lat={defaultMapPos.lat}
             lng={defaultMapPos.lng}

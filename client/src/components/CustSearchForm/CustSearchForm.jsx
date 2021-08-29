@@ -1,6 +1,5 @@
 import ListVendors from "../ListVendors/ListVendors";
 import "../CustSearchForm/CustSearchForm.scss";
-import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 
 function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
   return (

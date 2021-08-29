@@ -1,6 +1,6 @@
 import React from "react";
 import "../PopUp/PopUp.scss";
-import { useHistory, userHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function PopUp(props) {
   let history = useHistory();

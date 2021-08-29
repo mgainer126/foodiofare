@@ -29,7 +29,6 @@ function VendorSignUpForm({ clickhandle, vendoraccno }) {
             />
             <label htmlFor="floatingPassword">Business Name</label>
           </div>
-
           <div className="form-floating mb-3">
             <input
               type="text"

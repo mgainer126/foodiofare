@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, userHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function PopUpVendorSignIn(props) {
   let history = useHistory();
