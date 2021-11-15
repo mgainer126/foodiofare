@@ -75,10 +75,10 @@ function Hero() {
 
               <hr className="my-4" />
               <small className="text-muted">New to Foodie Fare? Sign Up</small>
+              <Button variant="primary" onClick={() => setModalShow(true)}>
+                Log In
+              </Button>
             </form>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-              Launch vertically centered modal
-            </Button>
 
             <MyVerticallyCenteredModal
               show={modalShow}
