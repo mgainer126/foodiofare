@@ -31,11 +31,12 @@ function MyVerticallyCenteredModal(props) {
 
 function VendorSignUp() {
   const [vendorID, setVendorID] = useState();
-  const [setNewVendor] = useState();
+  const [newVendor, setNewVendor] = useState();
   const [modalShow, setModalShow] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(event);
     const newBussiness = [
       {
         vendorid: uuidv4(),
@@ -56,18 +57,16 @@ function VendorSignUp() {
     }
     {
       setVendorID(newBussiness[0].vendorid);
-      console.log(vendorID);
     }
   };
-  console.log(vendorID);
 
   const createNewVendor = (obj) => {
     axios
       .post("http://localhost:8080/find/vendor", obj)
       .then((response) => {
-        {
-          setNewVendor(response.data);
-        }
+        // {
+        //   setNewVendor(response.data);
+        // }
       })
       .catch((error) => {
         console.log(error);

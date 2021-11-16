@@ -14,21 +14,19 @@ class VendorDAO {
     password,
     username
   ) {
-    const [id] = await db("vendorsinfo")
-      .insert({
-        vendorid: vendorid,
-        bussname: bussname,
-        operatorname: operatorname,
-        foodcat: foodcat,
-        addnum: addnum,
-        streetname: streetname,
-        streettype: streettype,
-        city: city,
-        province: province,
-        password: password,
-        username: username,
-      })
-      .returning("id");
+    const [id] = await db("vendorsinfo").insert({
+      vendorid: vendorid,
+      bussname: bussname,
+      operatorname: operatorname,
+      foodcat: foodcat,
+      addnum: addnum,
+      streetname: streetname,
+      streettype: streettype,
+      city: city,
+      province: province,
+      password: password,
+      username: username,
+    });
     return id;
   }
 }
