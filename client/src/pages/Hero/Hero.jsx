@@ -1,5 +1,5 @@
 import "../Hero/Hero.scss";
-import React from "react";
+import { useState } from "react";
 import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -29,7 +29,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function Hero() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">

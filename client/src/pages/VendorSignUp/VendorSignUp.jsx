@@ -1,12 +1,38 @@
-import PopUpVendorSignIn from "../../components/PopUpVendorSignIn/PopUpVendorSignIn";
 import axios from "axios";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Sign Up Success!!
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Welcome to Foodio Fare</h4>
+        <p>Let them Come and Find Your Delicious Goodness!!</p>
+        <p>Your ID is {props.vendorID}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 function VendorSignUp() {
   const [vendorID, setVendorID] = useState();
   const [setNewVendor] = useState();
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -30,8 +56,10 @@ function VendorSignUp() {
     }
     {
       setVendorID(newBussiness[0].vendorid);
+      console.log(vendorID);
     }
   };
+  console.log(vendorID);
 
   const createNewVendor = (obj) => {
     axios
@@ -176,19 +204,20 @@ function VendorSignUp() {
             <label htmlFor="floatingPassword">Password</label>
           </div>
 
-          <button
-            className="w-100 btn btn-lg btn-primary"
+          <Button
+            variant="primary"
             type="submit"
-            onClick={() => setButtonPopup(true)}
+            onClick={() => setModalShow(true)}
           >
             Sign Up
-          </button>
-          <PopUpVendorSignIn trigger={buttonPopup} className="popup">
-            <h3>Welcome to the FoodioFare Community!</h3>
-            <h3>New Account No: </h3>
-            <h4>{vendorID}</h4>
-          </PopUpVendorSignIn>
+          </Button>
+
           <hr className="my-4" />
+          <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            vendorID={vendorID}
+          />
         </form>
       </div>
     </>
