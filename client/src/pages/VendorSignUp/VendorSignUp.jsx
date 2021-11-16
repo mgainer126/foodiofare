@@ -31,7 +31,7 @@ function MyVerticallyCenteredModal(props) {
 
 function VendorSignUp() {
   const [vendorID, setVendorID] = useState();
-  const [newVendor, setNewVendor] = useState();
+  // const [newVendor, setNewVendor] = useState();
   const [modalShow, setModalShow] = useState(false);
 
   const handleSubmit = (event) => {
