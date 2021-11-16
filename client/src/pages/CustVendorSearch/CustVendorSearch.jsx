@@ -42,7 +42,6 @@ export default class CustVendorSearch extends Component {
   };
 
   componentDidMount() {
-    // if (this.state.vendor !== prevState.vendor) {
     axios
       .get("http://localhost:8080/find/vendor")
       .then((vendors) => {
@@ -56,7 +55,6 @@ export default class CustVendorSearch extends Component {
         // handle error
         console.log(error);
       });
-    // }
   }
 
   componentDidUpdate(prevProps, prevState) {

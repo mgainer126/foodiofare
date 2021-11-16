@@ -1,9 +1,9 @@
-import React, { Component } from "react";
 import VendorEditForm from "../../components/VendorEditForm/VendorEditForm";
 import axios from "axios";
+import React from "react";
 
-export default class VendorEdit extends Component {
-  handleSubmit = (event) => {
+function VendorEdit() {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const updatedVendor = [
       {
@@ -23,11 +23,11 @@ export default class VendorEdit extends Component {
       .then((response) => console.log(response));
   };
 
-  render() {
-    return (
-      <div>
-        <VendorEditForm handleSubmit={this.handleSubmit} />
-      </div>
-    );
-  }
+  return (
+    <>
+      <VendorEditForm handleSubmit={handleSubmit} />
+    </>
+  );
 }
+
+export default VendorEdit;
