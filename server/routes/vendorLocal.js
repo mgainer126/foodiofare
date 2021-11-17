@@ -55,6 +55,23 @@ router.post("/vendor", (req, res) => {
   }
 });
 
+router.put("/:id", (req, res) => {
+  const { addnum, streetname, streettype, city, province } = req.body;
+  if (addnum && streetname && streettype && city && province) {
+    try {
+      database
+        .promise()
+        .query(
+          `UPDATE vendorsinfo SET addnum = '${addnum}', streetname = '${streetname}', streettype = '${streettype}', city = '${city}', province = '${province}' WHERE vendorid = '${req.params.id}'`
+        );
+
+      res.status(201).send({ msg: "sucessful" });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});
+
 // router.put("/:id", (req, res) => {
 //   console.log("5");
 //   knex
