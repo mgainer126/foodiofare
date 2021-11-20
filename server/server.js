@@ -3,6 +3,7 @@ const app = express();
 const PORT = 8080;
 const cors = require("cors");
 const vendorLocations = require("./routes/vendorLocal");
+const customer = require("./routes/customer");
 
 app.use(cors());
 
@@ -18,6 +19,8 @@ app.use((req, _res, next) => {
 });
 
 app.use("/find", vendorLocations);
+
+app.use("/customer", customer);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
