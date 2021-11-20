@@ -40,12 +40,14 @@ function CustomerSignUp() {
         streetname: event.target[3].value,
         streettype: event.target[4].value,
         city: event.target[5].value,
-        provice: event.target[6].value,
+        province: event.target[6].value,
         username: event.target[7].value,
         password: event.target[8].value,
       },
     ];
-    createNewCustomer(newCustomer[0]);
+    {
+      createNewCustomer(newCustomer[0]);
+    }
   };
 
   const createNewCustomer = (obj) => {

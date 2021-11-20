@@ -16,7 +16,10 @@ router.post("/create", (req, res) => {
     username,
     password,
   } = req.body;
-  console.log(req.body);
+  console.log(
+    `'${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}'`
+  );
+  console.log(`'${province}'`);
   if (
     fname &&
     lname &&
@@ -30,10 +33,12 @@ router.post("/create", (req, res) => {
   ) {
     try {
       database
+
         .promise()
         .query(
           `INSERT INTO customerInfo VALUES('${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}')`
         );
+
       res.status(201).send({ msg: "success" });
     } catch (err) {
       console.log(err);
