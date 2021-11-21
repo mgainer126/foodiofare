@@ -4,6 +4,7 @@ const PORT = 8080;
 const cors = require("cors");
 const vendorLocations = require("./routes/vendorLocal");
 const customer = require("./routes/customer");
+const auth = require("./routes/auth");
 
 app.use(cors());
 
@@ -21,6 +22,8 @@ app.use((req, _res, next) => {
 app.use("/find", vendorLocations);
 
 app.use("/customer", customer);
+
+app.use("/login", auth);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
