@@ -10,3 +10,10 @@
   font-size: 0.5rem;
   color: #bf6a39;
 }
+
+.login {
+  &__cta {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -75,12 +75,18 @@ function Hero() {
               </div>
 
               <hr className="my-4" />
-              <small className="text-muted">
-                New to Foodie Fare? <Link to="/custSignUp">Sign Up</Link>
-              </small>
-              <Button variant="primary" onClick={() => setModalShow(true)}>
-                Log In
-              </Button>
+              <div className="login__cta">
+                <small className="text-muted">
+                  New to Foodie Fare? <Link to="/custSignUp">Sign Up</Link>
+                </small>
+                <Button
+                  variant="primary"
+                  className="login__btn "
+                  onClick={() => setModalShow(true)}
+                >
+                  Log In
+                </Button>
+              </div>
             </form>
 
             <MyVerticallyCenteredModal
