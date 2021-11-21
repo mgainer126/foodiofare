@@ -16,10 +16,7 @@ router.post("/create", (req, res) => {
     username,
     password,
   } = req.body;
-  console.log(
-    `'${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}'`
-  );
-  console.log(`'${province}'`);
+
   if (
     fname &&
     lname &&

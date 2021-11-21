@@ -3,6 +3,7 @@ import { useState } from "react";
 import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -74,7 +75,9 @@ function Hero() {
               </div>
 
               <hr className="my-4" />
-              <small className="text-muted">New to Foodie Fare? Sign Up</small>
+              <small className="text-muted">
+                New to Foodie Fare? <Link to="/custSignUp">Sign Up</Link>
+              </small>
               <Button variant="primary" onClick={() => setModalShow(true)}>
                 Log In
               </Button>
