@@ -23,7 +23,9 @@ function MyVerticallyCenteredModal(props) {
         <p>Find your next great meal, street food style!!</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Proceed</Button>
+        <Link to="/custVendorSearch">
+          <Button onClick={props.onHide}>Proceed</Button>
+        </Link>
       </Modal.Footer>
     </Modal>
   );
