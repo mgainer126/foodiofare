@@ -4,6 +4,8 @@ import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import useToken from "../../components/Authenticate/useToken";
+import axios from "axios";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -33,6 +35,39 @@ function MyVerticallyCenteredModal(props) {
 
 function Hero() {
   const [modalShow, setModalShow] = useState(false);
+  const { token, setToken } = useToken();
+  // const [email, setEmail] = useState();
+  // const [password, setPassword] = useState();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = event.target[0].value;
+    const password = event.target[1].value;
+    console.log(email, password);
+
+    axios
+      .get("http://localhost:8080/customer/customer")
+      .then(function (response) {
+        let credentialArr = response.data;
+        const locateCred = credentialArr.filter(
+          (credential) => email === credential.username
+        );
+        const verify = locateCred[0].password === password;
+        return verify;
+      })
+      .then((res) => {
+        if (res === true) {
+          axios.get("http://localhost:8080/login/request").then((res) => {
+            let token = res.data;
+            setToken(token);
+            console.log("Sucesfull Username and Password");
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error, "Incorrect Username or Password Entered");
+      });
+  };
   return (
     <>
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">
@@ -50,7 +85,10 @@ function Hero() {
           </div>
 
           <div className="col-md-10 mx-auto col-lg-5">
-            <form className="p-4 p-md-5 border rounded-3 bg-light">
+            <form
+              onSubmit={handleSubmit}
+              className="p-4 p-md-5 border rounded-3 bg-light"
+            >
               <div className="form-floating mb-3">
                 <input
                   type="email"
@@ -84,6 +122,7 @@ function Hero() {
                 <Button
                   variant="primary"
                   className="login__btn "
+                  type="submit"
                   onClick={() => setModalShow(true)}
                 >
                   Log In
