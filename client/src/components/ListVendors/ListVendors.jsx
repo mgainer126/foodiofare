@@ -1,12 +1,33 @@
 import "../ListVendors/ListVendors.scss";
 import { Link } from "react-router-dom";
+// import googleAPIKey from "../../data/APIKey";
+// import axios from "axios";
 
-function ListVendors({ vendors, category, area, handleClick }) {
+function ListVendors({ vendors, category, handleClick }) {
   const categoryFilter = vendors.filter(
     (vendor) => vendor.foodcat === category
   );
 
   const vendorArr = categoryFilter;
+
+  // const handleClick = (e) => {
+  //   axios
+  //     .get(
+  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
+  //   +${e.city},+${e.province}&key=${googleAPIKey}`
+  //     )
+  //     .then((response) => {
+  //       let vendorcords = response.data.results[0].geometry.location;
+  //       this.setState({
+  //         vendorcords: vendorcords,
+  //       });
+  //       return response.data;
+  //     })
+  //     .catch(function (error) {
+  //       // handle error
+  //       console.log(error);
+  //     });
+  // };
 
   return vendorArr.map((vendor) => {
     return (

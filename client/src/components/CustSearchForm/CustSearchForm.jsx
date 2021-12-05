@@ -20,7 +20,7 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
           className="p-md-5 border rounded-3 bg-light"
         >
           {/* House Number */}
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -29,9 +29,9 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               placeholder="House Number"
             />
             <label htmlFor="floatingPassword">House Number</label>
-          </div>
+          </div> */}
           {/* Street Name */}
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -40,9 +40,9 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               placeholder="Street Name"
             />
             <label htmlFor="floatingPassword">Street Name</label>
-          </div>
+          </div> */}
 
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -51,9 +51,9 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               placeholder="Street Type"
             />
             <label htmlFor="floatingPassword">Street Type</label>
-          </div>
+          </div> */}
           {/* City */}
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -62,9 +62,9 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               placeholder="City"
             />
             <label htmlFor="floatingPassword">City</label>
-          </div>
+          </div> */}
           {/* Province/State */}
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -73,7 +73,7 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
               placeholder="province-state"
             />
             <label htmlFor="floatingPassword">Province/State</label>
-          </div>
+          </div> */}
           <label htmlFor="category">Category Search</label>
           <select
             className="form-control"

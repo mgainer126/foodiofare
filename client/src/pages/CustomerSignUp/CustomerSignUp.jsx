@@ -45,9 +45,8 @@ function CustomerSignUp() {
         password: event.target[8].value,
       },
     ];
-    {
-      createNewCustomer(newCustomer[0]);
-    }
+
+    createNewCustomer(newCustomer[0]);
   };
 
   const createNewCustomer = (obj) => {
@@ -171,7 +170,7 @@ function CustomerSignUp() {
         <Button
           variant="primary"
           type="submit"
-          //   onClick={() => setModalShow(true)}
+          onClick={() => setModalShow(true)}
         >
           Sign Up
         </Button>
@@ -179,7 +178,7 @@ function CustomerSignUp() {
         <hr className="my-4" />
         <MyVerticallyCenteredModal
           show={modalShow}
-          //   onHide={() => setModalShow(false)}
+          onHide={() => setModalShow(false)}
         />
       </form>
     </div>

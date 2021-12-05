@@ -35,9 +35,8 @@ function MyVerticallyCenteredModal(props) {
 
 function Hero() {
   const [modalShow, setModalShow] = useState(false);
+
   const { token, setToken } = useToken();
-  // const [email, setEmail] = useState();
-  // const [password, setPassword] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,22 +51,20 @@ function Hero() {
         const locateCred = credentialArr.filter(
           (credential) => email === credential.username
         );
+        console.log(locateCred);
         const verify = locateCred[0].password === password;
-        return verify;
-      })
-      .then((res) => {
-        if (res === true) {
-          axios.get("http://localhost:8080/login/request").then((res) => {
-            let token = res.data;
-            setToken(token);
-            console.log("Sucesfull Username and Password");
-          });
+        if (verify === true) {
+          //need to have a unique id set as the session storage
+          setToken(locateCred[0].username);
+          console.log("Sucesfull Username and Password");
         }
       })
       .catch((error) => {
         console.log(error, "Incorrect Username or Password Entered");
       });
   };
+
+  console.log(sessionStorage.token);
   return (
     <>
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">

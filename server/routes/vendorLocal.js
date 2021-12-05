@@ -6,7 +6,7 @@ app.use(express.json());
 
 router.get("/vendor", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM vendorsinfo");
-  console.log(results[0]);
+  // console.log(results[0]);
   res.status(200).send(results[0]);
 });
 

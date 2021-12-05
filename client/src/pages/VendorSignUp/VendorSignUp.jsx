@@ -51,12 +51,8 @@ function VendorSignUp() {
         password: event.target[9].value,
       },
     ];
-    {
-      createNewVendor(newBussiness[0]);
-    }
-    {
-      setVendorID(newBussiness[0].vendorid);
-    }
+    createNewVendor(newBussiness[0]);
+    setVendorID(newBussiness[0].vendorid);
   };
 
   const createNewVendor = (obj) => {

@@ -45,8 +45,9 @@ router.post("/create", (req, res) => {
 
 router.get("/customer", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM customerInfo");
+  const custArr = results[0];
   console.log(results[0]);
-  res.status(200).send(results[0]);
+  res.status(200).send(custArr);
 });
 
 module.exports = router;

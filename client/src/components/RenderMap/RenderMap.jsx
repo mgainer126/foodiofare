@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 import marker from "../../assets/icons/custom_pin.png";
 import googleAPIKey from "../../data/APIKey.jsx";
+import axios from "axios";
 import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
-export default function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
+function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
   const defaultProps = {
     center: {
       lat: defaultMapPos.lat,
@@ -14,6 +15,12 @@ export default function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
     },
     zoom: defaultZoom,
   };
+
+  // useEffect(() => {
+  //   axios.get("http://localhost:8080/customer/customer").then((response) => {
+  //     console.log(response);
+  //   });
+  // }, []);
 
   return (
     // Important! Always set the container height explicitly
@@ -41,3 +48,5 @@ export default function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
     </div>
   );
 }
+
+export default RenderMap;
