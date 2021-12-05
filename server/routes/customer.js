@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const database = require("../database");
 const app = express();
+const { v4: uuidv4 } = require("uuid");
 app.use(express.json());
 
 router.post("/create", (req, res) => {
@@ -33,7 +34,7 @@ router.post("/create", (req, res) => {
 
         .promise()
         .query(
-          `INSERT INTO customerInfo VALUES('${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}')`
+          `INSERT INTO customerInfo VALUES('${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}', '${uuidv4()}' )`
         );
 
       res.status(201).send({ msg: "success" });
