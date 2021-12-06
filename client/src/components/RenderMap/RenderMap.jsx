@@ -16,11 +16,22 @@ function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
     zoom: defaultZoom,
   };
 
-  // useEffect(() => {
-  //   axios.get("http://localhost:8080/customer/customer").then((response) => {
-  //     console.log(response);
-  //   });
-  // }, []);
+  useEffect(() => {
+    axios.get("http://localhost:8080/customer/customer").then((response) => {
+      const customers = response.data;
+      const token = sessionStorage.getItem("token");
+      const stringToken = JSON.parse(token);
+      const findCustomer = customers.filter(
+        (customer) => customer.uuid === stringToken
+      );
+      console.log(
+        findCustomer[0].streetno,
+        findCustomer[0].streetname,
+        findCustomer[0].province,
+        findCustomer[0].city
+      );
+    });
+  }, []);
 
   return (
     // Important! Always set the container height explicitly

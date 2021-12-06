@@ -55,7 +55,7 @@ function Hero() {
         const verify = locateCred[0].password === password;
         if (verify === true) {
           //need to have a unique id set as the session storage
-          setToken(locateCred[0].username);
+          setToken(locateCred[0].uuid);
           console.log("Sucesfull Username and Password");
         }
       })
