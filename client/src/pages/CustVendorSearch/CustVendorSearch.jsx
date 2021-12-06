@@ -92,7 +92,6 @@ function CustVendorSearch() {
     setArea(event.target[7].value);
   };
 
-  console.log(sessionStorage);
   return (
     <>
       {defaultMapPos && vendors && vendorcords && custcords && (
