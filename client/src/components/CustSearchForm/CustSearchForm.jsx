@@ -1,14 +1,15 @@
 import ListVendors from "../ListVendors/ListVendors";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "../CustSearchForm/CustSearchForm.scss";
 
-function CustSearchForm({ vendors, area, category, handleClick }) {
-  const [stores, setStores] = useState();
+function CustSearchForm({ handleClick }) {
+  const [stores, setStores] = useState([]);
+  // const [vendors, setVendors] = useState();
 
   const clickhandle = (event) => {
     event.preventDefault();
-    console.log(event.target[0].value);
+
     axios
       .get("http://localhost:8080/find/vendor")
       .then((response) => {
@@ -17,15 +18,12 @@ function CustSearchForm({ vendors, area, category, handleClick }) {
           (store) => store.foodcat === event.target[0].value
         );
         setStores(filteredStores);
-        console.log(filteredStores);
       })
       .catch((error) => {
         // handle error
         console.log(error);
       });
   };
-
-  console.log(stores);
 
   return (
     <>
@@ -41,8 +39,7 @@ function CustSearchForm({ vendors, area, category, handleClick }) {
       <div className="formandlist">
         <form
           onSubmit={clickhandle}
-          className="form"
-          className="p-md-5 border rounded-3 bg-light"
+          className="form p-md-5 border rounded-3 bg-light"
         >
           <label htmlFor="category">Category Search</label>
           <select className="form-control" id="category" name="category">
@@ -71,9 +68,7 @@ function CustSearchForm({ vendors, area, category, handleClick }) {
             2. Click on the displayed vendor and we will map show it on the map
           </h3>
           <ListVendors
-            vendors={vendors}
-            // category={category}
-            area={area}
+            vendors={stores}
             handleClick={handleClick}
             className="vendors__list"
           />

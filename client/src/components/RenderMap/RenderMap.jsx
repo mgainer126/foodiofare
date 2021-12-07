@@ -7,9 +7,8 @@ import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
-function RenderMap({ vendorcords }) {
+function RenderMap({ vendorcords, defaultZoom }) {
   const [custlocation, setCustLocation] = useState();
-  const [defaultZoom, setDefaultZoom] = useState(10);
 
   useEffect(() => {
     axios
@@ -39,7 +38,7 @@ function RenderMap({ vendorcords }) {
     // Important! Always set the container height explicitly
 
     <>
-      {custlocation && (
+      {custlocation && vendorcords && (
         <div className="map">
           {/* This renders the map */}
           <div style={{ height: "60vh", width: "100%" }}>

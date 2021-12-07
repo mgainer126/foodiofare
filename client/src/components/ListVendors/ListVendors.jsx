@@ -1,41 +1,11 @@
 import "../ListVendors/ListVendors.scss";
 import { Link } from "react-router-dom";
-// import googleAPIKey from "../../data/APIKey";
-// import axios from "axios";
 
-function ListVendors({ vendors, category, handleClick }) {
-  console.log(vendors);
-  const categoryFilter = vendors.filter(
-    (vendor) => vendor.foodcat === category
-  );
-
-  const vendorArr = categoryFilter;
-
-  // const handleClick = (e) => {
-  //   axios
-  //     .get(
-  //       `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
-  //   +${e.city},+${e.province}&key=${googleAPIKey}`
-  //     )
-  //     .then((response) => {
-  //       let vendorcords = response.data.results[0].geometry.location;
-  //       this.setState({
-  //         vendorcords: vendorcords,
-  //       });
-  //       return response.data;
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       console.log(error);
-  //     });
-  // };
-
-  console.log(vendorArr);
-
-  return vendorArr.map((vendor) => {
+function ListVendors({ vendors, handleClick }) {
+  return vendors.map((vendor) => {
     return (
       <>
-        <Link className="vendors">
+        <Link className="vendors" key={vendor.vendorid}>
           <div className="vendors__box">
             <div className="vendors__list" onClick={() => handleClick(vendor)}>
               <h5 className="vendor__bussname" name="bussname">
@@ -44,8 +14,8 @@ function ListVendors({ vendors, category, handleClick }) {
               <p name="foodcategory" className="vendor__cat">
                 {vendor.foodcat}
               </p>
-              <address className="address">
-                <street className="address__street">
+              <div className="address">
+                <div className="address__street">
                   <p name="address__no" className="address__no">
                     {vendor.addnum}
                   </p>
@@ -55,16 +25,16 @@ function ListVendors({ vendors, category, handleClick }) {
                   <p name="address__streettype" className="address__streettype">
                     {vendor.streettype}
                   </p>
-                </street>
-                <municipality className="address__municipality">
+                </div>
+                <div className="address__municipality">
                   <p name="address__city" className="address__city">
                     {vendor.city}
                   </p>
                   <p name="address__province" className="address__province">
                     {vendor.province}
                   </p>
-                </municipality>
-              </address>
+                </div>
+              </div>
             </div>
           </div>
         </Link>
