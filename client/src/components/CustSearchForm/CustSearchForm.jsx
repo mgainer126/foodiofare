@@ -1,7 +1,32 @@
 import ListVendors from "../ListVendors/ListVendors";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../CustSearchForm/CustSearchForm.scss";
 
-function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
+function CustSearchForm({ vendors, area, category, handleClick }) {
+  const [stores, setStores] = useState();
+
+  const clickhandle = (event) => {
+    event.preventDefault();
+    console.log(event.target[0].value);
+    axios
+      .get("http://localhost:8080/find/vendor")
+      .then((response) => {
+        const allstores = response.data;
+        const filteredStores = allstores.filter(
+          (store) => store.foodcat === event.target[0].value
+        );
+        setStores(filteredStores);
+        console.log(filteredStores);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      });
+  };
+
+  console.log(stores);
+
   return (
     <>
       <div className="layout">
@@ -15,72 +40,12 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
       </div>
       <div className="formandlist">
         <form
-          onSubmit={clickHandle}
+          onSubmit={clickhandle}
           className="form"
           className="p-md-5 border rounded-3 bg-light"
         >
-          {/* House Number */}
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="house-number"
-              name="house-number"
-              placeholder="House Number"
-            />
-            <label htmlFor="floatingPassword">House Number</label>
-          </div> */}
-          {/* Street Name */}
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="streetName"
-              name="streetName"
-              placeholder="Street Name"
-            />
-            <label htmlFor="floatingPassword">Street Name</label>
-          </div> */}
-
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="streetType"
-              name="streetType"
-              placeholder="Street Type"
-            />
-            <label htmlFor="floatingPassword">Street Type</label>
-          </div> */}
-          {/* City */}
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="city"
-              name="city"
-              placeholder="City"
-            />
-            <label htmlFor="floatingPassword">City</label>
-          </div> */}
-          {/* Province/State */}
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="province-state"
-              name="province-state"
-              placeholder="province-state"
-            />
-            <label htmlFor="floatingPassword">Province/State</label>
-          </div> */}
           <label htmlFor="category">Category Search</label>
-          <select
-            className="form-control"
-            id="category"
-            // value="category"
-            name="category"
-          >
+          <select className="form-control" id="category" name="category">
             <option>Select a Food Category</option>
             <option>Barbecue</option>
             <option>Chineese</option>
@@ -97,27 +62,6 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
           <button type="submit" className="btn btn-primary btn-lg">
             Find By Category
           </button>
-          <br></br>
-          <br></br>
-          <areafind className="areafind">
-            <label htmlFor="areasearch">Area Search</label>
-
-            <select
-              className="form-control"
-              id="area"
-              // value="areasearch"
-              name="area"
-            >
-              <option>Click Here to Select a Area</option>
-              <option>5km</option>
-              <option>10km</option>
-              <option>15km</option>
-              <option>20km</option>
-            </select>
-            <button type="submit" className="btn btn-primary btn-lg">
-              Find By Area
-            </button>
-          </areafind>
         </form>
         <div className="vendors">
           <h3 className="vendors__list-head">
@@ -128,7 +72,7 @@ function CustSearchForm({ clickHandle, vendors, area, category, handleClick }) {
           </h3>
           <ListVendors
             vendors={vendors}
-            category={category}
+            // category={category}
             area={area}
             handleClick={handleClick}
             className="vendors__list"

@@ -7,16 +7,9 @@ import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
-function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
-  const defaultProps = {
-    center: {
-      lat: defaultMapPos.lat,
-      lng: defaultMapPos.lng,
-    },
-    zoom: defaultZoom,
-  };
-
+function RenderMap({ vendorcords }) {
   const [custlocation, setCustLocation] = useState();
+  const [defaultZoom, setDefaultZoom] = useState(10);
 
   useEffect(() => {
     axios
@@ -53,7 +46,7 @@ function RenderMap({ defaultMapPos, defaultZoom, vendorcords }) {
             <GoogleMapReact
               bootstrapURLKeys={{ key: `${googleAPIKey}` }}
               center={custlocation}
-              zoom={defaultProps.zoom}
+              zoom={defaultZoom}
             >
               <CustIsHere
                 lat={custlocation.lat}

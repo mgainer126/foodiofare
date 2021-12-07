@@ -1,7 +1,7 @@
 //https://getbootstrap.com/docs/4.0/components/forms/
 import "../CustVendorSearch/CustVendorSearch.scss";
 import googleAPIKey from "../../data/APIKey";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
@@ -21,7 +21,7 @@ function CustVendorSearch() {
   });
 
   const [defaultZoom, setDefaultZoom] = useState(3.2);
-  const [custcords, setCustCords] = useState([]);
+
   const [vendors, setVendors] = useState();
   const [vendorcords, setVendorCords] = useState({
     lat: 39.011902,
@@ -94,7 +94,7 @@ function CustVendorSearch() {
 
   return (
     <>
-      {defaultMapPos && vendors && vendorcords && custcords && (
+      {defaultMapPos && vendors && vendorcords && (
         <div>
           <CustSearchForm
             clickHandle={handleSubmit}
@@ -106,7 +106,6 @@ function CustVendorSearch() {
           <RenderMap
             defaultMapPos={defaultMapPos}
             defaultZoom={defaultZoom}
-            custcords={custcords}
             vendorcords={vendorcords}
           />
         </div>

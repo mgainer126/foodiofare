@@ -36,7 +36,7 @@ function MyVerticallyCenteredModal(props) {
 function Hero() {
   const [modalShow, setModalShow] = useState(false);
 
-  const { token, setToken } = useToken();
+  const { setToken } = useToken();
 
   const handleSubmit = (event) => {
     event.preventDefault();

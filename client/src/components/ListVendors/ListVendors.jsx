@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import axios from "axios";
 
 function ListVendors({ vendors, category, handleClick }) {
+  console.log(vendors);
   const categoryFilter = vendors.filter(
     (vendor) => vendor.foodcat === category
   );
@@ -28,6 +29,8 @@ function ListVendors({ vendors, category, handleClick }) {
   //       console.log(error);
   //     });
   // };
+
+  console.log(vendorArr);
 
   return vendorArr.map((vendor) => {
     return (
