@@ -26,6 +26,5 @@ app.use("/customer", customer);
 app.use("/login", auth);
 
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-  console.log("hello port 8080");
+  console.log(`Server up on port ${PORT}`);
 });

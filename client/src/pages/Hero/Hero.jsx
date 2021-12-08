@@ -33,8 +33,33 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
+function MyVerticallyCenteredModalNot(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Incorrect Email Address or Password
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Please Try Again</h4>
+        <p>Find your next great meal, street food style!!</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Try Again</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 function Hero() {
   const [modalShow, setModalShow] = useState(false);
+  const [session, setSession] = useState(false);
 
   const { setToken } = useToken();
 
@@ -56,6 +81,7 @@ function Hero() {
         if (verify === true) {
           //need to have a unique id set as the session storage
           setToken(locateCred[0].uuid);
+          setSession(true);
           console.log("Sucesfull Username and Password");
         }
       })
@@ -64,7 +90,7 @@ function Hero() {
       });
   };
 
-  console.log(sessionStorage.token);
+  console.log(session);
   return (
     <>
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">
@@ -126,11 +152,18 @@ function Hero() {
                 </Button>
               </div>
             </form>
-
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            />
+            {!session && (
+              <MyVerticallyCenteredModalNot
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            )}
+            {session && (
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            )}
           </div>
           <img src={foodtruck} alt="foodtruck"></img>
         </div>
