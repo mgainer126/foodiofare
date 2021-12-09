@@ -7,12 +7,9 @@ function Header() {
   const [session, setSession] = useState();
 
   useEffect(() => {
-    setSession(sessionStorage);
-  }, []);
-
-  const header_customer = session.token.length > 2;
-
-  console.log(session.token.length);
+    console.log(sessionStorage.token.length);
+    setSession(sessionStorage.token.length > 1);
+  }, [sessionStorage.token.length]);
 
   return (
     <>
@@ -30,7 +27,7 @@ function Header() {
             </a>
             <ul className="nav nav-pills">
               <li className="nav-item">
-                {header_customer && (
+                {session && (
                   <Link to="/custVendorSearch" className="link">
                     <p className="header-link">Customers</p>
                   </Link>
