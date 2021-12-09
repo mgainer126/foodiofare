@@ -48,6 +48,7 @@ function CustomerUpdate() {
   console.log(session, customer);
 
   const handleSubmit = (event) => {
+    console.log(event);
     event.preventDefault();
     const newCustomer = [
       {
@@ -60,10 +61,17 @@ function CustomerUpdate() {
         province: event.target[6].value,
         username: event.target[7].value,
         password: event.target[8].value,
+        uuid: session,
       },
     ];
+    console.log(newCustomer[0].uuid);
 
-    // createNewCustomer(newCustomer[0]);
+    axios
+      .put(`http://localhost:8080/customer/${session}`, newCustomer[0])
+      .then((response) => {
+        console.log(response);
+      });
+    console.log(newCustomer[0]);
   };
 
   return (
@@ -88,9 +96,9 @@ function CustomerUpdate() {
                 className="form-control"
                 id="firstname"
                 name="firstname"
-                placeholder="first name"
+                defaultValue={customer.fname}
               />
-              <label htmlFor="floatingPassword">{customer.fname}</label>
+              <label htmlFor="floatingPassword">First Name</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -98,9 +106,9 @@ function CustomerUpdate() {
                 className="form-control"
                 id="lastname"
                 name="lastname"
-                placeholder="Last Name"
+                defaultValue={customer.lname}
               />
-              <label htmlFor="floatingPassword">{customer.lname}</label>
+              <label htmlFor="floatingPassword">Last Name</label>
             </div>
 
             <div className="form-floating mb-3">
@@ -109,9 +117,9 @@ function CustomerUpdate() {
                 className="form-control"
                 name="vendorstreetno"
                 id="vendostreetno"
-                placeholder="vendostreetno"
+                defaultValue={customer.streetno}
               />
-              <label htmlFor="floatingPassword">{customer.streetno}</label>
+              <label htmlFor="floatingPassword">Street Number</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -119,9 +127,9 @@ function CustomerUpdate() {
                 className="form-control"
                 name="vendorstreetname"
                 id="vendostreetname"
-                placeholder="vendostreetname"
+                defaultValue={customer.streetname}
               />
-              <label htmlFor="floatingPassword">{customer.streetname}</label>
+              <label htmlFor="floatingPassword">Street Name</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -129,9 +137,9 @@ function CustomerUpdate() {
                 className="form-control"
                 name="vendorstreettype"
                 id="vendorstreettype"
-                placeholder="Street Type"
+                defaultValue={customer.streettype}
               />
-              <label htmlFor="floatingPassword">{customer.streettype}</label>
+              <label htmlFor="floatingPassword">Street Type</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -139,9 +147,9 @@ function CustomerUpdate() {
                 className="form-control"
                 id="city"
                 name="city"
-                placeholder="city"
+                defaultValue={customer.city}
               />
-              <label htmlFor="floatingPassword">{customer.city}</label>
+              <label htmlFor="floatingPassword">City</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -149,9 +157,9 @@ function CustomerUpdate() {
                 className="form-control"
                 id="Province"
                 name="province"
-                placeholder="Province"
+                defaultValue={customer.province}
               />
-              <label htmlFor="floatingPassword">{customer.province}</label>
+              <label htmlFor="floatingPassword">Province</label>
             </div>
             <div className="form-floating mb-3">
               <input
@@ -159,9 +167,9 @@ function CustomerUpdate() {
                 className="form-control"
                 id="username"
                 name="username"
-                placeholder="User Name"
+                defaultValue={customer.username}
               />
-              <label htmlFor="floatingPassword">{customer.username}</label>
+              <label htmlFor="floatingPassword">User Name</label>
             </div>
 
             <div className="form-floating mb-3">
@@ -170,15 +178,15 @@ function CustomerUpdate() {
                 className="form-control"
                 name="password"
                 id="floatingPassword"
-                placeholder="Password"
+                defaultValue={customer.password}
               />
-              <label htmlFor="floatingPassword">{customer.password}</label>
+              <label htmlFor="floatingPassword">Password</label>
             </div>
 
             <Button
               variant="primary"
               type="submit"
-              onClick={() => setModalShow(true)}
+              //   onClick={() => setModalShow(true)}
             >
               Update
             </Button>
@@ -186,7 +194,7 @@ function CustomerUpdate() {
             <hr className="my-4" />
             <MyVerticallyCenteredModal
               show={modalShow}
-              onHide={() => setModalShow(false)}
+              //   onHide={() => setModalShow(false)}
             />
           </form>
         </>

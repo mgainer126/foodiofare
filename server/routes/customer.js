@@ -51,4 +51,42 @@ router.get("/customer", async (req, res) => {
   res.status(200).send(custArr);
 });
 
+router.put("/:id", (req, res) => {
+  console.log(req.body);
+  const {
+    fname,
+    lname,
+    streetno,
+    streetname,
+    streettype,
+    city,
+    province,
+    username,
+    password,
+  } = req.body;
+  if (
+    fname &&
+    lname &&
+    streetno &&
+    streetname &&
+    streettype &&
+    city &&
+    province &&
+    username &&
+    password
+  ) {
+    try {
+      database
+        .promise()
+        .query(
+          `UPDATE customerInfo SET fname = '${fname}', lname = '${lname}',streetno = '${streetno}', streettype = '${streettype}', city = '${city}', province= '${province}', username = '${username}', password = '${password}' WHERE uuid = ${req.params.id}`
+        );
+
+      res.status(201).send({ msg: "sucessful" });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});
+
 module.exports = router;

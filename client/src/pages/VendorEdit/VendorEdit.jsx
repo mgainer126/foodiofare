@@ -15,6 +15,8 @@ function VendorEdit() {
       },
     ];
     console.log(updatedVendor[0]);
+    console.log(event.target[0].value);
+
     axios
       .put(
         `http://localhost:8080/find/${event.target[0].value}`,
