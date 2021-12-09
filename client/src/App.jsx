@@ -8,6 +8,7 @@ import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
 import VendorEdit from "./pages/VendorEdit/VendorEdit";
 import VendorMain from "../src/pages/VendorMain/VendorMain";
 import About from "../src/pages/About/About";
+import CustomerUpdate from "./components/CustomerUpdate/CustomerUpdate";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" component={Hero} />
           <Route exact path="/vendorSignUp" component={VendorSignUp} />
           <Route exact path="/custSignUp" component={CustomerSignUp} />
+          <Route exact path="/custUpdate" component={CustomerUpdate} />
           <Route exact path="/custVendorSearch" component={CustVendorSearch} />
           <Route exact path="/vendorEdit" component={VendorEdit} />
           <Route exact path="/vendorMain" component={VendorMain} />
