@@ -1,5 +1,5 @@
 import "../Hero/Hero.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -61,7 +61,11 @@ function Hero() {
   const [modalShow, setModalShow] = useState(false);
   const [session, setSession] = useState(false);
 
-  const { setToken } = useToken();
+  const { token, setToken } = useToken();
+
+  useEffect(() => {
+    setToken(0);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -90,7 +94,6 @@ function Hero() {
       });
   };
 
-  console.log(session);
   return (
     <>
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">

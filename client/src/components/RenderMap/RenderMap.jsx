@@ -9,8 +9,10 @@ const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
 function RenderMap({ vendorcords, defaultZoom }) {
   const [custlocation, setCustLocation] = useState();
+  const [session, setSession] = useState(0);
 
   useEffect(() => {
+    setSession(sessionStorage.token);
     axios
       .get("http://localhost:8080/customer/customer")
       .then(function (response) {
@@ -22,23 +24,22 @@ function RenderMap({ vendorcords, defaultZoom }) {
         );
         coords(findCustomer);
       });
-  }, []);
-
-  const coords = (x) => {
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${x[0].streetno}+${x[0].streetname}+${x[0].streettype},+${x[0].city},+${x[0].province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
-      )
-      .then(function (response) {
-        setCustLocation(response.data.results[0].geometry.location);
-      });
-  };
+    const coords = (x) => {
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${x[0].streetno}+${x[0].streetname}+${x[0].streettype},+${x[0].city},+${x[0].province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+        )
+        .then(function (response) {
+          setCustLocation(response.data.results[0].geometry.location);
+        });
+    };
+  }, [session]);
 
   return (
     // Important! Always set the container height explicitly
 
     <>
-      {custlocation && vendorcords && (
+      {custlocation && vendorcords && session && (
         <div className="map">
           {/* This renders the map */}
           <div style={{ height: "60vh", width: "100%" }}>

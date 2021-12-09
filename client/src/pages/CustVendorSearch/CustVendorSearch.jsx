@@ -1,7 +1,7 @@
 //https://getbootstrap.com/docs/4.0/components/forms/
 import "../CustVendorSearch/CustVendorSearch.scss";
 import googleAPIKey from "../../data/APIKey";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
@@ -9,8 +9,10 @@ import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
 function CustVendorSearch() {
   const [defaultZoom, setDefaultZoom] = useState(10);
   const [vendorcords, setVendorCords] = useState({});
+  const [storage, setStorage] = useState(false);
 
   const handleClick = (e) => {
+    console.log(e);
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
@@ -29,14 +31,20 @@ function CustVendorSearch() {
       });
   };
 
+  useEffect(() => {
+    setStorage(sessionStorage);
+  }, []);
+
   return (
     <>
-      {vendorcords && (
+      {storage && (
         <div>
           <CustSearchForm handleClick={handleClick} />
           <RenderMap defaultZoom={defaultZoom} vendorcords={vendorcords} />
         </div>
       )}
+
+      {!storage && <div>You are not authenticated. Please log In</div>}
     </>
   );
 }
