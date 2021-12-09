@@ -9,7 +9,7 @@ function Header() {
   useEffect(() => {
     console.log(sessionStorage.token.length);
     setSession(sessionStorage.token.length > 1);
-  }, [sessionStorage.token.length]);
+  }, [session]);
 
   return (
     <>
