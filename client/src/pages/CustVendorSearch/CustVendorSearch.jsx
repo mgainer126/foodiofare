@@ -13,7 +13,6 @@ function CustVendorSearch() {
   const [storage, setStorage] = useState(false);
 
   const handleClick = (e) => {
-    console.log(e);
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
@@ -35,8 +34,6 @@ function CustVendorSearch() {
   useEffect(() => {
     setStorage(sessionStorage);
   }, []);
-
-  console.log(storage);
 
   return (
     <>

@@ -23,7 +23,6 @@ function RenderMap({ vendorcords, defaultZoom }) {
           (customer) => customer.uuid === stringToken
         );
         coords(findCustomer);
-        console.log(findCustomer);
       });
     const coords = (x) => {
       axios

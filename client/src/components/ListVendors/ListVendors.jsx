@@ -7,7 +7,11 @@ function ListVendors({ vendors, handleClick }) {
       <>
         <Link className="vendors" key={vendor.vendorid}>
           <div className="vendors__box">
-            <div className="vendors__list" onClick={() => handleClick(vendor)}>
+            <div
+              className="vendors__list"
+              key={vendor.vendorid}
+              onClick={() => handleClick(vendor)}
+            >
               <h5 className="vendor__bussname" name="bussname">
                 {vendor.bussname}
               </h5>

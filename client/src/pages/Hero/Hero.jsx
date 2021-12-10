@@ -1,5 +1,5 @@
 import "../Hero/Hero.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import foodtruck from "../../assets/images/Food-Truck-Design.jpg";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -62,17 +62,12 @@ function Hero() {
   const [modalShow, setModalShow] = useState(false);
   const [session, setSession] = useState(false);
 
-  const { token, setToken } = useToken();
-
-  useEffect(() => {
-    setToken(0);
-  }, []);
+  const { setToken } = useToken();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target[0].value;
     const password = event.target[1].value;
-    console.log(email, password);
 
     axios
       .get("http://localhost:8080/customer/customer")
@@ -81,7 +76,7 @@ function Hero() {
         const locateCred = credentialArr.filter(
           (credential) => email === credential.username
         );
-        console.log(locateCred);
+
         const verify = locateCred[0].password === password;
         if (verify === true) {
           //need to have a unique id set as the session storage
@@ -94,8 +89,6 @@ function Hero() {
         console.log(error, "Incorrect Username or Password Entered");
       });
   };
-
-  console.log(session);
 
   return (
     <>

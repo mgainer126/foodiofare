@@ -5,17 +5,32 @@ import "../CustSearchForm/CustSearchForm.scss";
 
 function CustSearchForm({ handleClick }) {
   const [stores, setStores] = useState([]);
-  // const [vendors, setVendors] = useState();
+  const [consumer, setConsumer] = useState();
 
   const clickhandle = (event) => {
     event.preventDefault();
 
     axios
+      .get("http://localhost:8080/customer/customer")
+      .then(function (response) {
+        const customers = response.data;
+        const token = sessionStorage.getItem("token");
+        const stringToken = JSON.parse(token);
+        const findCustomer = customers.filter(
+          (customer) => customer.uuid === stringToken
+        );
+        setConsumer(findCustomer[0].city);
+      });
+
+    axios
       .get("http://localhost:8080/find/vendor")
       .then((response) => {
         const allstores = response.data;
-        const filteredStores = allstores.filter(
+        const filteredCity = allstores.filter(
           (store) => store.foodcat === event.target[0].value
+        );
+        const filteredStores = filteredCity.filter(
+          (city) => city.city === consumer
         );
         setStores(filteredStores);
       })

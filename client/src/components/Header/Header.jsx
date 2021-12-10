@@ -1,10 +1,8 @@
 import "../Header/Header.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 function Header({ token }) {
-  console.log(token);
   return (
     <>
       <div className="header">
@@ -20,13 +18,18 @@ function Header({ token }) {
               </Link>
             </a>
             <ul className="nav nav-pills">
-              <li className="nav-item">
-                {token && (
-                  <Link to="/custVendorSearch" className="link">
-                    <p className="header-link">Customers</p>
+              {token && (
+                <>
+                  <li className="nav-item">
+                    <Link to="/custVendorSearch" className="link">
+                      <p className="header-link">Food Truck Search</p>
+                    </Link>
+                  </li>
+                  <Link to="/custUpdate" className="link">
+                    <p className="header-link">Customer Profile</p>
                   </Link>
-                )}
-              </li>
+                </>
+              )}
               <li className="nav-item">
                 <Link to="/vendorMain" className="link">
                   <p className="header-link">Business</p>

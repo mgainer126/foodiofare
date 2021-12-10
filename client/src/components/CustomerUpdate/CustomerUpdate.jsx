@@ -2,6 +2,7 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -37,7 +38,13 @@ function CustomerUpdate() {
     axios
       .get("http://localhost:8080/customer/customer")
       .then(function (response) {
-        setCustomer(response.data[0]);
+        const profiles = response.data;
+        const token = sessionStorage.getItem("token");
+        const stringToken = JSON.parse(token);
+        const findProfile = profiles.filter(
+          (profile) => profile.uuid === stringToken
+        );
+        setCustomer(findProfile[0]);
       })
       .catch(function (error) {
         // handle error
@@ -69,132 +76,136 @@ function CustomerUpdate() {
       });
   };
 
+  console.log(customer);
   return (
-    <div className="col-md-10 mx-auto col-lg-5">
-      {customer && (
-        <>
-          <div>
-            <h1 className="display-4 fw-bold lh-1 mb-3">
-              Customer Update Personal Information
-            </h1>
-            <p className=" fs-4 signup">
-              Please provided the updated infomation below
-            </p>
-          </div>
-          <form
-            onSubmit={handleSubmit}
-            className="p-4 p-md-5 border rounded-3 bg-light"
-          >
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="firstname"
-                name="firstname"
-                defaultValue={customer.fname}
-              />
-              <label htmlFor="floatingPassword">First Name</label>
+    <>
+      <Header token={sessionStorage} />
+      <div className="col-md-10 mx-auto col-lg-5">
+        {customer && (
+          <>
+            <div>
+              <h1 className="display-4 fw-bold lh-1 mb-3">
+                Customer Update Personal Information
+              </h1>
+              <p className=" fs-4 signup">
+                Please provided the updated infomation below
+              </p>
             </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="lastname"
-                name="lastname"
-                defaultValue={customer.lname}
-              />
-              <label htmlFor="floatingPassword">Last Name</label>
-            </div>
-
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                name="vendorstreetno"
-                id="vendostreetno"
-                defaultValue={customer.streetno}
-              />
-              <label htmlFor="floatingPassword">Street Number</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                name="vendorstreetname"
-                id="vendostreetname"
-                defaultValue={customer.streetname}
-              />
-              <label htmlFor="floatingPassword">Street Name</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                name="vendorstreettype"
-                id="vendorstreettype"
-                defaultValue={customer.streettype}
-              />
-              <label htmlFor="floatingPassword">Street Type</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="city"
-                name="city"
-                defaultValue={customer.city}
-              />
-              <label htmlFor="floatingPassword">City</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="Province"
-                name="province"
-                defaultValue={customer.province}
-              />
-              <label htmlFor="floatingPassword">Province</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                name="username"
-                defaultValue={customer.username}
-              />
-              <label htmlFor="floatingPassword">User Name</label>
-            </div>
-
-            <div className="form-floating mb-3">
-              <input
-                type="password"
-                className="form-control"
-                name="password"
-                id="floatingPassword"
-                defaultValue={customer.password}
-              />
-              <label htmlFor="floatingPassword">Password</label>
-            </div>
-
-            <Button
-              variant="primary"
-              type="submit"
-              //   onClick={() => setModalShow(true)}
+            <form
+              onSubmit={handleSubmit}
+              className="p-4 p-md-5 border rounded-3 bg-light"
             >
-              Update
-            </Button>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="firstname"
+                  name="firstname"
+                  defaultValue={customer.fname}
+                />
+                <label htmlFor="floatingPassword">First Name</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="lastname"
+                  name="lastname"
+                  defaultValue={customer.lname}
+                />
+                <label htmlFor="floatingPassword">Last Name</label>
+              </div>
 
-            <hr className="my-4" />
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              //   onHide={() => setModalShow(false)}
-            />
-          </form>
-        </>
-      )}
-    </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="vendorstreetno"
+                  id="vendostreetno"
+                  defaultValue={customer.streetno}
+                />
+                <label htmlFor="floatingPassword">Street Number</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="vendorstreetname"
+                  id="vendostreetname"
+                  defaultValue={customer.streetname}
+                />
+                <label htmlFor="floatingPassword">Street Name</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="vendorstreettype"
+                  id="vendorstreettype"
+                  defaultValue={customer.streettype}
+                />
+                <label htmlFor="floatingPassword">Street Type</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="city"
+                  name="city"
+                  defaultValue={customer.city}
+                />
+                <label htmlFor="floatingPassword">City</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="Province"
+                  name="province"
+                  defaultValue={customer.province}
+                />
+                <label htmlFor="floatingPassword">Province</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  name="username"
+                  defaultValue={customer.username}
+                />
+                <label htmlFor="floatingPassword">User Name</label>
+              </div>
+
+              <div className="form-floating mb-3">
+                <input
+                  type="password"
+                  className="form-control"
+                  name="password"
+                  id="floatingPassword"
+                  defaultValue={customer.password}
+                />
+                <label htmlFor="floatingPassword">Password</label>
+              </div>
+
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={() => setModalShow(true)}
+              >
+                Update
+              </Button>
+
+              <hr className="my-4" />
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+            </form>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
