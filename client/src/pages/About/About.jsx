@@ -1,9 +1,11 @@
 import "../About/About.scss";
 import foodtruckin from "../../assets/images/foodtruckin.jpg";
+import Header from "../../components/Header/Header";
 
 function About() {
   return (
     <>
+      <Header token={sessionStorage} />
       <div className="about">
         <h1 className="about__title">About</h1>
         <p className="about__para">

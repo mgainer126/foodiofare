@@ -1,7 +1,7 @@
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Hero from "./pages/Hero/Hero";
-import Header from "./components/Header/Header";
+// import Header from "./components/Header/Header";
 import CustomerSignUp from "./pages/CustomerSignUp/CustomerSignUp";
 import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
 import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route exact path="/" component={Hero} />
           <Route exact path="/vendorSignUp" component={VendorSignUp} />

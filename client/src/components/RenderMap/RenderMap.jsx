@@ -23,6 +23,7 @@ function RenderMap({ vendorcords, defaultZoom }) {
           (customer) => customer.uuid === stringToken
         );
         coords(findCustomer);
+        console.log(findCustomer);
       });
     const coords = (x) => {
       axios
@@ -33,7 +34,7 @@ function RenderMap({ vendorcords, defaultZoom }) {
           setCustLocation(response.data.results[0].geometry.location);
         });
     };
-  }, [session]);
+  }, []);
 
   return (
     // Important! Always set the container height explicitly

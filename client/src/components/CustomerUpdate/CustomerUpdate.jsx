@@ -45,10 +45,7 @@ function CustomerUpdate() {
       });
   }, []);
 
-  console.log(session, customer);
-
   const handleSubmit = (event) => {
-    console.log(event);
     event.preventDefault();
     const newCustomer = [
       {
@@ -64,14 +61,12 @@ function CustomerUpdate() {
         uuid: session,
       },
     ];
-    console.log(newCustomer[0].uuid);
 
     axios
       .put(`http://localhost:8080/customer/${session}`, newCustomer[0])
       .then((response) => {
         console.log(response);
       });
-    console.log(newCustomer[0]);
   };
 
   return (

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
 import CustSearchForm from "../../components/CustSearchForm/CustSearchForm";
+import Header from "../../components/Header/Header";
 
 function CustVendorSearch() {
   const [defaultZoom, setDefaultZoom] = useState(10);
@@ -35,8 +36,11 @@ function CustVendorSearch() {
     setStorage(sessionStorage);
   }, []);
 
+  console.log(storage);
+
   return (
     <>
+      <Header token={storage} />
       {storage && (
         <div>
           <CustSearchForm handleClick={handleClick} />

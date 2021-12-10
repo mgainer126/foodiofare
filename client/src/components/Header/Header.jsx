@@ -3,14 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Header() {
-  const [session, setSession] = useState();
-
-  useEffect(() => {
-    console.log(sessionStorage.token.length);
-    setSession(sessionStorage.token.length > 1);
-  }, [session]);
-
+function Header({ token }) {
+  console.log(token);
   return (
     <>
       <div className="header">
@@ -27,7 +21,7 @@ function Header() {
             </a>
             <ul className="nav nav-pills">
               <li className="nav-item">
-                {session && (
+                {token && (
                   <Link to="/custVendorSearch" className="link">
                     <p className="header-link">Customers</p>
                   </Link>
