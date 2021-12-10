@@ -3,6 +3,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Header from "../../components/Header/Header";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -69,6 +70,7 @@ function VendorSignUp() {
   };
   return (
     <>
+      <Header />
       <div className="col-md-10 mx-auto col-lg-5">
         <div>
           <h1 className="display-4 fw-bold lh-1 mb-3">Sign Up</h1>

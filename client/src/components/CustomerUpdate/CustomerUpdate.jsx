@@ -76,7 +76,6 @@ function CustomerUpdate() {
       });
   };
 
-  console.log(customer);
   return (
     <>
       <Header token={sessionStorage} />
