@@ -10,6 +10,21 @@ router.get("/vendor", async (req, res) => {
   res.status(200).send(results[0]);
 });
 
+router.get("/vendor/:username/:password/", async (req, res) => {
+  const results = await database.promise().query("SELECT * FROM vendorsinfo");
+  const vendorArr = results[0];
+  const username = req.params.username;
+
+  const findVendorUser = vendorArr.filter(
+    (vendor) => vendor.username === username
+  );
+  const pssword = req.params.password;
+  const verifyPassword = findVendorUser.filter(
+    (password) => password.password === pssword
+  );
+  res.status(200).send(verifyPassword);
+});
+
 router.post("/vendor", (req, res) => {
   const {
     vendorid,
