@@ -65,7 +65,7 @@ router.post("/vendor", (req, res) => {
   }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/update/:id", (req, res) => {
   const { addnum, streetname, streettype, city, province } = req.body;
   if (addnum && streetname && streettype && city && province) {
     try {
