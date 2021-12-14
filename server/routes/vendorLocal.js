@@ -26,6 +26,7 @@ router.get("/vendor/:username/:password/", async (req, res) => {
 });
 
 router.post("/vendor", (req, res) => {
+  console.log(req.body);
   const {
     vendorid,
     bussname,
@@ -39,6 +40,7 @@ router.post("/vendor", (req, res) => {
     password,
     username,
   } = req.body;
+
   if (
     vendorid &&
     bussname &&
@@ -56,8 +58,9 @@ router.post("/vendor", (req, res) => {
       database
         .promise()
         .query(
-          `INSERT INTO vendorsinfo VALUES('${vendorid}',' ${bussname}','${operatorname} ','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}')`
+          `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}')`
         );
+
       res.status(201).send({ msg: "success" });
     } catch (err) {
       console.log(err);

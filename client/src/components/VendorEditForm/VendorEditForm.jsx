@@ -1,13 +1,40 @@
 import React from "react";
-import PopUpVendorEdit from "../PopUpVendorEdit/PopUpVendorEdit";
 import { useState } from "react";
 import Header from "../../components/Header/Header";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 import "../VendorEditForm/VendorEditForm.scss";
 
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Your Location Has Been Updated!!
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Thanks For The Update</h4>
+        <p>Customers will be able to see your new location immediately!! </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Link to="/vendorMain">
+          <Button onClick={props.onHide}>Back to Business Home Page</Button>
+        </Link>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
 function VendorEditForm() {
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
   const [vendor, setVendor] = useState();
 
   const handleUpdate = (event) => {
@@ -22,8 +49,6 @@ function VendorEditForm() {
         province: event.target[4].value,
       },
     ];
-    console.log(updatedVendor[0]);
-    // console.log(event.target[0].value);
 
     axios
       .put(
@@ -37,7 +62,6 @@ function VendorEditForm() {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
-    console.log(username, password);
 
     axios
       .get(`http://localhost:8080/find/vendor/${username}/${password}`)
@@ -164,13 +188,14 @@ function VendorEditForm() {
             <button
               className="w-100 btn btn-lg btn-primary"
               type="submit"
-              onClick={() => setButtonPopup(true)}
+              onClick={() => setModalShow(true)}
             >
               Submit
             </button>
-            <PopUpVendorEdit trigger={buttonPopup} className="popup">
-              <h3>Update Processed</h3>
-            </PopUpVendorEdit>
+            <MyVerticallyCenteredModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+            />
           </form>
         )}
       </div>

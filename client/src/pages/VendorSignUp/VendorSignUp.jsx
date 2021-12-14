@@ -36,7 +36,7 @@ function VendorSignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     const newBussiness = [
       {
         vendorid: uuidv4(),
@@ -52,6 +52,7 @@ function VendorSignUp() {
         password: event.target[9].value,
       },
     ];
+    console.log(newBussiness[0]);
     createNewVendor(newBussiness[0]);
     setVendorID(newBussiness[0].vendorid);
   };
