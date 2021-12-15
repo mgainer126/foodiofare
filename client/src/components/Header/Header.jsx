@@ -1,5 +1,6 @@
 import "../Header/Header.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import { Link } from "react-router-dom";
 
 function Header({ token }) {
@@ -38,7 +39,7 @@ function Header({ token }) {
 
               <li className="nav-item">
                 <Link to="/about" className="link">
-                  <p className="header-link">About</p>
+                  <p className="header-link__about">About</p>
                 </Link>
               </li>
             </ul>

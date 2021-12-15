@@ -1,11 +1,20 @@
 import "../About/About.scss";
 import foodtruckin from "../../assets/images/foodtruckin.jpg";
 import Header from "../../components/Header/Header";
+import { useState, useEffect } from "react";
 
 function About() {
+  const [token, setToken] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.token.length > 1) {
+      setToken(true);
+    }
+  }, []);
+
   return (
     <>
-      <Header token={sessionStorage} />
+      <Header token={token} />
       <div className="about">
         <h1 className="about__title">About</h1>
         <p className="about__para">

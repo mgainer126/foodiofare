@@ -23,10 +23,37 @@
 
 .header-link {
   margin-left: 2rem;
+  margin-top: 0.5rem;
+  &__about {
+    margin-left: 6.5rem;
+    margin-top: 0.5rem;
+  }
 }
 
 .link {
   &__logo {
     font-family: "Monoton", cursive;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .link {
+    &__logo {
+      margin-left: 13rem;
+    }
+  }
+  .header-link {
+    &__about {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .link {
+    &__logo {
+      margin-left: 0;
+    }
   }
 }
