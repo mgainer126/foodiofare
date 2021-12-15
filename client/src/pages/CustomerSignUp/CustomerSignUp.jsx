@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import "../CustomerSignUp/CustomerSignUp.scss";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -70,8 +71,10 @@ function CustomerSignUp() {
       <Header />
       <div className="col-md-10 mx-auto col-lg-5">
         <div>
-          <h1 className="display-4 fw-bold lh-1 mb-3">Customer Sign Up</h1>
-          <p className=" fs-4 signup">
+          <h1 className="display-4 fw-bold lh-1 mb-3 signup__title">
+            Customer Sign Up
+          </h1>
+          <p className=" fs-4 signup__summ">
             Your enrolment information will allow you to create an account, that
             will be used to reference vendor food locations close to you
           </p>
