@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Header from "../../components/Header/Header";
+import "../../pages/VendorSignUp/VendorSignUp.scss";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -74,8 +75,10 @@ function VendorSignUp() {
       <Header />
       <div className="col-md-10 mx-auto col-lg-5">
         <div>
-          <h1 className="display-4 fw-bold lh-1 mb-3">Sign Up</h1>
-          <p className=" fs-4 signup">
+          <h1 className="display-4 fw-bold lh-1 mb-3 bussiness__sign">
+            Business Sign Up
+          </h1>
+          <p className=" fs-4 signup bussiness__summ">
             Your enrolment information will allow you to create an account,
             where you will be able to post the location of your operation so
             that customers can experience you cusine.
