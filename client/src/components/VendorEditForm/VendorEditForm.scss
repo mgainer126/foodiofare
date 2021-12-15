@@ -1,9 +1,20 @@
 .vendoreditform {
   display: flex;
   justify-content: center;
-  width: 35rem;
+  // width: 35rem;
   flex-direction: column;
   align-content: center;
   margin-left: auto;
   margin-right: auto;
+  &__form {
+    max-width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__title {
+    margin: 1rem;
+  }
+  &__summ {
+    margin: 1rem;
+  }
 }

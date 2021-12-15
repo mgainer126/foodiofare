@@ -74,10 +74,12 @@ function VendorEditForm() {
     <>
       <Header />
 
-      <div className="vendoreditform">
+      <div className="col-md-10 mx-auto col-lg-5 vendoreditform">
         <div>
-          <h1 className="display-4 fw-bold lh-1 mb-3">Update Location</h1>
-          <p className=" fs-4 signup">
+          <h1 className="display-4 fw-bold lh-1 mb-3 vendoreditform__title">
+            Update Location
+          </h1>
+          <p className=" fs-4 signup vendoreditform__summ">
             Provide your account number, and updated address location so that
             customers can find you today!
           </p>
@@ -85,7 +87,7 @@ function VendorEditForm() {
         {!vendor && (
           <form
             onSubmit={handleSubmit}
-            className="p-4 p-md-5 border rounded-3 bg-light"
+            className="p-4 p-md-5 border rounded-3 bg-light vendoreditform__form"
           >
             <div className="form-floating mb-3">
               <input

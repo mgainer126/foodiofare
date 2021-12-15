@@ -1,6 +1,7 @@
 import VendorEditForm from "../../components/VendorEditForm/VendorEditForm";
 import axios from "axios";
 import React from "react";
+// import "../../pages/VendorEdit/VendorEdit.scss";
 
 function VendorEdit() {
   const handleSubmit = (event) => {
@@ -27,7 +28,10 @@ function VendorEdit() {
 
   return (
     <>
-      <VendorEditForm handleSubmit={handleSubmit} />
+      <VendorEditForm
+        handleSubmit={handleSubmit}
+        // className="vendor__update--form"
+      />
     </>
   );
 }
