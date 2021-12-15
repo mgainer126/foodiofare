@@ -192,7 +192,7 @@ function VendorEditForm() {
               type="submit"
               onClick={() => setModalShow(true)}
             >
-              Submit
+              Update
             </button>
             <MyVerticallyCenteredModal
               show={modalShow}

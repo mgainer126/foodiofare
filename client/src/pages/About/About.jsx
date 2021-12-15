@@ -38,7 +38,9 @@ function About() {
           try something new, and possibly open yourself up to a completely new
           taste experience.
         </p>
-        <img src={foodtruckin} alt="foodtruck"></img>
+      </div>
+      <div className="image__center">
+        <img src={foodtruckin} alt="foodtruck" className="about__img"></img>
       </div>
     </>
   );
