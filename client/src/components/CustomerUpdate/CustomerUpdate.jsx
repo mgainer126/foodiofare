@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
+import "../CustomerUpdate/CustomerUpdate.scss";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -83,16 +84,16 @@ function CustomerUpdate() {
         {customer && (
           <>
             <div>
-              <h1 className="display-4 fw-bold lh-1 mb-3">
+              <h1 className="display-4 fw-bold lh-1 mb-3 title__custupdate">
                 Customer Update Personal Information
               </h1>
-              <p className=" fs-4 signup">
+              <p className=" fs-4 signup title__custinst">
                 Please provided the updated infomation below
               </p>
             </div>
             <form
               onSubmit={handleSubmit}
-              className="p-4 p-md-5 border rounded-3 bg-light"
+              className="p-4 p-md-5 border rounded-3 bg-light form"
             >
               <div className="form-floating mb-3">
                 <input
