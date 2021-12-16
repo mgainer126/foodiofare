@@ -1,41 +1,9 @@
 import ListVendors from "../ListVendors/ListVendors";
-import React, { useState } from "react";
-import axios from "axios";
+// import React, { useState } from "react";
+// import axios from "axios";
 import "../CustSearchForm/CustSearchForm.scss";
 
-function CustSearchForm({ handleClick }) {
-  const [stores, setStores] = useState([]);
-  const [consumer, setConsumer] = useState();
-
-  const clickhandle = (event) => {
-    event.preventDefault();
-    const uuid = sessionStorage.getItem("token");
-    const parseuuid = JSON.parse(uuid);
-    axios
-      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
-      .then(function (response) {
-        const findCustomer = response.data[0];
-        setConsumer(findCustomer.city);
-      });
-
-    axios
-      .get("http://localhost:8080/find/vendor")
-      .then((response) => {
-        const allstores = response.data;
-        const filteredCity = allstores.filter(
-          (store) => store.foodcat === event.target[0].value
-        );
-        const filteredStores = filteredCity.filter(
-          (city) => city.city === consumer
-        );
-        setStores(filteredStores);
-      })
-      .catch((error) => {
-        // handle error
-        console.log(error);
-      });
-  };
-
+function CustSearchForm({ handleClick, clickhandle, stores }) {
   return (
     <>
       <div className="layout">

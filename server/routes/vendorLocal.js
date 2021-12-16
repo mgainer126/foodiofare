@@ -3,6 +3,7 @@ const router = express.Router();
 const database = require("../database");
 const app = express();
 app.use(express.json());
+const axios = require("axios");
 
 router.get("/vendor", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM vendorsinfo");
@@ -55,7 +56,22 @@ router.post("/vendor", (req, res) => {
     username
   ) {
     try {
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${addnum}+${streetname}+${streettype},
+    +${city},+${province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+        )
+        .then((response) => {
+          const lat = response.data.results[0].geometry.location.lat;
+          const lng = response.data.results[0].geometry.location.lng;
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
+
       database
+
         .promise()
         .query(
           `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}')`

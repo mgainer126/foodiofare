@@ -7,7 +7,7 @@ import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 
-function RenderMap({ vendorcords, defaultZoom }) {
+function RenderMap({ vendorcords, defaultZoom, stores }) {
   const [custlocation, setCustLocation] = useState();
   const [session, setSession] = useState(0);
 
@@ -31,6 +31,8 @@ function RenderMap({ vendorcords, defaultZoom }) {
         });
     };
   }, []);
+
+  console.log(stores);
 
   return (
     // Important! Always set the container height explicitly
