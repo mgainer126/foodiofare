@@ -51,6 +51,26 @@ router.get("/customer", async (req, res) => {
   res.status(200).send(custArr);
 });
 
+router.get("/customer/:uuid", async (req, res) => {
+  const results = await database.promise().query("SELECT * FROM customerInfo");
+  const custArr = results[0];
+  const findUUID = custArr.filter((uuid) => req.params.uuid === uuid.uuid);
+  console.log(findUUID);
+  res.status(200).send(findUUID);
+});
+
+router.get("/customer/:email/:password", async (req, res) => {
+  const results = await database.promise().query("SELECT * FROM customerInfo");
+  const custArr = results[0];
+  const findUser = custArr.filter((cust) => req.params.email === cust.username);
+  console.log(findUser);
+  const verifyPassword = findUser.filter(
+    (password) => req.params.password === password.password
+  );
+
+  res.status(200).send(verifyPassword);
+});
+
 router.put("/:id", (req, res) => {
   console.log(req.body);
   const {

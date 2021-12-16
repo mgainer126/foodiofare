@@ -9,17 +9,13 @@ function CustSearchForm({ handleClick }) {
 
   const clickhandle = (event) => {
     event.preventDefault();
-
+    const uuid = sessionStorage.getItem("token");
+    const parseuuid = JSON.parse(uuid);
     axios
-      .get("http://localhost:8080/customer/customer")
+      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
       .then(function (response) {
-        const customers = response.data;
-        const token = sessionStorage.getItem("token");
-        const stringToken = JSON.parse(token);
-        const findCustomer = customers.filter(
-          (customer) => customer.uuid === stringToken
-        );
-        setConsumer(findCustomer[0].city);
+        const findCustomer = response.data[0];
+        setConsumer(findCustomer.city);
       });
 
     axios

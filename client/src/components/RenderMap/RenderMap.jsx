@@ -13,21 +13,18 @@ function RenderMap({ vendorcords, defaultZoom }) {
 
   useEffect(() => {
     setSession(sessionStorage.token);
+    const uuid = sessionStorage.getItem("token");
+    const parseuuid = JSON.parse(uuid);
     axios
-      .get("http://localhost:8080/customer/customer")
+      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
       .then(function (response) {
-        const customers = response.data;
-        const token = sessionStorage.getItem("token");
-        const stringToken = JSON.parse(token);
-        const findCustomer = customers.filter(
-          (customer) => customer.uuid === stringToken
-        );
+        const findCustomer = response.data[0];
         coords(findCustomer);
       });
     const coords = (x) => {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${x[0].streetno}+${x[0].streetname}+${x[0].streettype},+${x[0].city},+${x[0].province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${x.streetno}+${x.streetname}+${x.streettype},+${x.city},+${x.province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
         )
         .then(function (response) {
           setCustLocation(response.data.results[0].geometry.location);

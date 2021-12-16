@@ -15,7 +15,7 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Sign Up Success!!
+          Update Success!!
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -36,16 +36,13 @@ function CustomerUpdate() {
 
   useEffect(() => {
     setSession(sessionStorage.token);
+    const uuid = sessionStorage.getItem("token");
+    const parseuuid = JSON.parse(uuid);
     axios
-      .get("http://localhost:8080/customer/customer")
+      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
       .then(function (response) {
-        const profiles = response.data;
-        const token = sessionStorage.getItem("token");
-        const stringToken = JSON.parse(token);
-        const findProfile = profiles.filter(
-          (profile) => profile.uuid === stringToken
-        );
-        setCustomer(findProfile[0]);
+        const findCustomer = response.data[0];
+        setCustomer(findCustomer);
       })
       .catch(function (error) {
         // handle error
@@ -73,7 +70,7 @@ function CustomerUpdate() {
     axios
       .put(`http://localhost:8080/customer/${session}`, newCustomer[0])
       .then((response) => {
-        console.log(response);
+        console.log(response, "Updated sucesfully");
       });
   };
 
