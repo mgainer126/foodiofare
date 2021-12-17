@@ -64,20 +64,14 @@ router.post("/vendor", (req, res) => {
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
           const lng = response.data.results[0].geometry.location.lng;
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
+          database
+            .promise()
+            .query(
+              `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}', '${lat}', '${lng}')`
+            );
+
+          res.status(201).send({ msg: "success" });
         });
-
-      database
-
-        .promise()
-        .query(
-          `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}')`
-        );
-
-      res.status(201).send({ msg: "success" });
     } catch (err) {
       console.log(err);
     }
@@ -88,13 +82,22 @@ router.put("/update/:id", (req, res) => {
   const { addnum, streetname, streettype, city, province } = req.body;
   if (addnum && streetname && streettype && city && province) {
     try {
-      database
-        .promise()
-        .query(
-          `UPDATE vendorsinfo SET addnum = '${addnum}', streetname = '${streetname}', streettype = '${streettype}', city = '${city}', province = '${province}' WHERE vendorid = '${req.params.id}'`
-        );
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${addnum}+${streetname}+${streettype},
+  +${city},+${province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+        )
+        .then((response) => {
+          const lat = response.data.results[0].geometry.location.lat;
+          const lng = response.data.results[0].geometry.location.lng;
+          database
+            .promise()
+            .query(
+              `UPDATE vendorsinfo SET addnum = '${addnum}', streetname = '${streetname}', streettype = '${streettype}', city = '${city}', province = '${province}', lat = '${lat}', lng = '${lng}' WHERE vendorid = '${req.params.id}'`
+            );
 
-      res.status(201).send({ msg: "sucessful" });
+          res.status(201).send({ msg: "sucessful" });
+        });
     } catch (err) {
       console.log(err);
     }
