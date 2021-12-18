@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import "../CustomerUpdate/CustomerUpdate.scss";
+import LocationSearchInput from "../AutoComplete/AutoComplete";
 
 function MyVerticallyCenteredModal(props) {
   return (
@@ -52,17 +53,19 @@ function CustomerUpdate() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(event);
     const newCustomer = [
       {
         fname: event.target[0].value,
         lname: event.target[1].value,
-        streetno: event.target[2].value,
-        streetname: event.target[3].value,
-        streettype: event.target[4].value,
-        city: event.target[5].value,
-        province: event.target[6].value,
-        username: event.target[7].value,
-        password: event.target[8].value,
+        address: event.target[2].value,
+        // streetno: event.target[2].value,
+        // streetname: event.target[3].value,
+        // streettype: event.target[4].value,
+        // city: event.target[5].value,
+        // province: event.target[6].value,
+        username: event.target[3].value,
+        password: event.target[4].value,
         uuid: session,
       },
     ];
@@ -112,8 +115,12 @@ function CustomerUpdate() {
                 />
                 <label htmlFor="floatingPassword">Last Name</label>
               </div>
-
-              <div className="form-floating mb-3">
+              <p>
+                <strong>Current Address:</strong> {customer.address}
+              </p>
+              <p>Please provide your new address below:</p>
+              <LocationSearchInput />
+              {/* <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
@@ -162,7 +169,7 @@ function CustomerUpdate() {
                   defaultValue={customer.province}
                 />
                 <label htmlFor="floatingPassword">Province</label>
-              </div>
+              </div> */}
               <div className="form-floating mb-3">
                 <input
                   type="text"

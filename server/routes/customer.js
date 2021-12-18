@@ -86,33 +86,43 @@ router.put("/:id", (req, res) => {
   const {
     fname,
     lname,
-    streetno,
-    streetname,
-    streettype,
-    city,
-    province,
+    address,
+    // streetno,
+    // streetname,
+    // streettype,
+    // city,
+    // province,
     username,
     password,
   } = req.body;
   if (
     fname &&
     lname &&
-    streetno &&
-    streetname &&
-    streettype &&
-    city &&
-    province &&
+    address &&
+    // streetno &&
+    // streetname &&
+    // streettype &&
+    // city &&
+    // province &&
     username &&
     password
   ) {
     try {
-      database
-        .promise()
-        .query(
-          `UPDATE customerInfo SET fname = '${fname}', lname = '${lname}',streetno = '${streetno}', streettype = '${streettype}', city = '${city}', province= '${province}', username = '${username}', password = '${password}' WHERE uuid = ${req.params.id}`
-        );
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+        )
+        .then((response) => {
+          const lat = response.data.results[0].geometry.location.lat;
+          const lng = response.data.results[0].geometry.location.lng;
+          database
+            .promise()
+            .query(
+              `UPDATE customerInfo SET fname = '${fname}', lname = '${lname}', address = '${address}', username = '${username}', password = '${password}', lat = '${lat}', lng = '${lng}' WHERE uuid = ${req.params.id}`
+            );
 
-      res.status(201).send({ msg: "sucessful" });
+          res.status(201).send({ msg: "success" });
+        });
     } catch (err) {
       console.log(err);
     }
