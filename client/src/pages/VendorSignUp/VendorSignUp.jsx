@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Header from "../../components/Header/Header";
+import LocationSearchInput from "../../components/AutoComplete/AutoComplete";
+
 import "../../pages/VendorSignUp/VendorSignUp.scss";
 
 function MyVerticallyCenteredModal(props) {
@@ -44,13 +46,14 @@ function VendorSignUp() {
         bussname: event.target[0].value,
         operatorname: event.target[1].value,
         foodcat: event.target[2].value,
-        addnum: event.target[3].value,
-        streetname: event.target[4].value,
-        streettype: event.target[5].value,
-        city: event.target[6].value,
-        province: event.target[7].value,
-        username: event.target[8].value,
-        password: event.target[9].value,
+        address: event.target[3].value,
+        // addnum: event.target[3].value,
+        // streetname: event.target[4].value,
+        // streettype: event.target[5].value,
+        // city: event.target[6].value,
+        // province: event.target[7].value,
+        username: event.target[4].value,
+        password: event.target[5].value,
       },
     ];
     console.log(newBussiness[0]);
@@ -131,8 +134,8 @@ function VendorSignUp() {
 
             <label htmlFor="floatingPassword"></label>
           </div>
-
-          <div className="form-floating mb-3">
+          <LocationSearchInput />
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -181,7 +184,7 @@ function VendorSignUp() {
               placeholder="Province"
             />
             <label htmlFor="floatingPassword">Province</label>
-          </div>
+          </div> */}
           <div className="form-floating mb-3">
             <input
               type="text"

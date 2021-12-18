@@ -33,11 +33,12 @@ router.post("/vendor", (req, res) => {
     bussname,
     operatorname,
     foodcat,
-    addnum,
-    streetname,
-    streettype,
-    city,
-    province,
+    address,
+    // addnum,
+    // streetname,
+    // streettype,
+    // city,
+    // province,
     password,
     username,
   } = req.body;
@@ -47,19 +48,19 @@ router.post("/vendor", (req, res) => {
     bussname &&
     operatorname &&
     foodcat &&
-    addnum &&
-    streetname &&
-    streettype &&
-    city &&
-    province &&
+    address &&
+    // addnum &&
+    // streetname &&
+    // streettype &&
+    // city &&
+    // province &&
     password &&
     username
   ) {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${addnum}+${streetname}+${streettype},
-    +${city},+${province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
@@ -67,7 +68,7 @@ router.post("/vendor", (req, res) => {
           database
             .promise()
             .query(
-              `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${addnum}','${streetname}','${streettype}','${city}','${province}','${password}','${username}', '${lat}', '${lng}')`
+              `INSERT INTO VENDORSINFO VALUES ('${vendorid}','${bussname}','${operatorname}','${foodcat}','${password}','${username}', '${lat}', '${lng}','${address}')`
             );
 
           res.status(201).send({ msg: "success" });
