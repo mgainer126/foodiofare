@@ -53,7 +53,6 @@ function CustomerUpdate() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
     const newCustomer = [
       {
         fname: event.target[0].value,

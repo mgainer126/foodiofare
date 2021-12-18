@@ -1,6 +1,4 @@
 import ListVendors from "../ListVendors/ListVendors";
-// import React, { useState } from "react";
-// import axios from "axios";
 import "../CustSearchForm/CustSearchForm.scss";
 
 function CustSearchForm({ handleClick, clickhandle, stores }) {

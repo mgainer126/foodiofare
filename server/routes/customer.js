@@ -7,31 +7,9 @@ const axios = require("axios");
 app.use(express.json());
 
 router.post("/create", (req, res) => {
-  const {
-    fname,
-    lname,
-    address,
-    // streetno,
-    // streetname,
-    // streettype,
-    // city,
-    // province,
-    username,
-    password,
-  } = req.body;
+  const { fname, lname, address, username, password } = req.body;
 
-  if (
-    fname &&
-    lname &&
-    address &&
-    // streetno &&
-    // streetname &&
-    // streettype &&
-    // city &&
-    // province &&
-    username &&
-    password
-  ) {
+  if (fname && lname && address && username && password) {
     try {
       axios
         .get(
@@ -83,30 +61,8 @@ router.get("/customer/:email/:password", async (req, res) => {
 
 router.put("/:id", (req, res) => {
   console.log(req.body);
-  const {
-    fname,
-    lname,
-    address,
-    // streetno,
-    // streetname,
-    // streettype,
-    // city,
-    // province,
-    username,
-    password,
-  } = req.body;
-  if (
-    fname &&
-    lname &&
-    address &&
-    // streetno &&
-    // streetname &&
-    // streettype &&
-    // city &&
-    // province &&
-    username &&
-    password
-  ) {
+  const { fname, lname, address, username, password } = req.body;
+  if (fname && lname && address && username && password) {
     try {
       axios
         .get(

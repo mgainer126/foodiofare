@@ -15,6 +15,7 @@ function CustVendorSearch() {
   const [consumer, setConsumer] = useState();
 
   const handleClick = (e) => {
+    console.log(e);
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
@@ -39,6 +40,7 @@ function CustVendorSearch() {
 
   const clickhandle = (event) => {
     event.preventDefault();
+    console.log(event);
     const uuid = sessionStorage.getItem("token");
     const parseuuid = JSON.parse(uuid);
     axios
@@ -52,13 +54,11 @@ function CustVendorSearch() {
       .get("http://localhost:8080/find/vendor")
       .then((response) => {
         const allstores = response.data;
-        const filteredCity = allstores.filter(
+        console.log(allstores);
+        const filteredCategory = allstores.filter(
           (store) => store.foodcat === event.target[0].value
         );
-        const filteredStores = filteredCity.filter(
-          (city) => city.city === consumer
-        );
-        setStores(filteredStores);
+        setStores(filteredCategory);
       })
       .catch((error) => {
         // handle error
