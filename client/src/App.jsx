@@ -4,7 +4,7 @@ import Hero from "./pages/Hero/Hero";
 import CustomerSignUp from "./pages/CustomerSignUp/CustomerSignUp";
 import VendorSignUp from "./pages/VendorSignUp/VendorSignUp";
 import CustVendorSearch from "./pages/CustVendorSearch/CustVendorSearch";
-// import VendorEdit from "./pages/VendorEdit/VendorEdit";
+import LocationSearchInput from "./components/AutoComplete/AutoComplete";
 import VendorEditForm from "../src/components/VendorEditForm/VendorEditForm";
 import VendorMain from "../src/pages/VendorMain/VendorMain";
 import About from "../src/pages/About/About";
@@ -22,6 +22,7 @@ function App() {
         <Route exact path="/vendorEdit" component={VendorEditForm} />
         <Route exact path="/vendorMain" component={VendorMain} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/autoComplete" component={LocationSearchInput} />
       </BrowserRouter>
     </>
   );

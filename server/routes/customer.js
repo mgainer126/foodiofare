@@ -3,17 +3,19 @@ const router = express.Router();
 const database = require("../database");
 const app = express();
 const { v4: uuidv4 } = require("uuid");
+const axios = require("axios");
 app.use(express.json());
 
 router.post("/create", (req, res) => {
   const {
     fname,
     lname,
-    streetno,
-    streetname,
-    streettype,
-    city,
-    province,
+    address,
+    // streetno,
+    // streetname,
+    // streettype,
+    // city,
+    // province,
     username,
     password,
   } = req.body;
@@ -21,23 +23,31 @@ router.post("/create", (req, res) => {
   if (
     fname &&
     lname &&
-    streetno &&
-    streetname &&
-    streettype &&
-    city &&
-    province &&
+    address &&
+    // streetno &&
+    // streetname &&
+    // streettype &&
+    // city &&
+    // province &&
     username &&
     password
   ) {
     try {
-      database
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+        )
+        .then((response) => {
+          const lat = response.data.results[0].geometry.location.lat;
+          const lng = response.data.results[0].geometry.location.lng;
+          database
+            .promise()
+            .query(
+              `INSERT INTO customerInfo VALUES('${fname}',' ${lname}','${username}','${password}','${uuidv4()}','${address}', '${lat}', '${lng}' )`
+            );
 
-        .promise()
-        .query(
-          `INSERT INTO customerInfo VALUES('${fname}',' ${lname}','${streetno} ','${streetname}','${streettype}','${city}','${province}','${username}','${password}', '${uuidv4()}' )`
-        );
-
-      res.status(201).send({ msg: "success" });
+          res.status(201).send({ msg: "success" });
+        });
     } catch (err) {
       console.log(err);
     }

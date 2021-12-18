@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
+
 import marker from "../../assets/icons/custom_pin.png";
 import googleAPIKey from "../../data/APIKey.jsx";
 import axios from "axios";
@@ -19,26 +20,21 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
       .get(`http://localhost:8080/customer/customer/${parseuuid}`)
       .then(function (response) {
         const findCustomer = response.data[0];
-        coords(findCustomer);
+        const custLat = findCustomer.lat;
+        const custLng = findCustomer.lng;
+        const customerLocation = {
+          lat: custLat,
+          lng: custLng,
+        };
+        setCustLocation(customerLocation);
       });
-    const coords = (x) => {
-      axios
-        .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${x.streetno}+${x.streetname}+${x.streettype},+${x.city},+${x.province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
-        )
-        .then(function (response) {
-          setCustLocation(response.data.results[0].geometry.location);
-        });
-    };
   }, []);
-
-  console.log(stores);
 
   return (
     // Important! Always set the container height explicitly
 
     <>
-      {custlocation && vendorcords && session && (
+      {custlocation && vendorcords && session && stores && (
         <div className="map">
           {/* This renders the map */}
           <div style={{ height: "60vh", width: "100%" }}>
@@ -58,6 +54,7 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
                 marker={marker}
                 name={"Here Is The Vendor"}
               />
+              {/* <VendorMapArr stores={stores} /> */}
             </GoogleMapReact>
           </div>
         </div>

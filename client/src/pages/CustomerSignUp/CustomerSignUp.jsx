@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import LocationSearchInput from "../../components/AutoComplete/AutoComplete";
 import "../CustomerSignUp/CustomerSignUp.scss";
 
 function MyVerticallyCenteredModal(props) {
@@ -37,20 +38,22 @@ function CustomerSignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(event);
     const newCustomer = [
       {
         fname: event.target[0].value,
         lname: event.target[1].value,
-        streetno: event.target[2].value,
-        streetname: event.target[3].value,
-        streettype: event.target[4].value,
-        city: event.target[5].value,
-        province: event.target[6].value,
-        username: event.target[7].value,
-        password: event.target[8].value,
+        address: event.target[2].value,
+        // streetno: event.target[2].value,
+        // streetname: event.target[3].value,
+        // streettype: event.target[4].value,
+        // city: event.target[5].value,
+        // province: event.target[6].value,
+        username: event.target[3].value,
+        password: event.target[4].value,
       },
     ];
-
+    console.log(newCustomer[0]);
     createNewCustomer(newCustomer[0]);
   };
 
@@ -105,6 +108,24 @@ function CustomerSignUp() {
           </div>
 
           <div className="form-floating mb-3">
+            {/* <input
+              type="text"
+              className="form-control"
+              name="address"
+              id="address"
+              placeholder="address"
+            /> */}
+            <LocationSearchInput
+              type="text"
+              // className="form-control"
+              name="address"
+              id="address"
+              placeholder="address"
+            />
+            {/* <label htmlFor="floatingPassword">Steet Number</label> */}
+          </div>
+
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -153,7 +174,7 @@ function CustomerSignUp() {
               placeholder="Province"
             />
             <label htmlFor="floatingPassword">Province</label>
-          </div>
+          </div> */}
           <div className="form-floating mb-3">
             <input
               type="text"
