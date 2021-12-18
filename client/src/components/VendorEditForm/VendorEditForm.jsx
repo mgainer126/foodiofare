@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
+import LocationSearchInput from "../AutoComplete/AutoComplete";
 import "../VendorEditForm/VendorEditForm.scss";
 
 function MyVerticallyCenteredModal(props) {
@@ -42,11 +43,12 @@ function VendorEditForm() {
     console.log(event);
     const updatedVendor = [
       {
-        addnum: event.target[0].value,
-        streetname: event.target[1].value,
-        streettype: event.target[2].value,
-        city: event.target[3].value,
-        province: event.target[4].value,
+        address: event.target[0].value,
+        // addnum: event.target[0].value,
+        // streetname: event.target[1].value,
+        // streettype: event.target[2].value,
+        // city: event.target[3].value,
+        // province: event.target[4].value,
       },
     ];
 
@@ -135,13 +137,18 @@ function VendorEditForm() {
             className="vendoreditform p-4 p-md-5 border rounded-3 bg-light"
             onSubmit={handleUpdate}
           >
-            <div className="form-floating mb-3">
+            <p>
+              <strong>Your Current Address:</strong>
+              {vendor.address}
+            </p>
+            <LocationSearchInput />
+            {/* <div className="form-floating mb-3">
               <input
                 type="text"
                 className="form-control"
                 id="newstreeno"
                 name="newstreeno"
-                defaultValue={vendor.addnum}
+                // defaultValue={vendor.addnum}
               />
               <label htmlFor="floatingPassword">Current Street Number</label>
             </div>
@@ -151,7 +158,7 @@ function VendorEditForm() {
                 className="form-control"
                 id="streetname"
                 name="streetname"
-                defaultValue={vendor.streetname}
+                // defaultValue={vendor.streetname}
               />
               <label htmlFor="floatingPassword">Current Street Name</label>
             </div>
@@ -161,8 +168,9 @@ function VendorEditForm() {
                 type="text"
                 className="form-control"
                 id="streettype"
+                name="city"
                 name="streettype"
-                defaultValue={vendor.streettype}
+                // defaultValue={vendor.streettype}
               />
               <label htmlFor="floatingPassword">Updated Street Type</label>
             </div>
@@ -171,8 +179,7 @@ function VendorEditForm() {
                 type="text"
                 className="form-control"
                 id="city"
-                name="city"
-                defaultValue={vendor.city}
+                // defaultValue={vendor.city}
               />
               <label htmlFor="floatingPassword">Current City</label>
             </div>
@@ -182,10 +189,10 @@ function VendorEditForm() {
                 className="form-control"
                 id="province"
                 name="province"
-                defaultValue={vendor.province}
+                // defaultValue={vendor.province}
               />
               <label htmlFor="floatingPassword">Current Province</label>
-            </div>
+            </div> */}
 
             <button
               className="w-100 btn btn-lg btn-primary"

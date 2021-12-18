@@ -47,16 +47,10 @@ function VendorSignUp() {
         operatorname: event.target[1].value,
         foodcat: event.target[2].value,
         address: event.target[3].value,
-        // addnum: event.target[3].value,
-        // streetname: event.target[4].value,
-        // streettype: event.target[5].value,
-        // city: event.target[6].value,
-        // province: event.target[7].value,
         username: event.target[4].value,
         password: event.target[5].value,
       },
     ];
-    console.log(newBussiness[0]);
     createNewVendor(newBussiness[0]);
     setVendorID(newBussiness[0].vendorid);
   };
@@ -65,9 +59,7 @@ function VendorSignUp() {
     axios
       .post("http://localhost:8080/find/vendor", obj)
       .then((response) => {
-        // {
-        //   setNewVendor(response.data);
-        // }
+        console.log(response, "Sucesfully Created New Vendor");
       })
       .catch((error) => {
         console.log(error);

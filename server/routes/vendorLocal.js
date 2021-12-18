@@ -34,11 +34,6 @@ router.post("/vendor", (req, res) => {
     operatorname,
     foodcat,
     address,
-    // addnum,
-    // streetname,
-    // streettype,
-    // city,
-    // province,
     password,
     username,
   } = req.body;
@@ -49,11 +44,6 @@ router.post("/vendor", (req, res) => {
     operatorname &&
     foodcat &&
     address &&
-    // addnum &&
-    // streetname &&
-    // streettype &&
-    // city &&
-    // province &&
     password &&
     username
   ) {
@@ -80,13 +70,12 @@ router.post("/vendor", (req, res) => {
 });
 
 router.put("/update/:id", (req, res) => {
-  const { addnum, streetname, streettype, city, province } = req.body;
-  if (addnum && streetname && streettype && city && province) {
+  const { address } = req.body;
+  if (address) {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${addnum}+${streetname}+${streettype},
-  +${city},+${province}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
@@ -94,7 +83,7 @@ router.put("/update/:id", (req, res) => {
           database
             .promise()
             .query(
-              `UPDATE vendorsinfo SET addnum = '${addnum}', streetname = '${streetname}', streettype = '${streettype}', city = '${city}', province = '${province}', lat = '${lat}', lng = '${lng}' WHERE vendorid = '${req.params.id}'`
+              `UPDATE vendorsinfo SET address = '${address}', lat = '${lat}', lng = '${lng}' WHERE vendorid = '${req.params.id}'`
             );
 
           res.status(201).send({ msg: "sucessful" });
