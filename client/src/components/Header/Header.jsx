@@ -13,11 +13,12 @@ function Header({ token }) {
               href="/"
               className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
             >
-              <svg className="bi me-2" width={40} height={32} />
+              <svg width={0} height={32} />
               <Link to="/" className="link">
                 <span className="fs-4 link__logo">Foodio Fare</span>
               </Link>
             </a>
+
             <ul className="nav nav-pills">
               {token && (
                 <>
@@ -26,20 +27,24 @@ function Header({ token }) {
                       <p className="header-link">Food Truck Search</p>
                     </Link>
                   </li>
-                  <Link to="/custUpdate" className="link">
-                    <p className="header-link">Customer Profile</p>
-                  </Link>
+                  <li className="nav-item">
+                    <Link to="/custUpdate" className="link">
+                      <p className="header-link">Customer Profile</p>
+                    </Link>
+                  </li>
                 </>
               )}
-              <li className="nav-item">
+            </ul>
+            <ul className="nav nav-pills">
+              <li className="nav-item__1">
                 <Link to="/vendorMain" className="link">
                   <p className="header-link">Business</p>
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item__1">
                 <Link to="/about" className="link">
-                  <p className="header-link__about">About</p>
+                  <p className="header-link">About</p>
                 </Link>
               </li>
             </ul>

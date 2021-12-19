@@ -3,6 +3,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import "./AutoComplete.scss";
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -31,11 +32,14 @@ class LocationSearchInput extends React.Component {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
             <input
+              className="from-control"
+              id="floatingInput"
               {...getInputProps({
-                placeholder: "Search Places ...",
+                placeholder: "Address",
                 className: "location-search-input",
               })}
             />
+            <label htmlFor="floatingInput"></label>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
               {suggestions.map((suggestion) => {
@@ -44,8 +48,8 @@ class LocationSearchInput extends React.Component {
                   : "suggestion-item";
                 // inline style for demonstration purpose
                 const style = suggestion.active
-                  ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                  : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  ? { backgroundColor: "#bf6a39", cursor: "pointer" }
+                  : { backgroundColor: "#f2d6bd", cursor: "pointer" };
                 return (
                   <div
                     {...getSuggestionItemProps(suggestion, {
