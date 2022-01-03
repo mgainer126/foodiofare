@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const app = express();
+const { v4: uuidv4 } = require("uuid");
 app.use(express.json());
 
 router.get("/request", (req, res) => {
   res.send({
-    token: "64729577986472957798",
+    token: uuidv4(),
   });
 });
 
