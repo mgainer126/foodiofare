@@ -1,6 +1,5 @@
 //https://getbootstrap.com/docs/4.0/components/forms/
 import "../CustVendorSearch/CustVendorSearch.scss";
-import googleAPIKey from "../../data/APIKey";
 import React, { useState, useEffect } from "react";
 import RenderMap from "../../components/RenderMap/RenderMap";
 import axios from "axios";
@@ -12,26 +11,16 @@ function CustVendorSearch() {
   const [vendorcords, setVendorCords] = useState({});
   const [storage, setStorage] = useState(false);
   const [stores, setStores] = useState([]);
-  const [consumer, setConsumer] = useState();
+  // const [consumer, setConsumer] = useState();
 
   const handleClick = (e) => {
-    console.log(e);
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${e.addnum}+${e.streetname}+${e.streettype},
-    +${e.city},+${e.province}&key=${googleAPIKey}`
-      )
-      .then((response) => {
-        let vendorcords = response.data.results[0].geometry.location;
-        setVendorCords(vendorcords);
-        setDefaultZoom(14);
+    const vendorCords = {
+      lat: e.lat,
+      lng: e.lng,
+    };
 
-        return response.data;
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    setVendorCords(vendorCords);
+    setDefaultZoom(14);
   };
 
   useEffect(() => {
@@ -40,15 +29,17 @@ function CustVendorSearch() {
 
   const clickhandle = (event) => {
     event.preventDefault();
-    console.log(event);
-    const uuid = sessionStorage.getItem("token");
-    const parseuuid = JSON.parse(uuid);
-    axios
-      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
-      .then(function (response) {
-        const findCustomer = response.data[0];
-        setConsumer(findCustomer.city);
-      });
+
+    // This code is to call for the customer city that can be used as a filter to only filter out vendors in the customer's city
+    // console.log(event);
+    // const uuid = sessionStorage.getItem("token");
+    // const parseuuid = JSON.parse(uuid);
+    // axios
+    //   .get(`http://localhost:8080/customer/customer/${parseuuid}`)
+    //   .then(function (response) {
+    //     const findCustomer = response.data[0];
+    //     setConsumer(findCustomer.city);
+    //   });
 
     axios
       .get("http://localhost:8080/find/vendor")

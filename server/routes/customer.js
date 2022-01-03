@@ -4,7 +4,11 @@ const database = require("../database");
 const app = express();
 const { v4: uuidv4 } = require("uuid");
 const axios = require("axios");
+require("dotenv").config();
 app.use(express.json());
+
+const API = process.env.GOOGLE_API;
+console.log(API);
 
 router.post("/create", (req, res) => {
   const { fname, lname, address, username, password } = req.body;
@@ -13,7 +17,7 @@ router.post("/create", (req, res) => {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${API}`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
@@ -66,7 +70,7 @@ router.put("/:id", (req, res) => {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${API}`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;

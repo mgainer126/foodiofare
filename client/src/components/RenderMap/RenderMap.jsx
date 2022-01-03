@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
 
 import marker from "../../assets/icons/custom_pin.png";
-import googleAPIKey from "../../data/APIKey.jsx";
+// import googleAPIKey from "../../data/APIKey.jsx";
 import axios from "axios";
 import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
@@ -11,6 +11,7 @@ const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 function RenderMap({ vendorcords, defaultZoom, stores }) {
   const [custlocation, setCustLocation] = useState();
   const [session, setSession] = useState(0);
+  const API = process.env.REACT_APP_API;
 
   useEffect(() => {
     setSession(sessionStorage.token);
@@ -39,7 +40,7 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
           {/* This renders the map */}
           <div style={{ height: "60vh", width: "100%" }}>
             <GoogleMapReact
-              bootstrapURLKeys={{ key: `${googleAPIKey}` }}
+              bootstrapURLKeys={{ key: `${API}` }}
               center={custlocation}
               zoom={defaultZoom}
             >
@@ -54,7 +55,6 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
                 marker={marker}
                 name={"Here Is The Vendor"}
               />
-              {/* <VendorMapArr stores={stores} /> */}
             </GoogleMapReact>
           </div>
         </div>

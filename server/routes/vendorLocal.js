@@ -3,7 +3,11 @@ const router = express.Router();
 const database = require("../database");
 const app = express();
 app.use(express.json());
+require("dotenv").config();
 const axios = require("axios");
+
+const API = process.env.GOOGLE_API;
+console.log(API);
 
 router.get("/vendor", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM vendorsinfo");
@@ -50,7 +54,7 @@ router.post("/vendor", (req, res) => {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${API}`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
@@ -75,7 +79,7 @@ router.put("/update/:id", (req, res) => {
     try {
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyDppxNKV5QddpqA90IuS0kWg9HTLOuJsGw`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${API}`
         )
         .then((response) => {
           const lat = response.data.results[0].geometry.location.lat;
