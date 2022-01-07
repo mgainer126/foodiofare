@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import "./AutoComplete.scss";
 
+const API = process.env.ADD_COMPLETE;
+
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ class LocationSearchInput extends React.Component {
   };
 
   render() {
+    console.log(API);
     return (
       <PlacesAutocomplete
         value={this.state.address}

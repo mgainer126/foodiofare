@@ -38,17 +38,11 @@ function CustomerSignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(event);
     const newCustomer = [
       {
         fname: event.target[0].value,
         lname: event.target[1].value,
         address: event.target[2].value,
-        // streetno: event.target[2].value,
-        // streetname: event.target[3].value,
-        // streettype: event.target[4].value,
-        // city: event.target[5].value,
-        // province: event.target[6].value,
         username: event.target[3].value,
         password: event.target[4].value,
       },
@@ -58,7 +52,6 @@ function CustomerSignUp() {
   };
 
   const createNewCustomer = (obj) => {
-    console.log(obj);
     axios
       .post("http://localhost:8080/customer/create", obj)
       .then((response) => {
@@ -108,73 +101,14 @@ function CustomerSignUp() {
           </div>
 
           <div className="form-floating mb-3">
-            {/* <input
-              type="text"
-              className="form-control"
-              name="address"
-              id="address"
-              placeholder="address"
-            /> */}
             <LocationSearchInput
               type="text"
-              // className="form-control"
               name="address"
               id="address"
               placeholder="address"
             />
-            {/* <label htmlFor="floatingPassword">Steet Number</label> */}
           </div>
 
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreetno"
-              id="vendostreetno"
-              placeholder="vendostreetno"
-            />
-            <label htmlFor="floatingPassword">Steet Number</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreetname"
-              id="vendostreetname"
-              placeholder="vendostreetname"
-            />
-            <label htmlFor="floatingPassword">Street Name</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreettype"
-              id="vendorstreettype"
-              placeholder="Street Type"
-            />
-            <label htmlFor="floatingPassword">Street Type</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="city"
-              name="city"
-              placeholder="city"
-            />
-            <label htmlFor="floatingPassword">City</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="Province"
-              name="province"
-              placeholder="Province"
-            />
-            <label htmlFor="floatingPassword">Province</label>
-          </div> */}
           <div className="form-floating mb-3">
             <input
               type="text"

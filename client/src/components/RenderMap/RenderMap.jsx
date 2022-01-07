@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
-
 import marker from "../../assets/icons/custom_pin.png";
-// import googleAPIKey from "../../data/APIKey.jsx";
 import axios from "axios";
 import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
@@ -11,7 +9,7 @@ const VendorIsHere = ({ marker }) => <img src={marker} alt="marker" />;
 function RenderMap({ vendorcords, defaultZoom, stores }) {
   const [custlocation, setCustLocation] = useState();
   const [session, setSession] = useState(0);
-  const API = process.env.REACT_APP_API;
+  const [key, setKey] = useState();
 
   useEffect(() => {
     setSession(sessionStorage.token);
@@ -29,18 +27,24 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
         };
         setCustLocation(customerLocation);
       });
+    axios
+      .get("http://localhost:8080/validate/getcredentials")
+      .then(function (response) {
+        const credentials = response;
+        setKey(credentials);
+      });
   }, []);
 
   return (
     // Important! Always set the container height explicitly
 
     <>
-      {custlocation && vendorcords && session && stores && (
+      {custlocation && vendorcords && session && stores && key && (
         <div className="map">
           {/* This renders the map */}
           <div style={{ height: "60vh", width: "100%" }}>
             <GoogleMapReact
-              bootstrapURLKeys={{ key: `${API}` }}
+              bootstrapURLKeys={{ key: `${key}` }}
               center={custlocation}
               zoom={defaultZoom}
             >

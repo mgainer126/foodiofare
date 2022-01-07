@@ -69,27 +69,6 @@ function Hero() {
     const email = event.target[0].value;
     const password = event.target[1].value;
 
-    //   axios
-    //     .get("http://localhost:8080/customer/customer")
-    //     .then(function (response) {
-    //       let credentialArr = response.data;
-    //       const locateCred = credentialArr.filter(
-    //         (credential) => email === credential.username
-    //       );
-
-    //       const verify = locateCred[0].password === password;
-    //       if (verify === true) {
-    //         //need to have a unique id set as the session storage
-    //         setToken(locateCred[0].uuid);
-    //         setSession(true);
-    //         console.log("Sucesfull Username and Password");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log(error, "Incorrect Username or Password Entered");
-    //     });
-    // };
-
     axios
       .get(`http://localhost:8080/customer/customer/${email}/${password}`)
 

@@ -40,15 +40,9 @@ function VendorEditForm() {
 
   const handleUpdate = (event) => {
     event.preventDefault();
-    console.log(event);
     const updatedVendor = [
       {
         address: event.target[0].value,
-        // addnum: event.target[0].value,
-        // streetname: event.target[1].value,
-        // streettype: event.target[2].value,
-        // city: event.target[3].value,
-        // province: event.target[4].value,
       },
     ];
 
@@ -117,15 +111,7 @@ function VendorEditForm() {
 
             <hr className="my-4" />
             <div className="login__cta">
-              {/* <small className="text-muted">
-              New to Foodie Fare? <Link to="/custSignUp">Sign Up</Link>
-            </small> */}
-              <Button
-                variant="primary"
-                className="login__btn "
-                type="submit"
-                // onClick={() => setModalShow(true)}
-              >
+              <Button variant="primary" className="login__btn " type="submit">
                 Log In
               </Button>
             </div>
@@ -142,57 +128,6 @@ function VendorEditForm() {
               {vendor.address}
             </p>
             <LocationSearchInput />
-            {/* <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="newstreeno"
-                name="newstreeno"
-                // defaultValue={vendor.addnum}
-              />
-              <label htmlFor="floatingPassword">Current Street Number</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="streetname"
-                name="streetname"
-                // defaultValue={vendor.streetname}
-              />
-              <label htmlFor="floatingPassword">Current Street Name</label>
-            </div>
-
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="streettype"
-                name="city"
-                name="streettype"
-                // defaultValue={vendor.streettype}
-              />
-              <label htmlFor="floatingPassword">Updated Street Type</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="city"
-                // defaultValue={vendor.city}
-              />
-              <label htmlFor="floatingPassword">Current City</label>
-            </div>
-            <div className="form-floating mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="province"
-                name="province"
-                // defaultValue={vendor.province}
-              />
-              <label htmlFor="floatingPassword">Current Province</label>
-            </div> */}
 
             <button
               className="w-100 btn btn-lg btn-primary"

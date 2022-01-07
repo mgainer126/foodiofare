@@ -46,7 +46,6 @@ function CustomerUpdate() {
         setCustomer(findCustomer);
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       });
   }, []);
@@ -58,11 +57,6 @@ function CustomerUpdate() {
         fname: event.target[0].value,
         lname: event.target[1].value,
         address: event.target[2].value,
-        // streetno: event.target[2].value,
-        // streetname: event.target[3].value,
-        // streettype: event.target[4].value,
-        // city: event.target[5].value,
-        // province: event.target[6].value,
         username: event.target[3].value,
         password: event.target[4].value,
         uuid: session,
@@ -119,56 +113,6 @@ function CustomerUpdate() {
               </p>
               <p>Please provide your new address below:</p>
               <LocationSearchInput />
-              {/* <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="vendorstreetno"
-                  id="vendostreetno"
-                  defaultValue={customer.streetno}
-                />
-                <label htmlFor="floatingPassword">Street Number</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="vendorstreetname"
-                  id="vendostreetname"
-                  defaultValue={customer.streetname}
-                />
-                <label htmlFor="floatingPassword">Street Name</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  name="vendorstreettype"
-                  id="vendorstreettype"
-                  defaultValue={customer.streettype}
-                />
-                <label htmlFor="floatingPassword">Street Type</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="city"
-                  name="city"
-                  defaultValue={customer.city}
-                />
-                <label htmlFor="floatingPassword">City</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Province"
-                  name="province"
-                  defaultValue={customer.province}
-                />
-                <label htmlFor="floatingPassword">Province</label>
-              </div> */}
               <div className="form-floating mb-3">
                 <input
                   type="text"

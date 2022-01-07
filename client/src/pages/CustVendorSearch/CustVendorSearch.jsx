@@ -30,22 +30,10 @@ function CustVendorSearch() {
   const clickhandle = (event) => {
     event.preventDefault();
 
-    // This code is to call for the customer city that can be used as a filter to only filter out vendors in the customer's city
-    // console.log(event);
-    // const uuid = sessionStorage.getItem("token");
-    // const parseuuid = JSON.parse(uuid);
-    // axios
-    //   .get(`http://localhost:8080/customer/customer/${parseuuid}`)
-    //   .then(function (response) {
-    //     const findCustomer = response.data[0];
-    //     setConsumer(findCustomer.city);
-    //   });
-
     axios
       .get("http://localhost:8080/find/vendor")
       .then((response) => {
         const allstores = response.data;
-        console.log(allstores);
         const filteredCategory = allstores.filter(
           (store) => store.foodcat === event.target[0].value
         );

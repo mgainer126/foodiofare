@@ -7,11 +7,9 @@ require("dotenv").config();
 const axios = require("axios");
 
 const API = process.env.GOOGLE_API;
-console.log(API);
 
 router.get("/vendor", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM vendorsinfo");
-  // console.log(results[0]);
   res.status(200).send(results[0]);
 });
 

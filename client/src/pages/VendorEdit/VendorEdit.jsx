@@ -1,7 +1,6 @@
 import VendorEditForm from "../../components/VendorEditForm/VendorEditForm";
 import axios from "axios";
 import React from "react";
-// import "../../pages/VendorEdit/VendorEdit.scss";
 
 function VendorEdit() {
   const handleSubmit = (event) => {
@@ -15,8 +14,6 @@ function VendorEdit() {
         province: event.target[5].value,
       },
     ];
-    console.log(updatedVendor[0]);
-    console.log(event.target[0].value);
 
     axios
       .put(
@@ -28,10 +25,7 @@ function VendorEdit() {
 
   return (
     <>
-      <VendorEditForm
-        handleSubmit={handleSubmit}
-        // className="vendor__update--form"
-      />
+      <VendorEditForm handleSubmit={handleSubmit} />
     </>
   );
 }

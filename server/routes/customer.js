@@ -8,7 +8,6 @@ require("dotenv").config();
 app.use(express.json());
 
 const API = process.env.GOOGLE_API;
-console.log(API);
 
 router.post("/create", (req, res) => {
   const { fname, lname, address, username, password } = req.body;
@@ -39,7 +38,6 @@ router.post("/create", (req, res) => {
 router.get("/customer", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM customerInfo");
   const custArr = results[0];
-  console.log(results[0]);
   res.status(200).send(custArr);
 });
 
@@ -47,7 +45,6 @@ router.get("/customer/:uuid", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM customerInfo");
   const custArr = results[0];
   const findUUID = custArr.filter((uuid) => req.params.uuid === uuid.uuid);
-  console.log(findUUID);
   res.status(200).send(findUUID);
 });
 
@@ -55,7 +52,6 @@ router.get("/customer/:email/:password", async (req, res) => {
   const results = await database.promise().query("SELECT * FROM customerInfo");
   const custArr = results[0];
   const findUser = custArr.filter((cust) => req.params.email === cust.username);
-  console.log(findUser);
   const verifyPassword = findUser.filter(
     (password) => req.params.password === password.password
   );
@@ -64,7 +60,6 @@ router.get("/customer/:email/:password", async (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  console.log(req.body);
   const { fname, lname, address, username, password } = req.body;
   if (fname && lname && address && username && password) {
     try {

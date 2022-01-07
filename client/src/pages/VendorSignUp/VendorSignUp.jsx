@@ -39,7 +39,6 @@ function VendorSignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(event);
     const newBussiness = [
       {
         vendorid: uuidv4(),
@@ -127,56 +126,7 @@ function VendorSignUp() {
             <label htmlFor="floatingPassword"></label>
           </div>
           <LocationSearchInput />
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreetno"
-              id="vendostreetno"
-              placeholder="vendostreetno"
-            />
-            <label htmlFor="floatingPassword">Steet Number</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreetname"
-              id="vendostreetname"
-              placeholder="vendostreetname"
-            />
-            <label htmlFor="floatingPassword">Street Name</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              name="vendorstreettype"
-              id="vendorstreettype"
-              placeholder="Street Type"
-            />
-            <label htmlFor="floatingPassword">Street Type</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="city"
-              name="city"
-              placeholder="city"
-            />
-            <label htmlFor="floatingPassword">City</label>
-          </div>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="Province"
-              name="province"
-              placeholder="Province"
-            />
-            <label htmlFor="floatingPassword">Province</label>
-          </div> */}
+
           <div className="form-floating mb-3">
             <input
               type="text"

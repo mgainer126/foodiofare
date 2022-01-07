@@ -5,6 +5,7 @@ const cors = require("cors");
 const vendorLocations = require("./routes/vendorLocal");
 const customer = require("./routes/customer");
 const auth = require("./routes/auth");
+const credentials = require("./routes/credential");
 
 app.use(cors());
 
@@ -24,6 +25,8 @@ app.use("/find", vendorLocations);
 app.use("/customer", customer);
 
 app.use("/login", auth);
+
+app.use("/validate", credentials);
 
 app.listen(PORT, () => {
   console.log(`Server up on port ${PORT}`);
