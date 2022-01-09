@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function ListVendors({ vendors, handleClick }) {
   return vendors.map((vendor) => {
-    console.log(vendor);
     return (
       <>
         <Link className="vendors" key={vendor.vendorid}>

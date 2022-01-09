@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
-import marker from "../../assets/icons/custom_pin.png";
+import marker1 from "../../assets/icons/custom_pin.png";
+import marker from "../../assets/icons/icons8-my-location-24.png";
 import axios from "axios";
 import "../RenderMap/RenderMap.scss";
 const CustIsHere = ({ marker }) => <img src={marker} alt="marker" />;
@@ -34,7 +35,8 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
         setKey(credentials);
       });
   }, []);
-
+  console.log(stores);
+  console.log(vendorcords);
   return (
     // Important! Always set the container height explicitly
 
@@ -53,12 +55,17 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
                 lng={custlocation.lng}
                 marker={marker}
               />
-              <VendorIsHere
-                lat={vendorcords.lat}
-                lng={vendorcords.lng}
-                marker={marker}
-                name={"Here Is The Vendor"}
-              />
+              {stores.map((store) => {
+                return (
+                  <VendorIsHere
+                    lat={store.lat}
+                    lng={store.lng}
+                    marker={marker1}
+                    name={"Here Is The Vendor"}
+                    title={"hello"}
+                  />
+                );
+              })}
             </GoogleMapReact>
           </div>
         </div>
