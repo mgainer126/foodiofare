@@ -33,36 +33,10 @@
 }
 
 .address {
-  &__street {
-    display: flex;
-    font-size: 0.6rem;
-  }
-  &__municipality {
-    display: flex;
-    font-size: 0.6rem;
-  }
   &__no {
     margin-right: 0.5rem;
     margin-bottom: 0;
     font-size: 0.6rem;
-  }
-  &__streetname {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-    font-size: 0.6rem;
-  }
-  &__city {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-    font-size: 0.6rem;
-  }
-  &__streettype {
-    margin-right: 0.5rem;
-    margin-bottom: 0;
-    font-size: 0.6rem;
-  }
-  &__province {
-    margin-bottom: 0;
-    font-size: 0.6rem;
+    width: 8rem;
   }
 }

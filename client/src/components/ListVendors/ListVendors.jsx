@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function ListVendors({ vendors, handleClick }) {
   return vendors.map((vendor) => {
+    console.log(vendor);
     return (
       <>
         <Link className="vendors" key={vendor.vendorid}>
@@ -21,21 +22,7 @@ function ListVendors({ vendors, handleClick }) {
               <div className="address">
                 <div className="address__street">
                   <p name="address__no" className="address__no">
-                    {vendor.addnum}
-                  </p>
-                  <p name="address__streetname" className="address__streetname">
-                    {vendor.streetname}
-                  </p>
-                  <p name="address__streettype" className="address__streettype">
-                    {vendor.streettype}
-                  </p>
-                </div>
-                <div className="address__municipality">
-                  <p name="address__city" className="address__city">
-                    {vendor.city}
-                  </p>
-                  <p name="address__province" className="address__province">
-                    {vendor.province}
+                    {vendor.address}
                   </p>
                 </div>
               </div>
