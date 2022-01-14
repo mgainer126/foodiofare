@@ -60,7 +60,7 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
                     lat={store.lat}
                     lng={store.lng}
                     marker={marker1}
-                    name={"Here Is The Vendor"}
+                    label={"hello world"}
                   />
                 );
               })}

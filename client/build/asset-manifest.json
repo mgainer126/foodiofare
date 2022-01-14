@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1312e59e.chunk.css",
+    "main.js": "/static/js/main.9a811ea7.chunk.js",
+    "main.js.map": "/static/js/main.9a811ea7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cc0b712d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cc0b712d.js.map",
+    "static/css/2.818011ed.chunk.css": "/static/css/2.818011ed.chunk.css",
+    "static/js/2.647f482c.chunk.js": "/static/js/2.647f482c.chunk.js",
+    "static/js/2.647f482c.chunk.js.map": "/static/js/2.647f482c.chunk.js.map",
+    "static/js/3.58346bd2.chunk.js": "/static/js/3.58346bd2.chunk.js",
+    "static/js/3.58346bd2.chunk.js.map": "/static/js/3.58346bd2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.818011ed.chunk.css.map": "/static/css/2.818011ed.chunk.css.map",
+    "static/css/main.1312e59e.chunk.css.map": "/static/css/main.1312e59e.chunk.css.map",
+    "static/js/2.647f482c.chunk.js.LICENSE.txt": "/static/js/2.647f482c.chunk.js.LICENSE.txt",
+    "static/media/Food-Truck-Design.75b65e96.jpg": "/static/media/Food-Truck-Design.75b65e96.jpg",
+    "static/media/foodtruckin.80b3290e.jpg": "/static/media/foodtruckin.80b3290e.jpg",
+    "static/media/girl.98d3ba67.jpg": "/static/media/girl.98d3ba67.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc0b712d.js",
+    "static/css/2.818011ed.chunk.css",
+    "static/js/2.647f482c.chunk.js",
+    "static/css/main.1312e59e.chunk.css",
+    "static/js/main.9a811ea7.chunk.js"
+  ]
+}
