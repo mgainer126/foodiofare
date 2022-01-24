@@ -17,7 +17,9 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
     const uuid = sessionStorage.getItem("token");
     const parseuuid = JSON.parse(uuid);
     axios
-      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
+      .get(
+        `https://foodiofarebackend.herokuapp.com/customer/customer/${parseuuid}`
+      )
       .then(function (response) {
         const findCustomer = response.data[0];
         const custLat = findCustomer.lat;
@@ -29,7 +31,7 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
         setCustLocation(customerLocation);
       });
     axios
-      .get("http://localhost:8080/validate/getcredentials")
+      .get("https://foodiofarebackend.herokuapp.com/validate/getcredentials")
       .then(function (response) {
         const credentials = response;
         setKey(credentials);

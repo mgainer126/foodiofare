@@ -53,7 +53,7 @@ function CustomerSignUp() {
 
   const createNewCustomer = (obj) => {
     axios
-      .post("http://localhost:8080/customer/create", obj)
+      .post("https://foodiofarebackend.herokuapp.com/customer/create", obj)
       .then((response) => {
         console.log(response);
       })
@@ -117,7 +117,7 @@ function CustomerSignUp() {
               name="username"
               placeholder="User Name"
             />
-            <label htmlFor="floatingPassword">User Name</label>
+            <label htmlFor="floatingPassword">Email</label>
           </div>
 
           <div className="form-floating mb-3">

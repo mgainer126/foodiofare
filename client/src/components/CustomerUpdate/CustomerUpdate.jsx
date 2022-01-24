@@ -40,7 +40,9 @@ function CustomerUpdate() {
     const uuid = sessionStorage.getItem("token");
     const parseuuid = JSON.parse(uuid);
     axios
-      .get(`http://localhost:8080/customer/customer/${parseuuid}`)
+      .get(
+        `https://foodiofarebackend.herokuapp.com/customer/customer/${parseuuid}`
+      )
       .then(function (response) {
         const findCustomer = response.data[0];
         setCustomer(findCustomer);
@@ -64,7 +66,10 @@ function CustomerUpdate() {
     ];
 
     axios
-      .put(`http://localhost:8080/customer/${session}`, newCustomer[0])
+      .put(
+        `https://foodiofarebackend.herokuapp.com/customer/${session}`,
+        newCustomer[0]
+      )
       .then((response) => {
         console.log(response, "Updated sucesfully");
       });

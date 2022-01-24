@@ -48,7 +48,7 @@ function VendorEditForm() {
 
     axios
       .put(
-        `http://localhost:8080/find/update/${vendor.vendorid}`,
+        `https://foodiofarebackend.herokuapp.com/find/update/${vendor.vendorid}`,
         updatedVendor[0]
       )
       .then((response) => console.log(response));
@@ -60,7 +60,7 @@ function VendorEditForm() {
     const password = event.target[1].value;
 
     axios
-      .get(`http://localhost:8080/find/vendor/${username}/${password}`)
+      .get(`https://foodiofarebackend.herokuapp.com/${username}/${password}`)
       .then((response) => {
         setVendor(response.data[0]);
       });

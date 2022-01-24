@@ -70,7 +70,9 @@ function Hero() {
     const password = event.target[1].value;
 
     axios
-      .get(`http://localhost:8080/customer/customer/${email}/${password}`)
+      .get(
+        `https://foodiofarebackend.herokuapp.com/customer/customer/${email}/${password}`
+      )
 
       .then(function (response) {
         const locatedUUID = response.data[0].uuid;

@@ -31,7 +31,7 @@ function CustVendorSearch() {
     event.preventDefault();
 
     axios
-      .get("http://localhost:8080/find/vendor")
+      .get("https://foodiofarebackend.herokuapp.com/find/vendor")
       .then((response) => {
         const allstores = response.data;
         const filteredCategory = allstores.filter(

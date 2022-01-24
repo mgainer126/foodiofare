@@ -56,7 +56,7 @@ function VendorSignUp() {
 
   const createNewVendor = (obj) => {
     axios
-      .post("http://localhost:8080/find/vendor", obj)
+      .post("https://foodiofarebackend.herokuapp.com/find/vendor", obj)
       .then((response) => {
         console.log(response, "Sucesfully Created New Vendor");
       })
