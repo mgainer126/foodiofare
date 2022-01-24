@@ -30,9 +30,8 @@ class LocationSearchInput extends React.Component {
         onSelect={this.handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
+          <div className="address">
             <input
-              className="from-control"
               id="floatingInput"
               {...getInputProps({
                 placeholder: "Address",

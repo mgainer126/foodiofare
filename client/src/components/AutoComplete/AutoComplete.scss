@@ -1,4 +1,28 @@
 .location-search-input {
   width: 100% !important;
+  line-height: 1.25;
   color: black;
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #070707;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+::placeholder {
+  color: black;
+}
+
+#floatingInput {
+  padding: 1rem;
+}
+
+.address {
+  height: 4rem;
 }

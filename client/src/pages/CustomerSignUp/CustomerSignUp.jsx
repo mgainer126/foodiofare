@@ -47,7 +47,6 @@ function CustomerSignUp() {
         password: event.target[4].value,
       },
     ];
-    console.log(newCustomer[0]);
     createNewCustomer(newCustomer[0]);
   };
 
