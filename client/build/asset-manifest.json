@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d681c93.chunk.css",
+    "main.css": "/static/css/main.af640198.chunk.css",
     "main.js": "/static/js/main.83459fc4.chunk.js",
     "main.js.map": "/static/js/main.83459fc4.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cc0b712d.js",
@@ -12,7 +12,7 @@
     "static/js/3.58346bd2.chunk.js.map": "/static/js/3.58346bd2.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.818011ed.chunk.css.map": "/static/css/2.818011ed.chunk.css.map",
-    "static/css/main.7d681c93.chunk.css.map": "/static/css/main.7d681c93.chunk.css.map",
+    "static/css/main.af640198.chunk.css.map": "/static/css/main.af640198.chunk.css.map",
     "static/js/2.647f482c.chunk.js.LICENSE.txt": "/static/js/2.647f482c.chunk.js.LICENSE.txt",
     "static/media/Food-Truck-Design.75b65e96.jpg": "/static/media/Food-Truck-Design.75b65e96.jpg",
     "static/media/foodtruckin.80b3290e.jpg": "/static/media/foodtruckin.80b3290e.jpg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.cc0b712d.js",
     "static/css/2.818011ed.chunk.css",
     "static/js/2.647f482c.chunk.js",
-    "static/css/main.7d681c93.chunk.css",
+    "static/css/main.af640198.chunk.css",
     "static/js/main.83459fc4.chunk.js"
   ]
 }
