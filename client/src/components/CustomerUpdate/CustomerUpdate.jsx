@@ -2,6 +2,7 @@ import axios from "axios";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "../CustomerUpdate/CustomerUpdate.scss";
 import LocationSearchInput from "../AutoComplete/AutoComplete";
@@ -24,7 +25,9 @@ function MyVerticallyCenteredModal(props) {
         <p>Lets see what whats to eat close by!!</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Proceed to Food Search</Button>
+        <Link to="/custVendorSearch">
+          <Button onClick={props.onHide}>Proceed to Food Search</Button>
+        </Link>
       </Modal.Footer>
     </Modal>
   );
