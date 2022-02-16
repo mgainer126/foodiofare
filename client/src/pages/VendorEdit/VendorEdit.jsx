@@ -17,7 +17,7 @@ function VendorEdit() {
 
     axios
       .put(
-        `hhttps://foodiofarebackend.herokuapp.com/find/${event.target[0].value}`,
+        `https://foodiofarebackend.herokuapp.com/find/${event.target[0].value}`,
         updatedVendor[0]
       )
       .then((response) => console.log(response));
