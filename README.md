@@ -38,5 +38,4 @@ Built With
 6. Node.js
 7. Express
 8. mysql
-9. knex
-10. Bootstrap
+9. Bootstrap
