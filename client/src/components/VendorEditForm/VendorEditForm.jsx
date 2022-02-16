@@ -58,9 +58,12 @@ function VendorEditForm() {
     event.preventDefault();
     const username = event.target[0].value;
     const password = event.target[1].value;
+    console.log(username, password);
 
     axios
-      .get(`https://foodiofarebackend.herokuapp.com/${username}/${password}`)
+      .get(
+        `https://foodiofarebackend.herokuapp.com/find/vendor/${username}/${password}`
+      )
       .then((response) => {
         setVendor(response.data[0]);
       });
