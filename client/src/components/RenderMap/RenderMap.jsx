@@ -43,30 +43,32 @@ function RenderMap({ vendorcords, defaultZoom, stores }) {
 
     <>
       {custlocation && vendorcords && session && stores && key && (
-        <div className="map">
-          {/* This renders the map */}
-          <div style={{ height: "60vh", width: "100%" }}>
-            <GoogleMapReact
-              bootstrapURLKeys={{ key: `${key}` }}
-              center={custlocation}
-              zoom={defaultZoom}
-            >
-              <CustIsHere
-                lat={custlocation.lat}
-                lng={custlocation.lng}
-                marker={marker}
-              />
-              {stores.map((store) => {
-                return (
-                  <VendorIsHere
-                    lat={store.lat}
-                    lng={store.lng}
-                    marker={marker1}
-                    label={"hello world"}
-                  />
-                );
-              })}
-            </GoogleMapReact>
+        <div className="container__map">
+          <div className="map">
+            {/* This renders the map */}
+            <div style={{ height: "60vh", width: "100%" }}>
+              <GoogleMapReact
+                bootstrapURLKeys={{ key: `${key}` }}
+                center={custlocation}
+                zoom={defaultZoom}
+              >
+                <CustIsHere
+                  lat={custlocation.lat}
+                  lng={custlocation.lng}
+                  marker={marker}
+                />
+                {stores.map((store) => {
+                  return (
+                    <VendorIsHere
+                      lat={store.lat}
+                      lng={store.lng}
+                      marker={marker1}
+                      label={"hello world"}
+                    />
+                  );
+                })}
+              </GoogleMapReact>
+            </div>
           </div>
         </div>
       )}
