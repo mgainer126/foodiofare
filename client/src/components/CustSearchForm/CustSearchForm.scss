@@ -1,7 +1,7 @@
 .formandlist {
   display: flex;
   width: auto;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: row;
 }
 
@@ -30,8 +30,8 @@
 
 .layout {
   display: flex;
-
-  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 
 .vendors {
@@ -41,9 +41,9 @@
   &__list {
     display: flex;
     flex-direction: column;
-    width: 50%;
     padding-left: 1rem;
     padding-top: 1rem;
+    padding-right: 1rem;
   }
   &__list-head {
     margin: 1rem;

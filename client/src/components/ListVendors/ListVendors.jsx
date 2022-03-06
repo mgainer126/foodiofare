@@ -18,7 +18,7 @@ function ListVendors({ vendors, handleClick }) {
               <p name="foodcategory" className="vendor__cat">
                 {vendor.foodcat}
               </p>
-              <div className="address">
+              <div className="vendor__address">
                 <div className="address__street">
                   <p name="address__no" className="address__no">
                     {vendor.address}
